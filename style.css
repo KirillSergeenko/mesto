@@ -1,8 +1,21 @@
+@import url(./vendor/normalize.css);
+
+
+.body{
+  margin:  0px;
+  padding: 0px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .root{
-display: flex;
-flex-direction: column;
-max-width: 1280px;
-background-color: #000;
+  display: flex;
+  flex-direction: column;
+  min-width: 1280px;
+  background-color: #000;
+  margin: 0px;
+  padding: 0px;
 }
 
   .header{
@@ -16,3 +29,20 @@ background-color: #000;
     .header__logo{
     max-width: 142px;
     }
+  
+  .profile{
+    font-family: 'Inter', 'Arial', serif;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+  }
+    .profile__info{
+      align-self: center;
+      min-width: 880px;
+      display: flex;
+    }
+      .profile__avatar{
+        max-width: 168px;
+        border-radius: 50%;
+        object-fit: contain;
+      }
