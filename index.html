@@ -22,9 +22,16 @@
                       <button class ="button-addselfinfo"></button>
                   </div>
                   <button class ="button-addphoto">+</button>
-              <div class="form-popup" id = "myform">
+              <div class="form" id = "myform">
                   <form>
-
+                      <h2 class="form__title">Редактировать профиль</h2>
+                      <fieldset class = "form__user-info">
+                          <!-- <label for="name">Введите имя</label> -->
+                          <input type="text" class="user-info__username" id="name" placeholder="Терентьев Михал Палыч" maxlength="30">
+                          <!-- <label for="about"></label> -->
+                          <input type="textarea" class="user-info__about" id="about" placeholder="О Себе" maxlength="150">
+                      </fieldset>
+                      <button type="submit" class ="button-addselfinfo">Сохранить</button>
                   </form>
               </div>
 
