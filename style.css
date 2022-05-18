@@ -77,8 +77,36 @@
         max-width: 168px;
         border-radius: 50%;
         object-fit: contain;
+        margin-top: 36px; 
       }
+      .profile__option{
+        
+        display: grid;
+        min-width: 336px;
+        /* width: 100%; */
+        grid-template-areas: /* создай гридровс рипит (2, (минконтент/1фр))*/
+        "name button"
+        "about about";
+        
+      }
+      .profile__name{
+        grid-area: name;
+        margin: 62px 0px 0px;
 
+      }
+      .button-addselfinfo{
+        grid-area: button;
+        width: 24px;
+        height: 24px;
+        margin-top: 77px;
+        margin-left: 18px;
+
+      }
+      .profile__text{
+        grid-area: about;
+        margin: 16px 0px 0px;
+
+      }
 
 
 
