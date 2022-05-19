@@ -72,26 +72,43 @@
       align-self: center;
       min-width: 880px;
       display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
     }
+      
+      .profile__option{
+        display: grid;
+        align-items: stretch;
+        grid-template-columns: 168px 1fr 30px;
+        grid-template-rows: repeat(2, fit-content);
+        grid-template-areas: /* создай гридровс рипит (2, (минконтент/1фр))*/
+        "ava name button"
+        "ava about about";
+        font-family: 'inter', arial, serif;
+        
+      }
+
       .profile__avatar{
+        grid-area: ava;
         max-width: 168px;
+        max-height: 128px;
         border-radius: 50%;
         object-fit: contain;
         margin-top: 36px; 
+        margin-right: 44px;
       }
-      .profile__option{
-        
-        display: grid;
-        min-width: 336px;
-        /* width: 100%; */
-        grid-template-areas: /* создай гридровс рипит (2, (минконтент/1фр))*/
-        "name button"
-        "about about";
-        
-      }
+
       .profile__name{
+        max-width: 400px;
         grid-area: name;
         margin: 62px 0px 0px;
+        font-size: 42px;
+        font-weight: 500;
+        line-height: 1.14;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
 
       }
       .button-addselfinfo{
@@ -105,7 +122,20 @@
       .profile__text{
         grid-area: about;
         margin: 16px 0px 0px;
+      }
 
+      .button-addphoto{
+        align-self:center;
+        max-width: 150px;
+        width: 100%;
+        height: 50px;
+        padding: 0px;
+        border: 2px solid #fff;
+        background-color: #000;
+        font-family: 'inter', arial, serif;
+        font-size: 26px;
+        text-align: center;
+        color: #fff;
       }
 
 
