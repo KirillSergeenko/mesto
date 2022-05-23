@@ -125,9 +125,16 @@
         width: 24px;
         height: 24px;
         margin-top: 77px;
-        
+        background-image: url(./images/pen.png);
+        color:#fff;
+        background-color: #000;
+        border: 1px solid #fff;
+        background-size: 10px;
+        background-repeat: no-repeat;
+        background-position: center;
 
       }
+
       .profile__text{
         grid-area: about;
         margin: -10px 0px 0px 20px;
