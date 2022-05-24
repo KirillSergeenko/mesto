@@ -118,21 +118,24 @@
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
-
       }
+
       .button-addselfinfo{
         grid-area: button;
         width: 24px;
         height: 24px;
         margin-top: 77px;
-        background-image: url(./images/pen.png);
+        background-image: url(./images/pensil.svg);
         color:#fff;
         background-color: #000;
         border: 1px solid #fff;
         background-size: 10px;
         background-repeat: no-repeat;
         background-position: center;
+      }
 
+      .button-addselfinfo:hover{
+        opacity: 0.6;
       }
 
       .profile__text{
@@ -146,7 +149,7 @@
 
       .button-addphoto{
         align-self:center;
-        background-image: url(./images/Vector.png);
+        background-image: url(./images/plus.svg);
         background-repeat: no-repeat;
         background-position: center;
         background-size: 22px;
@@ -157,7 +160,10 @@
         border: 2px solid #fff;
         background-color: #000;
         color: #fff;
-        
+      }
+
+      .button-addphoto:hover{
+        opacity: 0.6;
       }
 
    
@@ -210,10 +216,20 @@
 
         .description__like{
         background-color: #fff;
-        width: 22px;
+        min-width: 22px;
         height: 19px;
         align-self: center;
         margin-right: 20px;
+        background-image: url(./images/like.svg);
+        border: none;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 22px;
+      }
+
+      .description__like:hover{
+        opacity: 0.6;
       }
 
 
@@ -297,6 +313,12 @@
           right: -42px;
         }
 
+        .form-close:hover{
+          opacity: 0.6;
+        }
+
+
+
         .user-info__username{
           font-size: 14px;
           line-height:1.21;
@@ -338,4 +360,10 @@
           font-weight:400;
           line-height: 1.22;
         }
+
+        .button-saveSelfinfo:hover{
+          opacity: 0.8;
+        }
+
+
    
