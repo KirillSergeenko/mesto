@@ -25,11 +25,6 @@
         url("./fonts/Inter-Web/Inter-Black.woff") format("woff");
  }
 
-
-
-
-
-
 @import url(./vendor/normalize.css);
 
 
@@ -120,7 +115,7 @@
         overflow: hidden;
       }
 
-      .button-addselfinfo{
+      .profile__button-addselfinfo{
         grid-area: button;
         width: 24px;
         height: 24px;
@@ -134,7 +129,7 @@
         background-position: center;
       }
 
-      .button-addselfinfo:hover{
+      .profile__button-addselfinfo:hover{
         opacity: 0.6;
       }
 
@@ -147,7 +142,7 @@
         font-size: 18px;
       }
 
-      .button-addphoto{
+      .profile__button-addphoto{
         align-self:center;
         background-image: url(./images/plus.svg);
         background-repeat: no-repeat;
@@ -162,7 +157,7 @@
         color: #fff;
       }
 
-      .button-addphoto:hover{
+      .profile__button-addphoto:hover{
         opacity: 0.6;
       }
 
@@ -203,7 +198,7 @@
         object-fit: cover;
       }
 
-       .description__title{
+       .content-box__title{
         color: #000;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -214,7 +209,7 @@
         margin-left: 21px;
       }
 
-        .description__like{
+        .content-box__like{
         background-color: #fff;
         min-width: 22px;
         height: 19px;
@@ -228,7 +223,7 @@
         background-size: 22px;
       }
 
-      .description__like:hover{
+      .content-box__like:hover{
         opacity: 0.6;
       }
 
