@@ -248,6 +248,12 @@
         opacity: 0.6;
       }
 
+      @media screen and (min-width: 320px) and (max-width: 1023px){
+        .profile__button-addphoto{
+          background-size: 16px;
+        }
+      }
+
     @media screen and (min-width: 320px) and (max-width: 1023px){
       .profile__button-addphoto{
         max-width: 282px;
@@ -396,9 +402,9 @@
         .form__user-info{
           position: absolute;
           align-self: center;
-          max-width: 430px;
+          max-width: 390px;
           width: 100%;
-          min-height: 330px;
+          min-height: 326px;
           left: 425px;
           top: 195px;
           display: flex;
@@ -416,13 +422,13 @@
           font-size:24px;
           line-height: 1.2;
           font-weight: 900;
-          margin: 34px 0px 54px 0px;
+          margin: 34px 0px 46px 0px;
           max-width: 330px;
           width: 100%;
         }
 
         .form__button-close{
-          min-width: 34px;
+          min-width: 35px;
           min-height: 34px;
           padding:0px;
           background-image: url(./images/CloseIcon.png);
@@ -433,7 +439,7 @@
           background-color: rgba(0, 0, 0, 0.0);
           position: absolute;
           top: -42px;
-          right: -42px;
+          right: -44px;
         }
 
         .form__button-close:hover{
@@ -452,7 +458,7 @@
           border: none;
           border-bottom: 1px solid rgba(0,0,0,0.2);
           padding: 0px;
-          padding-bottom: 13px;
+          padding-bottom: 9px;
           margin-bottom: 30px;
           outline: none;  
         }
@@ -467,13 +473,13 @@
           border: none;
           border-bottom: 1px solid rgba(0,0,0,0.2);
           padding: 0px;
-          padding-bottom: 13px;
+          padding-bottom: 9px;
           margin-bottom: 48px;
           outline: none;  
         }
 
         .form__button-saveSelfinfo{
-          max-width: 358px;
+          max-width: 360px;
           width: 100%;
           padding: 0px;
           height: 50px;
@@ -482,6 +488,7 @@
           font-size: 18px;
           font-weight:400;
           line-height: 1.22;
+          margin-left: -3px;
         }
 
         .form__button-saveSelfinfo:hover{
