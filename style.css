@@ -81,7 +81,7 @@
         max-width: 104px;
         margin-top: 28px;
         margin-left: 27px;
-        margin-bottom: 32px;
+        margin-bottom: 26px;
       }
     }
 
@@ -135,7 +135,7 @@
           "ava ava"
           "name button"
           "about about";
-          padding-bottom: 36px;
+          padding-bottom: 32px;
         }
       }
 
@@ -150,7 +150,7 @@
       }
       @media screen and (min-width: 320px) and (max-width: 1023px){
         .profile__avatar{
-          margin-top: 38px;
+          margin-top: 42px;
           justify-self: center;
         }
       }
@@ -171,7 +171,7 @@
         .profile__name{
           max-width: 190px;
           width: 100%;
-          margin: 22px auto 0px;
+          margin: 26px auto 0px;
           font-size: 27px;
           line-height: 1.2;
           align-self: center;
@@ -202,7 +202,7 @@
         .profile__button-addselfinfo{
           width: 18px;
           height: 18px;
-          margin-top: 30px;
+          margin-top: 35px;
           margin-left: 10px;
         }
       }
@@ -221,7 +221,7 @@
           font-size: 14px;
           line-height: 1.21;
           margin: 0px;
-          margin-top: 14px;
+          margin-top: 10px;
           text-align: center;
           
         }
@@ -319,6 +319,7 @@
         font-size: 24px;
         line-height: 1.2;
         margin-left: 21px;
+        margin-top: 26px;
       }
 
         .content-box__like{
@@ -349,6 +350,11 @@
         justify-content: flex-start;
         align-self: center;
       }
+      @media screen and (min-width: 320px) and (max-width: 1023px){
+        .footer{
+          max-width: 282px;
+        }
+      }
 
         .copyright{
           margin: 67px 0px 60px 0px;
@@ -358,6 +364,16 @@
           color: #545454;
           font-weight: 400;
         }
+
+        @media screen and (min-width: 320px) and (max-width: 1023px){
+          .copyright{
+            font-size: 14px;
+            line-height: 1.21;
+            margin: 48px 0px 36px 0px;
+          }
+        }
+
+
 
         .form{
           display: flex;
