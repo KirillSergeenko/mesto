@@ -381,6 +381,11 @@
 
 
 
+
+
+
+
+
         .form{
           display: flex;
           position: absolute;
@@ -389,33 +394,50 @@
           min-height: 100%;
           background-color: rgba(0,0,0,0.5);
           color: #fff;
-          
-          
-
         }
 
         .form::before{
           content:"";
           position: absolute;
         }
+
+        @media screen and (min-width: 320px) and (max-width: 1023px){
+          .form{
+            min-width: 320px;
+          }
+        }
         
         .form__user-info{
           position: absolute;
           align-self: center;
-          max-width: 390px;
+          max-width: 425px;
           width: 100%;
           min-height: 326px;
           left: 425px;
           top: 195px;
           display: flex;
           flex-direction: column;
-          padding: 0px 0px 0px 36px;
+          /* padding: 0px 0px 0px 36px; было */
           border-radius: 10px;
           background-color: #fff;
           z-index: 15;
           top: 195px;
-          
+          align-items: center; /*новое*/
+          padding: 0px; /*novoe*/
         }
+        @media screen and (min-width: 320px) and (max-width: 1023px){
+          .form__user-info{
+            max-width: 280px; /*282px*/
+            min-height: 319px;
+            left: 19px;
+            top: 123px;
+            /* padding: 0px 0px 0px 22px; */
+            padding: 0px;
+            margin: 0px;
+          }
+        }
+
+
         .form__title{
           font-family:'inter', arial, serif;
           color: #000;
@@ -423,12 +445,20 @@
           line-height: 1.2;
           font-weight: 900;
           margin: 34px 0px 46px 0px;
-          max-width: 330px;
+          max-width: 358px;
           width: 100%;
+        }
+        @media screen and (min-width: 320px) and (max-width: 1023px){
+          .form__title{
+            font-size: 18px;
+            line-height: 1.22;
+            margin: 24px 0px 75px 0px;
+            max-width: 238px;
+          }
         }
 
         .form__button-close{
-          min-width: 35px;
+          min-width: 34px;
           min-height: 34px;
           padding:0px;
           background-image: url(./images/CloseIcon.png);
@@ -444,6 +474,15 @@
 
         .form__button-close:hover{
           opacity: 0.6;
+        }
+        @media screen and (min-width: 320px) and (max-width: 1023px){
+          .form__button-close{
+            min-width: 20px;
+            min-height: 20px;
+            right: 0px;
+            top:-38px
+
+          }
         }
 
 
@@ -462,6 +501,13 @@
           margin-bottom: 30px;
           outline: none;  
         }
+
+        @media screen and (min-width: 320px) and (max-width: 1023px){
+          .form__userName{
+            max-width: 238px;
+
+          }
+        }
        
         .form__user-about{
           font-size: 14px;
@@ -478,6 +524,14 @@
           outline: none;  
         }
 
+        @media screen and (min-width: 320px) and (max-width: 1023px){
+          .form__user-about{
+            max-width: 238px;
+            margin-bottom: 43px;
+
+          }
+        }
+
         .form__button-saveSelfinfo{
           max-width: 360px;
           width: 100%;
@@ -489,10 +543,19 @@
           font-weight:400;
           line-height: 1.22;
           margin-left: -3px;
+          border-radius: 3px;
         }
 
         .form__button-saveSelfinfo:hover{
           opacity: 0.8;
+        }
+
+        @media screen and (min-width: 320px) and (max-width: 1023px){
+          .form__button-saveSelfinfo{
+            max-width: 238px;
+            font-size: 14px;
+            line-height:1.21;
+          }
         }
 
 
