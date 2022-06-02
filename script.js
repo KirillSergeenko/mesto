@@ -1,8 +1,12 @@
 const openFormButton = document.querySelector('.profile__button-addselfinfo');
 const closeFormButton = document.querySelector('.form__button-close');
 let popupForm = document.getElementById('myform');
-let userName = document.querySelector('.profile__name');
+
+
+let userName = document.querySelector('.profile__name');//часть 2
 let userJob = document.querySelector('.profile__name');
+let nameInput = document.querySelector('#name');
+let jobInput = document.querySelector('#about');
 
 
 /*функция обработик клика*/
@@ -16,6 +20,12 @@ function closeForm(){
 
 openFormButton.addEventListener('click', openForm );
 closeFormButton.addEventListener('click', closeForm );
+// часть 2
+
+if (openFormButton.addEventListener('click', openForm )) {
+
+
+}
 
 
 
