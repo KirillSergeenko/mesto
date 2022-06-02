@@ -345,6 +345,10 @@
       .content-box__like:hover{
         opacity: 0.6;
       }
+      
+      .content-box__like_active{
+       color:  #000;
+      }
 
 
       .footer{
