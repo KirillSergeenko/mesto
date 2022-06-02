@@ -22,6 +22,12 @@ openFormButton.addEventListener('click', openForm );
 closeFormButton.addEventListener('click', closeForm );
 // часть 2
 
+
+//нужно создать переменную для объекта инпут
+//нужно как-то вытащить содержимое h2 и p  из <div class="profile__info">
+//нужно чтобы при if (кнопка нажата) - значение атрибута placeholder у nameInput  = значению текста из h2
+//нудно чтобы при if (кнопка нажата) - значение атрибута placeholder у jobInput = значение текста из р
+
 if (openFormButton.addEventListener('click', openForm )) {
 
 
