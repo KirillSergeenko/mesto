@@ -1,17 +1,31 @@
 const openFormButton = document.querySelector('.profile__button-addselfinfo');
 const closeFormButton = document.querySelector('.form__button-close');
-let popupForm = document.getElementById('myform');
+const popupForm = document.getElementById('myform');
+//part 2
 
 
-let userName = document.querySelector('.profile__name');//часть 2
-let userJob = document.querySelector('.profile__name');
-let nameInput = document.querySelector('#name');
-let jobInput = document.querySelector('#about');
+const userName = document.querySelector('.profile__name').innerHTML;
+console.log(userName);
+
+const userJob = document.querySelector('.profile__text').innerHTML;
+console.log(userJob);
+
+
+const nameInput = document.querySelector('#name');
+nameInput.value= userName;
+console.log(nameInput);
+const jobInput = document.querySelector('#about');
+jobInput.value= userJob;
+console.log(jobInput);
+
+
+
+
 
 
 /*функция обработик клика*/
 function openForm() {
-    popupForm.classList.add('form_opened')
+ popupForm.classList.add('form_opened')  
 };
 
 function closeForm(){
@@ -27,11 +41,6 @@ closeFormButton.addEventListener('click', closeForm );
 //нужно как-то вытащить содержимое h2 и p  из <div class="profile__info">
 //нужно чтобы при if (кнопка нажата) - значение атрибута placeholder у nameInput  = значению текста из h2
 //нудно чтобы при if (кнопка нажата) - значение атрибута placeholder у jobInput = значение текста из р
-
-if (openFormButton.addEventListener('click', openForm )) {
-
-
-}
 
 
 
