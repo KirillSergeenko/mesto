@@ -1,0 +1,17 @@
+.content-box__like{
+    background-color: #fff;
+    min-width: 22px;
+    height: 19px;
+    align-self: center;
+    margin-right: 20px;
+    background-image: url(../../../images/like.svg);
+    border: none;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 22px;
+  }
+
+  .content-box__like:hover{
+    opacity: 0.6;
+  }

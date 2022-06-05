@@ -1,0 +1,26 @@
+.profile__button-addselfinfo{
+    grid-area: button;
+    width: 24px;
+    height: 24px;
+    margin-top: 77px;
+    background-image: url(../../../images/pensil.svg);
+    color:#fff;
+    background-color: #000;
+    border: 1px solid #fff;
+    background-size: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .profile__button-addselfinfo:hover{
+    opacity: 0.6;
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 1023px){
+    .profile__button-addselfinfo{
+      width: 18px;
+      height: 18px;
+      margin-top: 35px;
+      margin-left: 10px;
+    }
+  }

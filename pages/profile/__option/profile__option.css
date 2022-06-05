@@ -1,0 +1,24 @@
+.profile__option{
+    display: grid;
+    /* align-items: stretch; */
+    grid-template-columns: 130px 1fr 30px;
+    grid-template-rows: auto;
+    grid-template-areas: /* создай гридровс рипит (2, (минконтент/1фр))*/
+    "ava name button"
+    "ava about about";
+    font-family: 'inter', arial, serif;
+    padding-bottom: 51px;
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 1023px){
+    .profile__option{
+      justify-self: center;
+      align-self: center;
+      grid-template-columns: 235px 47px;
+      grid-template-areas:
+      "ava ava"
+      "name button"
+      "about about";
+      padding-bottom: 32px;
+    }
+  }

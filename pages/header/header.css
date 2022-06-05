@@ -1,0 +1,12 @@
+.header{
+    border-bottom: 1px solid rgba(85, 85, 85, 0.7);
+    /* opacity: 70%; */
+    min-width: 880px;
+    align-self: center;
+    }
+  
+    @media screen and (min-width: 320px) and (max-width: 1023px){
+      .header{
+        min-width: 320px;
+      }
+    }

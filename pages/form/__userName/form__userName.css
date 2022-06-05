@@ -1,0 +1,24 @@
+
+
+.form__userName{
+  font-family:'inter', arial, serif;
+    font-size: 14px;
+    line-height:1.21;
+    font-weight:400;
+    max-width: 358px;
+    width: 100%;
+    text-overflow: ellipsis;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    padding: 0px;
+    padding-bottom: 9px;
+    margin-bottom: 30px;
+    outline: none;  
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 1023px){
+    .form__userName{
+      max-width: 238px;
+
+    }
+  }

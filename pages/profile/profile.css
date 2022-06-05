@@ -1,0 +1,11 @@
+.profile{
+    font-family: 'Inter', 'Arial', serif;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+  }
+  @media screen and (min-width: 320px) and (max-width: 1023px){
+    .profile{
+      justify-content: center;
+    }
+  }
