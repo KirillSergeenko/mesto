@@ -1,5 +1,38 @@
-.form{
+
+
+  .form{
     display: none; /*flex*/
+    justify-content: center;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    top: 0px;
+    min-width: 1280px;
+    /* width: 100%;
+    min-height: 100%; */
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+  }
+
+
+  .form::before{
+    content:"";
+    position: fixed;
+  }
+
+
+  @media screen and (min-width: 320px) and (max-width: 1023px){
+    .form{
+      min-width: 320px;
+    }
+  }
+
+
+/*исходный код*/
+
+  /* .form{
+    display: none; flex
     position: absolute;
     min-width: 1280px;
     width: 100%;
@@ -7,6 +40,7 @@
     background-color: rgba(0,0,0,0.5);
     color: #fff;
   }
+
 
   .form::before{
     content:"";
@@ -18,4 +52,4 @@
     .form{
       min-width: 320px;
     }
-  }
+  } */
