@@ -1,17 +1,17 @@
 
 
   .form{
-    display: none; /*flex*/
+    display: flex; /*flex*/
     justify-content: center;
-    position: fixed;
-    left: 0px;
+    position: absolute;
+    /* left: 0px;
     bottom: 0px;
     right: 0px;
-    top: 0px;
+    top: 0px; */
     min-width: 1280px;
     /* width: 100%;
     min-height: 100%; */
-    background-color: rgba(0,0,0,0.5);
+    /* background-color: rgba(0,0,0,0.5); */
     color: #fff;
   }
 

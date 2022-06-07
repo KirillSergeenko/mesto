@@ -8,9 +8,10 @@
     color:#fff;
     border: none;
     background-color: rgba(0, 0, 0, 0.0);
-    position: absolute;
-    top: -42px;
+     position: absolute;
+     top: -42px;
     right: -44px;
+  
   }
 
   .form__button-close:hover{

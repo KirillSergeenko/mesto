@@ -1,22 +1,34 @@
 const openFormButton = document.querySelector('.profile__button-addselfinfo');
 const closeFormButton = document.querySelector('.form__button-close');
+
+const popupOverlay = document.querySelector('.form__position');
+
 const popupForm = document.getElementById('myform');
 const userName = document.querySelector('.profile__name');
 const userJob = document.querySelector('.profile__text');
 const nameInput = document.querySelector('#name');
 const jobInput = document.querySelector('#about');
 
+
+
 function openForm() {
- popupForm.classList.add('form_opened')  
-};
-function closeForm(){
-    popupForm.classList.remove('form_opened')
+ popupOverlay.classList.add('form__position_opened');
+
 };
 
-openFormButton.addEventListener('click', openForm );
-closeFormButton.addEventListener('click', closeForm );
+function closeForm(){
+    popupOverlay.classList.remove('form__position_opened');
+   
+};
+
+openFormButton.addEventListener('click', openForm);
+closeFormButton.addEventListener('click', closeForm);
+
+
+
+
 function stockPopupInputs() {
-    if(popupForm.classList.contains('form_opened')){
+    if(popupOverlay.classList.contains('form__position_opened')){
         nameInput.value= userName.textContent;
         jobInput.value= userJob.textContent;
     };
