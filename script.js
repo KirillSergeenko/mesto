@@ -13,6 +13,7 @@ const jobInput = document.querySelector('#about');
 
 function openForm() {
  popupOverlay.classList.add('popup-position_opened');
+ stockPopupInputs();
 };
 
 function closeForm(){
@@ -24,28 +25,16 @@ closeFormButton.addEventListener('click', closeForm);
 
 
 
+
+
 function stockPopupInputs() {
-  if(popupOverlay.classList.contains('.popup-position_opened')){
+  if(popupOverlay.classList.contains('popup-position_opened')){
          nameInput.value = userName.textContent;
          jobInput.value = userJob.textContent;
-  }else{
-    console.log('suck some dicks')
-  }
+
+  };
 };
 
-stockPopupInputs();
-
-// function stockPopupInputs() {
-//     if(openForm()){
-//            nameInput.value = userName.textContent;
-//            jobInput.value = userJob.textContent;
-//       }else{
-//           console.log('не работает')
-//       };
-//   };
-  
-//   stockPopupInputs();
-  
 
 
 
