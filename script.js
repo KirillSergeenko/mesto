@@ -25,8 +25,6 @@ closeFormButton.addEventListener('click', closeForm);
 
 
 
-
-
 function stockPopupInputs() {
   if(popupOverlay.classList.contains('popup-position_opened')){
          nameInput.value = userName.textContent;
