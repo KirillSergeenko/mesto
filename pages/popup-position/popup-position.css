@@ -1,6 +1,6 @@
 
 .popup-position{
-display: none;
+display: flex; /*в чистовом варианте none*/
 justify-content: center;
 position: fixed;
 top: 0px;
