@@ -1,7 +1,9 @@
 
 .form__user-info{
-    position: absolute; /*тест*/
-    align-self: center;
+  position: relative;
+  align-self: flex-start;
+    /* position: absolute; тест */
+    /* align-self: center; */
     max-width: 425px;
     width: 100%;
     min-height: 326px;
