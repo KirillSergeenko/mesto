@@ -17,11 +17,11 @@
 
 @import url('./pages/form/form.css');
 @import url('./pages/form/__button-close/form__button-close.css');
-@import url('./pages/form/__button-saveSelfinfo/form__button-saveSelfinfo.css');
+@import url('./pages/form/__button-save-selfinfo/form__button-save-selfinfo.css');/*!*/
 @import url('./pages/form/__title/form__title.css');
 @import url('./pages/form/__user-about/form__user-about.css');
 @import url('./pages/form/__user-info/form__user-info.css');
-@import url('./pages/form/__userName/form__userName.css');
+@import url('./pages/form/__user-name/form__user-name.css');/*!*/
 
 @import url('./pages/popup-container/popup-container.css'); /*develop*/
 

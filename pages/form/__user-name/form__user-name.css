@@ -1,6 +1,6 @@
 
 
-.form__userName{
+.form__user-name{
   font-family:'inter', arial, serif;
     font-size: 14px;
     line-height:1.21;
@@ -17,7 +17,7 @@
   }
 
   @media screen and (min-width: 320px) and (max-width: 1023px){
-    .form__userName{
+    .form__user-name{
       max-width: 238px;
 
     }

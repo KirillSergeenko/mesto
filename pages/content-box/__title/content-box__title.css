@@ -1,4 +1,6 @@
 .content-box__title{
+    margin:0px;
+    padding: 0px;
     font-family:'inter', arial, serif;
     color: #000;
     text-overflow: ellipsis;
