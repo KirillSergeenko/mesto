@@ -1,12 +1,13 @@
 
 .form__user-info{
+  border: unset;
   position: relative;
   align-self: flex-start;
     /* position: absolute; тест */
     /* align-self: center; */
     max-width: 425px;
     width: 100%;
-    min-height: 326px;
+    /* min-height: 326px; */
     left: 425px;
     top: 195px;
     display: flex;
@@ -24,7 +25,7 @@
       min-height: 319px;
       left: 19px;
       top: 123px;
-      padding: 0px;
+      
       margin: 0px;
     }
   }

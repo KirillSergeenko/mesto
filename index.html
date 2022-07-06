@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="./index.css"> 
+  <link rel="stylesheet" href="./pages/index.css"> 
   <!-- <link rel="stylesheet" href="./style.css">  -->
     <title>Mesto</title>
   </head>
@@ -20,70 +20,72 @@
           </header>
 
           <main class = "profile">
-              <div class="profile__info">
+              <section class="profile__info">
                   
                   <div class ="profile__option">
                       <img class ="profile__avatar" src = "./images/avatar.jpg" alt="Фотография профиля">
-                      <h2 class ="profile__name">Жмышенко Валерий Альбертович</h2>
+                      <h1 class ="profile__name">Жмышенко Валерий Альбертович</h1>
                       <p class ="profile__text">Глад - нагибатор, трэвэл-блоггер</p>
                       <button class ="profile__button-addselfinfo" type="button"></button>
                   </div>
                    <button class ="profile__button-addphoto" type="button"></button> 
 
-              </div>
-              <ul class="grig-content">
-                  <li class="content-box">
-                      <img class="content-box__photo" src ='./images/Cherkess.png' alt ="фотография живописного места на Земле">
+              </section>
+               <section class="galery">
+                <ul class="grig-content">
+                    <li class="content-box">
+                        <img class="content-box__photo" src ='./images/Cherkess.png' alt ="фотография живописного места на Земле">
+                        <div class="content-box__description">
+                            <h2 class="content-box__title">Карачаево-Черкессия</h2>
+                            <button class="content-box__like" type="button"></button>
+                        </div>
+                    </li>
+                    <li class="content-box">
+                      <img class="content-box__photo" src ='./images/Baikal.jpg' alt="фотография живописного места на Земле">
                       <div class="content-box__description">
-                          <h2 class="content-box__title">Карачаево-Черкессия</h2>
-                          <button class="content-box__like content-box__like_active" type="button"></button>
+                          <h2 class="content-box__title">Зимний Байкал</h2>
+                          <button class="content-box__like" type="button"></button>
                       </div>
                   </li>
                   <li class="content-box">
-                    <img class="content-box__photo" src ='./images/Baikal.jpg' alt="фотография живописного места на Земле">
-                    <div class="content-box__description">
-                        <h2 class="content-box__title">Зимний Байкал</h2>
-                        <button class="content-box__like content-box__like_active" type="button"></button>
-                    </div>
-                </li>
-                <li class="content-box">
-                    <img class="content-box__photo" src ='./images/elbrus.png' alt="фотография живописного места на Земле">
-                    <div class="content-box__description">
-                        <h2 class="content-box__title">Гора Эльбрус</h2>
-                        <button class="content-box__like content-box__like_active" type="button"></button>
-                    </div>
-                </li>
-                <li class="content-box">
-                    <img class="content-box__photo" src ='./images/Rammstein.jpg' alt="фотография живописного места на Земле">
-                    <div class="content-box__description">
-                        <h2 class="content-box__title">Концерт Rammstein в Грузии</h2>
-                        <button class="content-box__like content-box__like_active" type="button"></button>
-                    </div>
-                </li>
-                <li class="content-box">
-                    <img class="content-box__photo" src ='./images/dombai.png' alt = "фотография живописного места на Земле">
-                    <div class="content-box__description">
-                        <h2 class="content-box__title">Домбай</h2>
-                        <button class="content-box__like content-box__like_active" type="button"></button>
-                    </div>
-                </li>
-                <li class="content-box">
-                    <img class="content-box__photo" src ='./images/Aden.jpg' alt = "фотография живописного места на Земле">
-                    <div class="content-box__description">
-                        <h2 class="content-box__title">Аден</h2>
-                        <button class="content-box__like content-box__like_active" type="button"></button>
-                    </div>
-                </li>
-              </ul>
+                      <img class="content-box__photo" src ='./images/elbrus.png' alt="фотография живописного места на Земле">
+                      <div class="content-box__description">
+                          <h2 class="content-box__title">Гора Эльбрус</h2>
+                          <button class="content-box__like" type="button"></button>
+                      </div>
+                  </li>
+                  <li class="content-box">
+                      <img class="content-box__photo" src ='./images/Rammstein.jpg' alt="фотография живописного места на Земле">
+                      <div class="content-box__description">
+                          <h2 class="content-box__title">Концерт Rammstein в Грузии</h2>
+                          <button class="content-box__like" type="button"></button>
+                      </div>
+                  </li>
+                  <li class="content-box">
+                      <img class="content-box__photo" src ='./images/dombai.png' alt = "фотография живописного места на Земле">
+                      <div class="content-box__description">
+                          <h2 class="content-box__title">Домбай</h2>
+                          <button class="content-box__like" type="button"></button>
+                      </div>
+                  </li>
+                  <li class="content-box">
+                      <img class="content-box__photo" src ='./images/Aden.jpg' alt = "фотография живописного места на Земле">
+                      <div class="content-box__description">
+                          <h2 class="content-box__title">Аден</h2>
+                          <button class="content-box__like" type="button"></button>
+                      </div>
+                  </li>
+                </ul>
+            </section> 
           </main>
           <footer class="footer">
-              <h2 class="copyright">© 2020 Mesto Russia</h2>
+              <p class="copyright">© 2020 Mesto Russia</p>
 
           </footer>
 
           <div class="popup-position" id="position">
             <div class="popup-container">
-                <form class="form " id = "myform">  
+                <form class="form " id = "myform" name="myform" method="post">  
                    <fieldset class = "form__user-info">
                         <h2 class="form__title">Редактировать профиль</h2>
                         <button class="form__button-close" type="button"></button>
@@ -96,6 +98,6 @@
         </div>
 
       </div>
-    <script src="script.js"></script>
+    <script src="./scripts/script.js"></script>
   </body>
 </html>
