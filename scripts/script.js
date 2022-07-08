@@ -56,7 +56,7 @@ function formSubmitHandler (evt) {
     // userJob;
     userName.textContent = nameInput.value;
     userJob.textContent = jobInput.value;
-   // alert(nameInput);
+  //  alert(nameInput);
   // closeForm();
 }
 
