@@ -11,7 +11,7 @@
     background-repeat: no-repeat;
     background-position: center;
     margin-left: 16px;
-
+    cursor: pointer;
   }
 
   .profile__button-addselfinfo:hover{
