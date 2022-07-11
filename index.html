@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./pages/index.css"> 
-  <!-- <link rel="stylesheet" href="./style.css">  -->
+  <!-- <link rel="stylesheet" href="./style.css">-->
     <title>Mesto</title>
   </head>
   <body class="body">
@@ -72,7 +72,10 @@
           <footer class="footer">
               <p class="copyright">© 2020 Mesto Russia</p>
           </footer>
-          <div class="popup-position" id="position">
+
+
+
+          <!-- <div class="popup-position" id="position">
             <div class="popup-container">
                 <form class="form " id = "myform" name="myform" method="post">  
                    <fieldset class = "form__user-info">
@@ -84,7 +87,21 @@
                    </fieldset>
                 </form>
             </div>
+        </div> -->
+
+        <div class="popup-position" id="position">
+            <div class="popup-container">
+
+                <h2 class="form__title">Редактировать профиль</h2>
+                <button class="form__button-close" type="button" aria-label="Закрыть"></button>
+                <form class="form" id = "myform" name="myform" method="post">     
+                    <input type="text" class="form__user-name" id="name" placeholder="Ваше имя" >
+                    <input type="text" class="form__user-about" id="about" placeholder="О Себе" >
+                    <button type="submit" class="form__button-save-selfinfo" aria-label="Сохранить">Сохранить</button>
+                </form>
+            </div>
         </div>
+
       </div>
     <script src="./scripts/script.js"></script>
   </body>
