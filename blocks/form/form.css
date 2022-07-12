@@ -1,10 +1,10 @@
 .form{
-  display: flex; 
- flex-direction: column;
-  justify-content: flex-start;
-  justify-content: center; 
-  align-items: center;
-  min-width: 430px;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+justify-content: center;
+align-items: center;
+min-width: 430px;
   
 }
 
@@ -14,21 +14,6 @@
   }
 }
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
