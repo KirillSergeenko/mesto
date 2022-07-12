@@ -1,5 +1,5 @@
 const openFormButton = document.querySelector('.profile__button-addselfinfo');
-const closeFormButton = document.querySelector('.form__button-close');
+const closeFormButton = document.querySelector('.popup-container__button-close');
 
 const popupOverlay = document.getElementById('position');
 
