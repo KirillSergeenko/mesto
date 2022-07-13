@@ -23,7 +23,6 @@
 
 @import url('../blocks/form/form.css');
 @import url('../blocks/form/__button-save-selfinfo/form__button-save-selfinfo.css');
-@import url('../blocks/form/__user-info/form__user-info.css');
 @import url('../blocks/form/__user-name/form__user-name.css');
 
 @import url('../blocks/galery/galery.css');
