@@ -15,30 +15,3 @@ min-width: 430px;
 }
   
 
-
-
-
-/* 
-  .form{
-    display: flex; 
-    flex-direction: row;
-    justify-content: flex-start;
-
-    min-width: 1280px;
-
-    color: #fff;
-    justify-self: center;
-  } */
-
-
-  /* .form::before{
-    content:"";
-    position: fixed;
-  } */
-
-
-  /* @media screen and (min-width: 320px) and (max-width: 1023px){
-    .form{
-      min-width: 320px;
-    }
-  } */
