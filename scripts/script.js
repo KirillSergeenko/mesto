@@ -1,14 +1,27 @@
-const openFormButton = document.querySelector('.profile__button-addselfinfo');
-const closeFormButton = document.querySelector('.popup-container__button-close');
+const myFormSelectors = {
+  buttonAddSelfInfo: '.profile__button-addselfinfo',
+  popupButtonClose: '.popup-container__button-close',
+  overlay: '.popup-position[id="position"]',
+  popupForm: '.form[id="myform"]',
+  userName: '.profile__name',
+  userJob: '.profile__text',
+  nameInput: '#name',
+  jobInput: '#about'
+  }
 
-const popupOverlay = document.getElementById('position');
 
-const popupForm = document.getElementById('myform');
 
-const userName = document.querySelector('.profile__name');
-const userJob = document.querySelector('.profile__text');
-const nameInput = document.querySelector('#name');
-const jobInput = document.querySelector('#about');
+  const openFormButton = document.querySelector(myFormSelectors.buttonAddSelfInfo);               //  const openFormButton = document.querySelector('.profile__button-addselfinfo');
+  const closeFormButton = document.querySelector(myFormSelectors.popupButtonClose);               //  const closeFormButton = document.querySelector('.popup-container__button-close');
+                                                                                     
+  const popupOverlay = document.querySelector(myFormSelectors.overlay);                           //  const popupOverlay = document.getElementById('position');
+                                                                                             
+  const popupForm = document.querySelector(myFormSelectors['popupForm']);                         //  const popupForm = document.getElementById('myform');
+                                                                                             
+  const userName = document.querySelector(myFormSelectors.userName);                              //  const userName = document.querySelector('.profile__name');
+  const userJob = document.querySelector(myFormSelectors.userJob);                                //  const userJob = document.querySelector('.profile__text');
+  const nameInput = document.querySelector(myFormSelectors.nameInput);                            //  const nameInput = document.querySelector('#name');
+  const jobInput = document.querySelector(myFormSelectors.jobInput);                              //  const jobInput = document.querySelector('#about');
 
 
 
@@ -23,8 +36,6 @@ function stockPopupInputs() {
 };
 
 
-
-
 function openForm() {
  popupOverlay.classList.add('popup-position_opened');
  stockPopupInputs();
@@ -36,10 +47,6 @@ function closeForm(){
 
 openFormButton.addEventListener('click', openForm);
 closeFormButton.addEventListener('click', closeForm);
-
-
-
-
 
 
 

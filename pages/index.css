@@ -10,7 +10,6 @@
 @import url('../blocks/content-box/__photo/content-box__photo.css');
 @import url('../blocks/content-box/__title/content-box__title.css');
 
-
 @import url('../blocks/copyright/copyright.css');
 
 @import url('../blocks/footer/footer.css');
@@ -20,7 +19,6 @@
 @import url('../blocks/popup-container/__title/popup-container__title.css');
 @import url('../blocks/popup-container/__button-close/popup-container__button-close.css');
 
-
 @import url('../blocks/form/form.css');
 @import url('../blocks/form/__button-save-selfinfo/form__button-save-selfinfo.css');
 @import url('../blocks/form/__user-name/form__user-name.css');
@@ -28,7 +26,6 @@
 @import url('../blocks/galery/galery.css');
 
 @import url('../blocks/popup-container/popup-container.css');
-
 
 @import url('../blocks/grig-content/grig-content.css');
 

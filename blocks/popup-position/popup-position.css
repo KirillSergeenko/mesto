@@ -10,23 +10,7 @@
     bottom: 0px;
     z-index: 2;
 
-    /* min-width: 100vw; */
-    /* min-height: 100vh; */
-    
+
     background-color: rgba(0,0,0,0.5);
     }
 
-
-    /* .popup-position{
-        display: none; 
-        justify-content: center;
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        right: 0px;
-        bottom: 0px;
-        z-index: 2;
-        
-        background-color: rgba(0,0,0,0.5);
-        }
-         */
