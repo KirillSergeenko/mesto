@@ -65,3 +65,9 @@ popupForm.addEventListener('submit', formSubmitHandler);
 //   photoCardGalery.prepend(photoElement);
 
 // }
+
+
+ //обработчик лайкоса из домашки
+//  songElement.querySelector('.song__like').addEventListener('click', function (evt){
+//   evt.target.classList.toggle('song__like_active');
+// });
