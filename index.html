@@ -29,6 +29,7 @@
                         <div class="content-box__description">
                             <h2 class="content-box__title">Карачаево-Черкессия</h2>
                             <button class="content-box__like" type="button" aria-label="Нравится"></button>
+                            <button class="content-box__delete" type="button" aria-label="Удалить"></button>
                         </div>
                     </li>
                     <li class="content-box">
@@ -36,6 +37,7 @@
                       <div class="content-box__description">
                           <h2 class="content-box__title">Зимний Байкал</h2>
                           <button class="content-box__like" type="button" aria-label="Нравится"></button>
+                          <button class="content-box__delete" type="button" aria-label="Удалить"></button>
                       </div>
                   </li>
                   <li class="content-box">
@@ -43,6 +45,7 @@
                       <div class="content-box__description">
                           <h2 class="content-box__title">Гора Эльбрус</h2>
                           <button class="content-box__like" type="button" aria-label="Нравится"></button>
+                          <button class="content-box__delete" type="button" aria-label="Удалить"></button>
                       </div>
                   </li>
                   <li class="content-box">
@@ -50,6 +53,7 @@
                       <div class="content-box__description">
                           <h2 class="content-box__title">Концерт Rammstein в Грузии</h2>
                           <button class="content-box__like" type="button" aria-label="Нравится"></button>
+                          <button class="content-box__delete" type="button" aria-label="Удалить"></button>
                       </div>
                   </li>
                   <li class="content-box">
@@ -57,13 +61,16 @@
                       <div class="content-box__description">
                           <h2 class="content-box__title">Домбай</h2>
                           <button class="content-box__like" type="button" aria-label="Нравится"></button>
+                          <button class="content-box__delete" type="button" aria-label="Удалить"></button>
                       </div>
                   </li>
                   <li class="content-box">
                       <img class="content-box__photo" src ='./images/Aden.jpg' alt="фотография живописного места на Земле">
+                      
                       <div class="content-box__description">
                           <h2 class="content-box__title">Аден</h2>
                           <button class="content-box__like" type="button" aria-label="Нравится"></button>
+                          <button class="content-box__delete" type="button" aria-label="Удалить"></button>
                       </div>
                   </li>
                 </ul>
@@ -103,11 +110,11 @@
 
         <div class="popup-position" id="position">
             <div class="popup-container">
-                <h2 class="popup-container__title">Редактировать профиль</h2>
+                <h2 class="popup-container__title">Новое место</h2>
                 <button class="popup-container__button-close" id="popup-close" type="button" aria-label="Закрыть"></button>
                 <form class="form" id = "pic-form" name="pic-form" method="post">     
-                    <input type="text" class="form__user-name" id="pic-about" placeholder="Введите подпись" >
-                    <input type="url" class="form__user-name" id="pic-url" placeholder="Введите ссылку" >
+                    <input type="text" class="form__user-name" id="pic-about" placeholder="Название" >
+                    <input type="url" class="form__user-name" id="pic-url" placeholder="Ссылка на картинку" >
                     <button type="submit" class="form__button-save-selfinfo" aria-label="Сохранить">Сохранить</button>
                 </form>
             </div>

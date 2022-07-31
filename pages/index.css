@@ -9,6 +9,8 @@
 @import url('../blocks/content-box/__like/_active/content-box__like_active.css');
 @import url('../blocks/content-box/__photo/content-box__photo.css');
 @import url('../blocks/content-box/__title/content-box__title.css');
+@import url('../blocks/content-box/__delete/content-box__delete.css');
+
 
 @import url('../blocks/copyright/copyright.css');
 

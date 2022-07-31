@@ -11,6 +11,35 @@ const myFormSelectors = {
   like: ".content-box__like"
   }
 
+  const initialCards = [
+    {
+      name: 'Архыз',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+    },
+    {
+      name: 'Челябинская область',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    },
+    {
+      name: 'Иваново',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    },
+    {
+      name: 'Камчатка',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    },
+    {
+      name: 'Холмогорский район',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    },
+    {
+      name: 'Байкал',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+    }
+  ]; 
+
+
+
 
   const openFormButton = document.querySelector(myFormSelectors.buttonAddSelfInfo);     //  const openFormButton = document.querySelector('.profile__button-addselfinfo');
   const closeFormButton = document.querySelector(myFormSelectors.popupButtonClose);     //  const closeFormButton = document.querySelector('.popup-container__button-close');                                                                               
@@ -83,7 +112,21 @@ likeButtons.forEach(function(likeButton){
 // }
 
 
- //обработчик лайкоса из домашки  songElement.querySelector('.song__like')
+//  const contentBox = document.querySelectorAll('.content-box');
+
+//  console.log('contentBox', contentBox);
+
+//  contentBox.forEach(function(element, index){
+
+//   console.log('element', element);
+//   // element.getElementsByClassName('content-box__photo').setAttribute('src', initialCards[index].link);
+
+
+//   // element.outerText= initialCards[index].name;
+
+ 
+
+//  });
 
 
  
