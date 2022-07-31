@@ -7,7 +7,8 @@ const myFormSelectors = {
   userJob: '.profile__text',
   nameInput: '#name',
   jobInput: '#about',
-  photoCardGalery: '.grig-content'
+  photoCardGalery: '.grig-content',
+  like: ".content-box__like"
   }
 
 
@@ -19,6 +20,8 @@ const myFormSelectors = {
   const userJob = document.querySelector(myFormSelectors.userJob);                      //  const userJob = document.querySelector('.profile__text');
   const nameInput = document.querySelector(myFormSelectors.nameInput);                  //  const nameInput = document.querySelector('#name');
   const jobInput = document.querySelector(myFormSelectors.jobInput);                    //  const jobInput = document.querySelector('#about');
+  
+  
 
 function stockPopupInputs() {
   if(popupOverlay.classList.contains('popup-position_opened')){
@@ -55,6 +58,19 @@ popupForm.addEventListener('submit', formSubmitHandler);
 
 
 
+
+const likeButtons = document.querySelectorAll(myFormSelectors.like);
+
+likeButtons.forEach(function(likeButton){
+  likeButton.addEventListener('click', function(evt) {
+  
+  evt.target.classList.toggle('content-box__like_active');
+  // console.log(evt.target);
+})
+});
+
+
+
 //заготовка кода для вставки шаблонов.
 // function addPhotoCard(cardName, cardUrl){
 //   const photoCardTemplate = document.querySelector('#card-template').content;
@@ -67,7 +83,7 @@ popupForm.addEventListener('submit', formSubmitHandler);
 // }
 
 
- //обработчик лайкоса из домашки
-//  songElement.querySelector('.song__like').addEventListener('click', function (evt){
-//   evt.target.classList.toggle('song__like_active');
-// });
+ //обработчик лайкоса из домашки  songElement.querySelector('.song__like')
+
+
+ 

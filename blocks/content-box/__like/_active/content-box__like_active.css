@@ -1,7 +1,7 @@
 .content-box__like_active{
     background-image: url('../../../../images/like-active.svg');
     background-color: #fff;
-    min-width: 22px;
+    /* min-width: 22px;
     height: 19px;
     align-self: center;
     margin-right: 20px;
@@ -9,5 +9,5 @@
     cursor: pointer;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 22px;
+    background-size: 22px; */
    }
