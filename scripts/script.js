@@ -8,7 +8,8 @@ const myFormSelectors = {
   nameInput: '#name',
   jobInput: '#about',
   photoCardGalery: '.grig-content',
-  like: ".content-box__like"
+  likeBtn: ".content-box__like",
+  deleteBtn: 
   }
 
   const initialCards = [
@@ -88,7 +89,7 @@ popupForm.addEventListener('submit', formSubmitHandler);
 
 
 
-const likeButtons = document.querySelectorAll(myFormSelectors.like);
+const likeButtons = document.querySelectorAll(myFormSelectors.likeBtn);
 
 likeButtons.forEach(function(likeButton){
   likeButton.addEventListener('click', function(evt) {
