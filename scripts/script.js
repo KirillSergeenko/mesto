@@ -10,8 +10,13 @@ const myFormSelectors = {
   photoCardGalery: '.grig-content',
   likeBtn: ".content-box__like",
   deleteBtn: ".content-box__delete",
-  addPhotoBtn: ".profile__button-addphoto",
-  addPhotoOverlay: "#photoOverlayPosition"
+  addPhotoBtn: ".profile__button-addphoto", //new
+  addPhotoOverlay: "#photoOverlayPosition",
+  pictureName: ".content-box__title",
+  pictureUrl: ".content-box__photo",
+  picNameInput: "#pic-name",
+  picUrlInput: "#pic-url"
+
   }
 
   const initialCards = [
@@ -55,7 +60,12 @@ const myFormSelectors = {
   
   
 //hw run 5
-
+  const openAddPhotoBtn = document.querySelector(myFormSelectors.addPhotoBtn);
+  const addPhotoOverlay = document.querySelector(myFormSelectors.addPhotoOverlay);
+  const picName = document.querySelector(myFormSelectors.pictureName);
+  const picUrl = document.querySelector(myFormSelectors.pictureUrl);
+  const picInput = document.querySelector(myFormSelectors.picNameInput);
+  const urlInput = document.querySelector(myFormSelectors.picUrlInput);
 
 
 
