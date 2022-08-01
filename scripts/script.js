@@ -9,7 +9,9 @@ const myFormSelectors = {
   jobInput: '#about',
   photoCardGalery: '.grig-content',
   likeBtn: ".content-box__like",
-  deleteBtn: 
+  deleteBtn: ".content-box__delete",
+  addPhotoBtn: ".profile__button-addphoto",
+  addPhotoOverlay: "#photoOverlayPosition"
   }
 
   const initialCards = [
@@ -52,6 +54,11 @@ const myFormSelectors = {
   const jobInput = document.querySelector(myFormSelectors.jobInput);                    //  const jobInput = document.querySelector('#about');
   
   
+//hw run 5
+
+
+
+
 
 function stockPopupInputs() {
   if(popupOverlay.classList.contains('popup-position_opened')){
@@ -85,7 +92,6 @@ function formSubmitHandler (evt) {
 }
 
 popupForm.addEventListener('submit', formSubmitHandler);
-
 
 
 
