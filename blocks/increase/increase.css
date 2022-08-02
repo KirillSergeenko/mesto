@@ -1,0 +1,14 @@
+.increase{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    object-fit: contain;
+    border: unset;
+    align-self: center;
+    max-width: 99vh;
+
+
+}

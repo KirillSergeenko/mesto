@@ -48,5 +48,10 @@
 @import url('../blocks/popup-position/_opened/popup-position_opened.css'); 
 
 
+@import url('../blocks/increase/increase.css');
+@import url('../blocks/increase/__image/increase__image.css');
+@import url('../blocks/increase/__image-title/increase__image-title.css');
+
+
 
 

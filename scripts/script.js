@@ -9,9 +9,9 @@ const myFormSelectors = {
   jobInput: '#about',
   photoCardGalery: '.grig-content',
   likeBtn: ".content-box__like",
-  deleteBtn: ".content-box__delete",
-  addPhotoBtn: ".profile__button-addphoto", //new
-  addPhotoOverlay: "#photoOverlayPosition",
+  deleteBtn: ".content-box__delete", //new
+  addPhotoBtn: ".profile__button-addphoto", 
+  addPhotoOverlay: "#popupPhotoFormPosition",
   pictureName: ".content-box__title",
   pictureUrl: ".content-box__photo",
   picNameInput: "#pic-name",

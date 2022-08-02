@@ -1,0 +1,14 @@
+
+.increase__image{
+object-fit: contain;
+max-width: 75vw;
+max-height: 75vh;
+width: 100%;
+margin: 0px;
+}
+
+@media (min-width: 320px) and (max-width: 1023px){
+    .increase__image{
+        max-width: 240px;
+    }
+}
