@@ -9,20 +9,8 @@ const myFormSelectors = {
   jobInput: '#about',
   photoCardGalery: '.grig-content',
   likeBtn: ".content-box__like",
-  //deleteBtn: ".content-box__delete", //new
-  addPhotoBtn: ".profile__button-addphoto", 
-  addPhotoOverlay: "#popupPhotoFormPosition",
-  pictureName: ".content-box__title",
-  // pictureUrl: ".content-box__photo",
-  picNameInput: "#pic-name",
-  picUrlInput: "#pic-url"
-
-  }
-
   
-
-
-
+  }
 
   const openFormButton = document.querySelector(myFormSelectors.buttonAddSelfInfo);     //  const openFormButton = document.querySelector('.profile__button-addselfinfo');
   const closeFormButton = document.querySelector(myFormSelectors.popupButtonClose);     //  const closeFormButton = document.querySelector('.popup-container__button-close');                                                                               
@@ -35,12 +23,7 @@ const myFormSelectors = {
   
   
 //hw run 5
-  const openAddPhotoBtn = document.querySelector(myFormSelectors.addPhotoBtn);
-  const addPhotoOverlay = document.querySelector(myFormSelectors.addPhotoOverlay);
-  const picName = document.querySelector(myFormSelectors.pictureName);
-  const picUrl = document.querySelector(myFormSelectors.pictureUrl);
-  const picInput = document.querySelector(myFormSelectors.picNameInput);
-  const urlInput = document.querySelector(myFormSelectors.picUrlInput);
+  
 
 
 
@@ -64,7 +47,6 @@ function closeForm(){
 openFormButton.addEventListener('click', openForm);
 closeFormButton.addEventListener('click', closeForm);
 
-
 function formSubmitHandler (evt) {
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
                                                 // Так мы можем определить свою логику отправки.
@@ -74,11 +56,48 @@ function formSubmitHandler (evt) {
     userJob.textContent = jobInput.value;
   //  alert(nameInput);
   closeForm();
-}
+};
 
 popupForm.addEventListener('submit', formSubmitHandler);
 
-//2
+
+
+//popupNewImage open задача 3
+
+const ImageSelectors = {
+  addPhotoBtn: ".profile__button-addphoto", 
+  addPhotoOverlay: "#popupPhotoFormPosition",
+  pictureTitle: ".content-box__title",
+  picTitleInput: "#pic-name",
+  picUrlInput: "#pic-url",
+  pictureUrl: "content-box__photo",
+  closeAddPhotoOverlayBTN: '#add-photo-popup-close'
+};
+
+const addPhotoOverlayForm = document.querySelector(ImageSelectors.addPhotoOverlay);
+const openAddPhotoBtn = document.querySelector(ImageSelectors.addPhotoBtn);
+const pictureTitle= document.querySelector(ImageSelectors.pictureTitle);
+const pictureUrl = document.querySelector(ImageSelectors.pictureUrl);
+const picTitleInput = document.querySelector(ImageSelectors.picTitleInput);
+const picUrlInput = document.querySelector(ImageSelectors.picUrlInput);
+const closeAddPhotoOverlayBTN = document.querySelector(ImageSelectors.closeAddPhotoOverlayBTN);
+
+
+
+function openAddImageForm(){
+  addPhotoOverlayForm.classList.add('popup-position_opened');
+};
+
+function closeAddImageForm(){
+  addPhotoOverlayForm.classList.remove('popup-position_opened');
+};
+
+
+openAddPhotoBtn.addEventListener('click', openAddImageForm);
+closeAddPhotoOverlayBTN.addEventListener('click', closeAddImageForm);
+
+
+
 
 
 
@@ -116,22 +135,6 @@ const initialCards = [
 
 
 
-// const initialCardsCorrected = map.initialCards(function(item) { // кода этот блок активен - не работает попап на селфинфо
-//   return {
-//    title = item.name,
-//     link = item.link
-//   }
-// });
-
-// function createInitialCards() {
-//   initialCardsCorrected.forEach(function(item){
-//     const card = createCard(item.name, item.link);
-//   });
-// };
-// createInitialCards();
-
-
-
 //   //функция создания кароточек
 
   const createCardSelectors = {
@@ -154,8 +157,6 @@ const initialCards = [
     
     });
   
-  
-
 
   function createCard(name, link) { //создание карточки
     const template = document.querySelector(createCardSelectors.template)//вирт объект
@@ -168,8 +169,6 @@ const initialCards = [
 
     content.querySelector(createCardSelectors.deleteBtn).addEventListener('click', () => {content.remove(); }); //для удаления карточки
    
-
-
     console.log('rjyntyn', document.querySelector(createCardSelectors.contentBox)) //вставили в реальный DOM(пока в конец template)
     const contentBox = document.querySelector(createCardSelectors.contentBox);
 
@@ -178,9 +177,6 @@ const initialCards = [
   };
 
  
-
-
-
 
 console.log('likeButtons', document.querySelectorAll(myFormSelectors.likeBtn) )
 const likeButtons = document.querySelectorAll(myFormSelectors.likeBtn);
@@ -192,3 +188,6 @@ likeButtons.forEach(function(likeButton){
   console.log(evt.target);
 })
 });
+
+
+
