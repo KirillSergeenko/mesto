@@ -182,8 +182,6 @@ const initialCards = [
 
 
 
-
-
 console.log('likeButtons', document.querySelectorAll(myFormSelectors.likeBtn) )
 const likeButtons = document.querySelectorAll(myFormSelectors.likeBtn);
 

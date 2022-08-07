@@ -1,6 +1,6 @@
 .popup-container{
-  padding: 0;
-  margin:0;
+ 
+  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,7 +13,8 @@
   background-color: #fff;
   z-index: 15;
   align-items: center;
-  }
+}
+  
 
   @media screen and (min-width: 320px) and (max-width: 1023px){
     .popup-container{
