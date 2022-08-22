@@ -21,7 +21,7 @@ const myFormSelectors = {
   const userJob = document.querySelector(myFormSelectors.userJob);                      //  const userJob = document.querySelector('.profile__text');
   const nameInput = document.querySelector(myFormSelectors.nameInput);                  //  const nameInput = document.querySelector('#name');
   const jobInput = document.querySelector(myFormSelectors.jobInput);                    //  const jobInput = document.querySelector('#about');
-  
+  const likeBtn = document.querySelector(myFormSelectors.likeBtn);
  
   
   const ImageSelectors = {
@@ -31,7 +31,13 @@ const myFormSelectors = {
     picTitleInput: "#pic-name",
     picUrlInput: "#pic-url",
     pictureUrl: ".content-box__photo",
-    closeAddPhotoOverlayBTN: '#add-photo-popup-close'
+    closeAddPhotoOverlayBTN: '#add-photo-popup-close',
+
+    openPhotoBtn: '.content-box__photo',//new
+    increacePhotoUrl: '.increase__image',//new
+    increacePhotoTitle:'.increase__image-title',//new
+    increasePhotoPopup: '#increasePhotoOverlay',//new
+    closeIncreasePopupBtn: '#increase-popup-close'//new
   };
 
   const addPhotoOverlayForm = document.querySelector(ImageSelectors.addPhotoOverlay);
@@ -41,6 +47,15 @@ const myFormSelectors = {
   // const picTitleInput = document.querySelector(ImageSelectors.picTitleInput);
   // const picUrlInput = document.querySelector(ImageSelectors.picUrlInput);
   const closeAddPhotoOverlayBTN = document.querySelector(ImageSelectors.closeAddPhotoOverlayBTN);
+
+  const openPhotoBtn = document.querySelector(ImageSelectors.openPhotoBtn);//new
+  const increacePhotoUrl = document.querySelector(ImageSelectors.increacePhotoUrl);
+  const increacePhotoTitle = document.querySelector(ImageSelectors.increacePhotoTitle);
+  const increasePhotoPopup = document.querySelector(ImageSelectors.increasePhotoPopup);
+  const closeIncreasePopupBtn = document.querySelector(ImageSelectors.closeIncreasePopupBtn);
+
+  const increacePhotoUrl = document.querySelector(ImageSelectors.increacePhotoUrl);
+
 
   const createCardSelectors = {
     template: '#card-template',
@@ -52,6 +67,9 @@ const myFormSelectors = {
   }
 
   
+  const photoUrl = document.querySelector(createCardSelectors.link);
+
+
   const initialCards = [
     {
       name: 'Архыз',
@@ -84,26 +102,51 @@ const myFormSelectors = {
 
 
 
-function stockPopupInputs() {
-  if(popupOverlay.classList.contains('popup-position_opened')){
-         nameInput.value = userName.textContent;
-         jobInput.value = userJob.textContent;
+// function stockPopupInputs() { //раб код
+//   if(popupOverlay.classList.contains('popup-position_opened')){
+//          nameInput.value = userName.textContent;
+//          jobInput.value = userJob.textContent;
+//   };
+// };
+function stockPopupInputs(element) { //тест
+    if(element.classList.contains('popup-position_opened')){
+           nameInput.value = userName.textContent;
+           jobInput.value = userJob.textContent;
+    };
   };
-};
-
-function openForm() {
- popupOverlay.classList.add('popup-position_opened');
- stockPopupInputs();
-};
 
 
+// function openForm() {      //рабочий код
+//  popupOverlay.classList.add('popup-position_opened');
+//  stockPopupInputs();
+// };
 
-function closeForm(){
-    popupOverlay.classList.remove('popup-position_opened');
-};
+function openForm(popupElement){ //test
+  popupElement.classList.add('popup-position_opened');
+}
 
-openFormButton.addEventListener('click', openForm);
-closeFormButton.addEventListener('click', closeForm);
+
+// function closeForm(){  //рабочий код
+//     popupOverlay.classList.remove('popup-position_opened');
+// };
+
+function closeForm(popupElement) {
+  popupElement.classList.remove('popup-position_opened');
+}
+
+
+
+// openFormButton.addEventListener('click', openForm);
+openFormButton.addEventListener('click', function() {
+  openForm(popupOverlay);
+  stockPopupInputs(popupOverlay);
+});
+
+closeFormButton.addEventListener('click', function() {
+  
+  closeForm(popupOverlay);
+  console.log('rkbr', closeForm(popupOverlay));
+});
 
 function formSubmitHandler (evt) {
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
@@ -113,32 +156,35 @@ function formSubmitHandler (evt) {
     userName.textContent = nameInput.value;
     userJob.textContent = jobInput.value;
   //  alert(nameInput);
-  closeForm();
+  closeForm(popupOverlay);
 };
 
 popupForm.addEventListener('submit', formSubmitHandler);
 
-
+function openPhotoInputs(element){ //new
+  
+  if(element.classList.contains('popup-position_opened')){
+increacePhotoUrl.
+console.log(increacePhotoUrl.src);
+console.log(photoUrl.src);
+increacePhotoTitle.textContent = photoUrl.alt;
+  };
+}
 
 //popupNewImage open задача 3
 
 
+openAddPhotoBtn.addEventListener('click', () => {
+openForm(addPhotoOverlayForm);
+});
 
+closeAddPhotoOverlayBTN.addEventListener('click', () =>{
+  closeForm(addPhotoOverlayForm);
+});
 
-
-
-function openAddImageForm(){
-  addPhotoOverlayForm.classList.add('popup-position_opened');
-};
-
-function closeAddImageForm(){
-  addPhotoOverlayForm.classList.remove('popup-position_opened');
-};
-
-openAddPhotoBtn.addEventListener('click', openAddImageForm);
-closeAddPhotoOverlayBTN.addEventListener('click', closeAddImageForm);
-
-
+closeIncreasePopupBtn.addEventListener('click', () =>{
+  closeForm(increasePhotoPopup);
+});
 
 function formAddCardSubmitHandler (evt) {
   evt.preventDefault(); 
@@ -149,16 +195,19 @@ function formAddCardSubmitHandler (evt) {
 console.log(ImageSelectors.picTitleInput,ImageSelectors.picUrlInput);
   createCard(picTitleInput.value, picUrlInput.value);
 
-  closeAddImageForm();
-
-
+  closeForm(addPhotoOverlayForm);
 
 };
 
 addPhotoOverlayForm.addEventListener('submit', formAddCardSubmitHandler);
 
 
-
+function likeCard(evt){
+  console.log('evt', evt);
+  
+  evt.target.classList.toggle('content-box__like_active');
+  console.log('evt', evt.target);
+};
 
 
 
@@ -174,6 +223,19 @@ addPhotoOverlayForm.addEventListener('submit', formAddCardSubmitHandler);
     content.querySelector(createCardSelectors.link).alt = name;
 
     content.querySelector(createCardSelectors.deleteBtn).addEventListener('click', () => {content.remove(); }); //для удаления карточки
+
+    content.querySelector(myFormSelectors.likeBtn).addEventListener('click', likeCard); //like
+
+    content.querySelector(ImageSelectors.openPhotoBtn).addEventListener('click', () => { //increase photo
+      openForm(increasePhotoPopup);
+      
+
+      openPhotoInputs ;
+      
+      console.log('ccilki', increacePhotoUrl );
+
+
+    });
    
     // console.log('rjyntyn', document.querySelector(createCardSelectors.contentBox)) //вставили в реальный DOM(пока в конец template)
     const contentBox = document.querySelector(createCardSelectors.contentBox);
@@ -181,6 +243,7 @@ addPhotoOverlayForm.addEventListener('submit', formAddCardSubmitHandler);
     // contentBox.insertBefore(content, null); //вставили в реальный DOM(пока в конец template)
     contentBox.prepend(content);
 
+    return createCard;
   };
 
 
@@ -190,12 +253,18 @@ addPhotoOverlayForm.addEventListener('submit', formAddCardSubmitHandler);
   
 
 
-const likeButtons = document.querySelectorAll(myFormSelectors.likeBtn); //ПРОБНАЯ ЧТОБЫ ЛАЙКАЛИСЬ НОВЫЕ КАРТЧКМИ
-likeButtons.forEach(function(likeButton){
-  likeButton.addEventListener('click', function(evt) {
-    evt.target.classList.toggle('content-box__like_active');
-    console.log(evt.target);
-  })
-});
+
+  // const likeButtons = document.querySelector(myFormSelectors.likeBtn);
+  // console.log('likeButtons', likeButtons);
+  // likeButtons.addEventListener('click', likeCard(evt));
+  // console.log('evt', evt)
+
+// const likeButtons = document.querySelectorAll(myFormSelectors.likeBtn); //ПРОБНАЯ ЧТОБЫ ЛАЙКАЛИСЬ НОВЫЕ КАРТЧКМИ
+// likeButtons.forEach(function(likeButton){
+//   likeButton.addEventListener('click', function(evt) {
+//     evt.target.classList.toggle('content-box__like_active');
+//     console.log(evt.target);
+//   })
+// });
 
 
