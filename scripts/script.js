@@ -111,8 +111,6 @@ function stockPopupInputs(element) { //тест
   };
 
 
-
-
 function openForm(popupElement){ //test
   popupElement.classList.add('popup-position_opened');
 }
@@ -130,7 +128,6 @@ openFormButton.addEventListener('click', function() {
 });
 
 closeFormButton.addEventListener('click', function() {
-  
   closeForm(popupOverlay);
   console.log('rkbr', closeForm(popupOverlay));
 });
@@ -142,7 +139,6 @@ function formSubmitHandler (evt) {
 
     userName.textContent = nameInput.value;
     userJob.textContent = jobInput.value;
-  //  alert(nameInput);
   closeForm(popupOverlay);
 };
 
@@ -150,27 +146,16 @@ popupForm.addEventListener('submit', formSubmitHandler);
 
 
 
-
-
 function openPhotoInputs(evt){ //new
   const increacePhotoUrl = document.querySelector(ImageSelectors.increacePhotoUrl);
   const pictureTitle= document.querySelector(ImageSelectors.pictureTitle);
-  
-  console.log('evt.target.', evt.target);
- 
   increacePhotoUrl.src = evt.target.src;
 increacePhotoUrl.alt = evt.target.alt;
-
-
 increacePhotoTitle.textContent = evt.target.alt;
   };
 
 
 //popupNewImage open задача 3
-
-
-
-
 
 
 
@@ -229,10 +214,7 @@ function likeCard(evt){
 
     content.querySelector(ImageSelectors.openPhotoBtn).addEventListener('click', (evt) => { //increase photo
       openForm(increasePhotoPopup);
-    
       openPhotoInputs(evt);
-      
-      console.log('ccilki', increacePhotoUrl );
     });
    
     const contentBox = document.querySelector(createCardSelectors.contentBox);
