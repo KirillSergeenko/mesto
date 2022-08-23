@@ -54,7 +54,7 @@ const myFormSelectors = {
   const increasePhotoPopup = document.querySelector(ImageSelectors.increasePhotoPopup);
   const closeIncreasePopupBtn = document.querySelector(ImageSelectors.closeIncreasePopupBtn);
 
-  const increacePhotoUrl = document.querySelector(ImageSelectors.increacePhotoUrl);
+ 
 
 
   const createCardSelectors = {
@@ -102,12 +102,7 @@ const myFormSelectors = {
 
 
 
-// function stockPopupInputs() { //раб код
-//   if(popupOverlay.classList.contains('popup-position_opened')){
-//          nameInput.value = userName.textContent;
-//          jobInput.value = userJob.textContent;
-//   };
-// };
+
 function stockPopupInputs(element) { //тест
     if(element.classList.contains('popup-position_opened')){
            nameInput.value = userName.textContent;
@@ -116,27 +111,19 @@ function stockPopupInputs(element) { //тест
   };
 
 
-// function openForm() {      //рабочий код
-//  popupOverlay.classList.add('popup-position_opened');
-//  stockPopupInputs();
-// };
+
 
 function openForm(popupElement){ //test
   popupElement.classList.add('popup-position_opened');
 }
 
 
-// function closeForm(){  //рабочий код
-//     popupOverlay.classList.remove('popup-position_opened');
-// };
 
 function closeForm(popupElement) {
   popupElement.classList.remove('popup-position_opened');
 }
 
 
-
-// openFormButton.addEventListener('click', openForm);
 openFormButton.addEventListener('click', function() {
   openForm(popupOverlay);
   stockPopupInputs(popupOverlay);
@@ -161,17 +148,31 @@ function formSubmitHandler (evt) {
 
 popupForm.addEventListener('submit', formSubmitHandler);
 
-function openPhotoInputs(element){ //new
+
+
+
+
+function openPhotoInputs(evt){ //new
+  const increacePhotoUrl = document.querySelector(ImageSelectors.increacePhotoUrl);
+  const pictureTitle= document.querySelector(ImageSelectors.pictureTitle);
   
-  if(element.classList.contains('popup-position_opened')){
-increacePhotoUrl.
-console.log(increacePhotoUrl.src);
-console.log(photoUrl.src);
-increacePhotoTitle.textContent = photoUrl.alt;
+  console.log('evt.target.', evt.target);
+ 
+  increacePhotoUrl.src = evt.target.src;
+increacePhotoUrl.alt = evt.target.alt;
+
+
+increacePhotoTitle.textContent = evt.target.alt;
   };
-}
+
 
 //popupNewImage open задача 3
+
+
+
+
+
+
 
 
 openAddPhotoBtn.addEventListener('click', () => {
@@ -226,21 +227,16 @@ function likeCard(evt){
 
     content.querySelector(myFormSelectors.likeBtn).addEventListener('click', likeCard); //like
 
-    content.querySelector(ImageSelectors.openPhotoBtn).addEventListener('click', () => { //increase photo
+    content.querySelector(ImageSelectors.openPhotoBtn).addEventListener('click', (evt) => { //increase photo
       openForm(increasePhotoPopup);
-      
-
-      openPhotoInputs ;
+    
+      openPhotoInputs(evt);
       
       console.log('ccilki', increacePhotoUrl );
-
-
     });
    
-    // console.log('rjyntyn', document.querySelector(createCardSelectors.contentBox)) //вставили в реальный DOM(пока в конец template)
     const contentBox = document.querySelector(createCardSelectors.contentBox);
 
-    // contentBox.insertBefore(content, null); //вставили в реальный DOM(пока в конец template)
     contentBox.prepend(content);
 
     return createCard;
@@ -251,20 +247,4 @@ function likeCard(evt){
     const card = createCard(item.name, item.link);
   });
   
-
-
-
-  // const likeButtons = document.querySelector(myFormSelectors.likeBtn);
-  // console.log('likeButtons', likeButtons);
-  // likeButtons.addEventListener('click', likeCard(evt));
-  // console.log('evt', evt)
-
-// const likeButtons = document.querySelectorAll(myFormSelectors.likeBtn); //ПРОБНАЯ ЧТОБЫ ЛАЙКАЛИСЬ НОВЫЕ КАРТЧКМИ
-// likeButtons.forEach(function(likeButton){
-//   likeButton.addEventListener('click', function(evt) {
-//     evt.target.classList.toggle('content-box__like_active');
-//     console.log(evt.target);
-//   })
-// });
-
 
