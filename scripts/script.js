@@ -129,7 +129,7 @@ openFormButton.addEventListener('click', function() {
 
 closeFormButton.addEventListener('click', function() {
   closeForm(popupOverlay);
-  console.log('rkbr', closeForm(popupOverlay));
+  
 });
 
 function formSubmitHandler (evt) {
@@ -189,10 +189,8 @@ addPhotoOverlayForm.addEventListener('submit', formAddCardSubmitHandler);
 
 
 function likeCard(evt){
-  console.log('evt', evt);
-  
   evt.target.classList.toggle('content-box__like_active');
-  console.log('evt', evt.target);
+  
 };
 
 
@@ -200,7 +198,7 @@ function likeCard(evt){
   function createCard(name, link) { //создание карточки
     const template = document.querySelector(createCardSelectors.template)//вирт объект
     const content = template.content.querySelector(createCardSelectors.content).cloneNode(true); 
-    // console.log('template', template); 
+    
 
     content.querySelector(createCardSelectors.title).textContent = name;
     
