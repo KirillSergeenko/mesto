@@ -1,7 +1,7 @@
 const myFormSelectors = {
   buttonAddSelfInfo: '.profile__button-addselfinfo',
   popupButtonClose: '.popup-container__button-close',
-  overlay: '.popup-position[id="position"]',
+  overlay: '.popup[id="position"]', //'.popup-position[id="position"]'
   popupForm: '.form[id="myform"]',
   userName: '.profile__name',
   userJob: '.profile__text',
@@ -104,7 +104,7 @@ const myFormSelectors = {
 
 
 function stockPopupInputs(element) { //тест
-    if(element.classList.contains('popup-position_opened')){
+    if(element.classList.contains('popup_opened')){
            nameInput.value = userName.textContent;
            jobInput.value = userJob.textContent;
     };
@@ -112,13 +112,13 @@ function stockPopupInputs(element) { //тест
 
 
 function openForm(popupElement){ //test
-  popupElement.classList.add('popup-position_opened');
+  popupElement.classList.add('popup_opened'); // popupElement.classList.add('popup-position_opened');
 }
 
 
 
 function closeForm(popupElement) {
-  popupElement.classList.remove('popup-position_opened');
+  popupElement.classList.remove('popup_opened'); //popupElement.classList.remove('popup-position_opened')
 }
 
 
