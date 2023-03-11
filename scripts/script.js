@@ -13,14 +13,14 @@ const myFormSelectors = {
 
   
 
-  const openFormButton = document.querySelector(myFormSelectors.buttonAddSelfInfo);     //  const openFormButton = document.querySelector('.profile__button-addselfinfo');
-  const closeFormButton = document.querySelector(myFormSelectors.popupButtonClose);     //  const closeFormButton = document.querySelector('.popup-container__button-close');                                                                               
-  const popupOverlay = document.querySelector(myFormSelectors.overlay);                 //  const popupOverlay = document.getElementById('position');                                                                                        
-  const popupForm = document.querySelector(myFormSelectors['popupForm']);               //  const popupForm = document.getElementById('myform');                                                                                       
-  const userName = document.querySelector(myFormSelectors.userName);                    //  const userName = document.querySelector('.profile__name');
-  const userJob = document.querySelector(myFormSelectors.userJob);                      //  const userJob = document.querySelector('.profile__text');
-  const nameInput = document.querySelector(myFormSelectors.nameInput);                  //  const nameInput = document.querySelector('#name');
-  const jobInput = document.querySelector(myFormSelectors.jobInput);                    //  const jobInput = document.querySelector('#about');
+  const openAddSelfInfoButton = document.querySelector(myFormSelectors.buttonAddSelfInfo);     
+  const closeFormButton = document.querySelector(myFormSelectors.popupButtonClose);                                                                                   
+  const popupOverlay = document.querySelector(myFormSelectors.overlay);                                                                                
+  const popupForm = document.querySelector(myFormSelectors['popupForm']);                                                                        
+  const userName = document.querySelector(myFormSelectors.userName);                    
+  const userJob = document.querySelector(myFormSelectors.userJob);                      
+  const nameInput = document.querySelector(myFormSelectors.nameInput);                  
+  const jobInput = document.querySelector(myFormSelectors.jobInput);                    
   const likeBtn = document.querySelector(myFormSelectors.likeBtn);
  
   
@@ -111,18 +111,18 @@ function stockPopupInputs(element) { //тест
   };
 
 
-function openForm(popupElement){ //test
-  popupElement.classList.add('popup_opened'); // popupElement.classList.add('popup-position_opened');
+function openForm(popupElement){ 
+  popupElement.classList.add('popup_opened'); 
 }
 
 
 
-function closeForm(popupElement) {
-  popupElement.classList.remove('popup_opened'); //popupElement.classList.remove('popup-position_opened')
+function closeForm(popupElement) { 
+  popupElement.classList.remove('popup_opened'); 
 }
 
 
-openFormButton.addEventListener('click', function() {
+openAddSelfInfoButton.addEventListener('click', function() {
   openForm(popupOverlay);
   stockPopupInputs(popupOverlay);
 });
