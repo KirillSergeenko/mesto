@@ -103,12 +103,12 @@ const myFormSelectors = {
 
 
 
-function stockPopupInputs(element) { //тест
-    if(element.classList.contains('popup_opened')){
-           nameInput.value = userName.textContent;
-           jobInput.value = userJob.textContent;
-    };
-  };
+// function stockPopupInputs(element) { //тест
+//     if(element.classList.contains('popup_opened')){
+//            nameInput.value = userName.textContent;
+//            jobInput.value = userJob.textContent;
+//     };
+//   };
 
 
 function openForm(popupElement){ 
@@ -119,13 +119,20 @@ function openForm(popupElement){
 
 function closeForm(popupElement) { 
   popupElement.classList.remove('popup_opened'); 
-}
+};
+
 
 
 openAddSelfInfoButton.addEventListener('click', function() {
   openForm(popupOverlay);
-  stockPopupInputs(popupOverlay);
+ 
+  if(popupOverlay.classList.contains('popup_opened')){ //новый тест
+    nameInput.value = userName.textContent;
+    jobInput.value = userJob.textContent;
+  };
+  // stockPopupInputs(popupOverlay);
 });
+
 
  popupAddSelfInfoCloseBTN.addEventListener('click', function() {
   closeForm(popupOverlay);
