@@ -2,7 +2,7 @@ const myFormSelectors = {
   buttonAddSelfInfo: '.profile__button-addselfinfo',
   popupButtonClose: '.popup-container__button-close',
   overlay: '.popup[id="position"]', //'.popup-position[id="position"]'
-  popupForm: '.form[id="myform"]',
+  popupSelfInfoForm: '.form[id="myform"]',
   userName: '.profile__name',
   userJob: '.profile__text',
   nameInput: '#name',
@@ -14,9 +14,9 @@ const myFormSelectors = {
   
 
   const openAddSelfInfoButton = document.querySelector(myFormSelectors.buttonAddSelfInfo);     
-  const closeFormButton = document.querySelector(myFormSelectors.popupButtonClose);                                                                                   
+  const popupAddSelfInfoCloseBTN = document.querySelector(myFormSelectors.popupButtonClose);                                                                                   
   const popupOverlay = document.querySelector(myFormSelectors.overlay);                                                                                
-  const popupForm = document.querySelector(myFormSelectors['popupForm']);                                                                        
+  const popupSelfInfoForm = document.querySelector(myFormSelectors['popupSelfInfoForm']);                                                                        
   const userName = document.querySelector(myFormSelectors.userName);                    
   const userJob = document.querySelector(myFormSelectors.userJob);                      
   const nameInput = document.querySelector(myFormSelectors.nameInput);                  
@@ -127,7 +127,7 @@ openAddSelfInfoButton.addEventListener('click', function() {
   stockPopupInputs(popupOverlay);
 });
 
-closeFormButton.addEventListener('click', function() {
+ popupAddSelfInfoCloseBTN.addEventListener('click', function() {
   closeForm(popupOverlay);
   
 });
@@ -142,7 +142,7 @@ function formSubmitHandler (evt) {
   closeForm(popupOverlay);
 };
 
-popupForm.addEventListener('submit', formSubmitHandler);
+popupSelfInfoForm.addEventListener('submit', formSubmitHandler);
 
 
 
