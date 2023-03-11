@@ -40,7 +40,7 @@ const myFormSelectors = {
     closeIncreasePopupBtn: '#increase-popup-close'//new
   };
 
-  const addPhotoOverlayForm = document.querySelector(imageSelectors.addPhotoOverlay);
+  const photoOverlayFormCreator = document.querySelector(imageSelectors.addPhotoOverlay);
   const openAddPhotoBtn = document.querySelector(imageSelectors.addPhotoBtn);
   const pictureTitle= document.querySelector(imageSelectors.pictureTitle);
   const pictureUrl = document.querySelector(imageSelectors.pictureUrl);
@@ -133,10 +133,7 @@ openAddSelfInfoButton.addEventListener('click', function() {
 });
 
 function formSubmitHandler (evt) {
-    evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-                                                // Так мы можем определить свою логику отправки.
-                                                // О том, как это делать, расскажем позже.
-
+    evt.preventDefault(); 
     userName.textContent = nameInput.value;
     userJob.textContent = jobInput.value;
   closeForm(popupOverlay);
@@ -161,11 +158,11 @@ increacePhotoTitle.textContent = evt.target.alt;
 
 
 openAddPhotoBtn.addEventListener('click', () => {
-openForm(addPhotoOverlayForm);
+openForm(photoOverlayFormCreator);
 });
 
 closeAddPhotoOverlayBTN.addEventListener('click', () =>{
-  closeForm(addPhotoOverlayForm);
+  closeForm(photoOverlayFormCreator);
 });
 
 closeIncreasePopupBtn.addEventListener('click', () =>{
@@ -181,11 +178,11 @@ function formAddCardSubmitHandler (evt) {
 console.log(imageSelectors.picTitleInput,imageSelectors.picUrlInput);
   createCard(picTitleInput.value, picUrlInput.value);
 
-  closeForm(addPhotoOverlayForm);
+  closeForm(photoOverlayFormCreator);
 
 };
 
-addPhotoOverlayForm.addEventListener('submit', formAddCardSubmitHandler);
+photoOverlayFormCreator.addEventListener('submit', formAddCardSubmitHandler);
 
 
 function likeCard(evt){
