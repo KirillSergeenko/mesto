@@ -156,6 +156,7 @@ popupSelfInfoForm.addEventListener('submit', formSubmitHandler);
 function openPhotoInputs(evt){ //new
   // const increacePhotoUrl = document.querySelector(imageSelectors.increacePhotoUrl);
   // const pictureTitle= document.querySelector(imageSelectors.pictureTitle);
+  openForm(increasePhotoPopup);//тест
   increacePhotoUrl.src = evt.target.src;
 increacePhotoUrl.alt = evt.target.alt;
 increacePhotoTitle.textContent = evt.target.alt;
@@ -218,7 +219,7 @@ function likeCard(evt){
     content.querySelector(myFormSelectors.likeBtn).addEventListener('click', likeCard); //like
 
     content.querySelector(imageSelectors.openPhotoBtn).addEventListener('click', (evt) => { //increase photo
-      openForm(increasePhotoPopup);
+      // openForm(increasePhotoPopup); //тест
       openPhotoInputs(evt);
     });
    
