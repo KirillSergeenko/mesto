@@ -24,6 +24,9 @@ const myFormSelectors = {
   const likeBtn = document.querySelector(myFormSelectors.likeBtn);
  
   
+
+ 
+
   const imageSelectors = {
     addPhotoBtn: ".profile__button-addphoto", 
     addPhotoOverlay: "#popupPhotoFormPosition",
@@ -151,8 +154,8 @@ popupSelfInfoForm.addEventListener('submit', formSubmitHandler);
 
 
 function openPhotoInputs(evt){ //new
-  const increacePhotoUrl = document.querySelector(imageSelectors.increacePhotoUrl);
-  const pictureTitle= document.querySelector(imageSelectors.pictureTitle);
+  // const increacePhotoUrl = document.querySelector(imageSelectors.increacePhotoUrl);
+  // const pictureTitle= document.querySelector(imageSelectors.pictureTitle);
   increacePhotoUrl.src = evt.target.src;
 increacePhotoUrl.alt = evt.target.alt;
 increacePhotoTitle.textContent = evt.target.alt;
