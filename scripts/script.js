@@ -24,7 +24,7 @@ const myFormSelectors = {
   const likeBtn = document.querySelector(myFormSelectors.likeBtn);
  
   
-  const ImageSelectors = {
+  const imageSelectors = {
     addPhotoBtn: ".profile__button-addphoto", 
     addPhotoOverlay: "#popupPhotoFormPosition",
     pictureTitle: ".content-box__title",
@@ -40,19 +40,19 @@ const myFormSelectors = {
     closeIncreasePopupBtn: '#increase-popup-close'//new
   };
 
-  const addPhotoOverlayForm = document.querySelector(ImageSelectors.addPhotoOverlay);
-  const openAddPhotoBtn = document.querySelector(ImageSelectors.addPhotoBtn);
-  const pictureTitle= document.querySelector(ImageSelectors.pictureTitle);
-  const pictureUrl = document.querySelector(ImageSelectors.pictureUrl);
-  // const picTitleInput = document.querySelector(ImageSelectors.picTitleInput);
-  // const picUrlInput = document.querySelector(ImageSelectors.picUrlInput);
-  const closeAddPhotoOverlayBTN = document.querySelector(ImageSelectors.closeAddPhotoOverlayBTN);
+  const addPhotoOverlayForm = document.querySelector(imageSelectors.addPhotoOverlay);
+  const openAddPhotoBtn = document.querySelector(imageSelectors.addPhotoBtn);
+  const pictureTitle= document.querySelector(imageSelectors.pictureTitle);
+  const pictureUrl = document.querySelector(imageSelectors.pictureUrl);
+  // const picTitleInput = document.querySelector(imageSelectors.picTitleInput);
+  // const picUrlInput = document.querySelector(imageSelectors.picUrlInput);
+  const closeAddPhotoOverlayBTN = document.querySelector(imageSelectors.closeAddPhotoOverlayBTN);
 
-  const openPhotoBtn = document.querySelector(ImageSelectors.openPhotoBtn);//new
-  const increacePhotoUrl = document.querySelector(ImageSelectors.increacePhotoUrl);
-  const increacePhotoTitle = document.querySelector(ImageSelectors.increacePhotoTitle);
-  const increasePhotoPopup = document.querySelector(ImageSelectors.increasePhotoPopup);
-  const closeIncreasePopupBtn = document.querySelector(ImageSelectors.closeIncreasePopupBtn);
+  const openPhotoBtn = document.querySelector(imageSelectors.openPhotoBtn);//new
+  const increacePhotoUrl = document.querySelector(imageSelectors.increacePhotoUrl);
+  const increacePhotoTitle = document.querySelector(imageSelectors.increacePhotoTitle);
+  const increasePhotoPopup = document.querySelector(imageSelectors.increasePhotoPopup);
+  const closeIncreasePopupBtn = document.querySelector(imageSelectors.closeIncreasePopupBtn);
 
  
 
@@ -147,8 +147,8 @@ popupForm.addEventListener('submit', formSubmitHandler);
 
 
 function openPhotoInputs(evt){ //new
-  const increacePhotoUrl = document.querySelector(ImageSelectors.increacePhotoUrl);
-  const pictureTitle= document.querySelector(ImageSelectors.pictureTitle);
+  const increacePhotoUrl = document.querySelector(imageSelectors.increacePhotoUrl);
+  const pictureTitle= document.querySelector(imageSelectors.pictureTitle);
   increacePhotoUrl.src = evt.target.src;
 increacePhotoUrl.alt = evt.target.alt;
 increacePhotoTitle.textContent = evt.target.alt;
@@ -175,10 +175,10 @@ closeIncreasePopupBtn.addEventListener('click', () =>{
 function formAddCardSubmitHandler (evt) {
   evt.preventDefault(); 
 
- const picTitleInput = document.querySelector(ImageSelectors.picTitleInput);
- const picUrlInput = document.querySelector(ImageSelectors.picUrlInput);
+ const picTitleInput = document.querySelector(imageSelectors.picTitleInput);
+ const picUrlInput = document.querySelector(imageSelectors.picUrlInput);
 
-console.log(ImageSelectors.picTitleInput,ImageSelectors.picUrlInput);
+console.log(imageSelectors.picTitleInput,imageSelectors.picUrlInput);
   createCard(picTitleInput.value, picUrlInput.value);
 
   closeForm(addPhotoOverlayForm);
@@ -210,7 +210,7 @@ function likeCard(evt){
 
     content.querySelector(myFormSelectors.likeBtn).addEventListener('click', likeCard); //like
 
-    content.querySelector(ImageSelectors.openPhotoBtn).addEventListener('click', (evt) => { //increase photo
+    content.querySelector(imageSelectors.openPhotoBtn).addEventListener('click', (evt) => { //increase photo
       openForm(increasePhotoPopup);
       openPhotoInputs(evt);
     });
