@@ -47,8 +47,6 @@ const myFormSelectors = {
   const openAddPhotoBtn = document.querySelector(imageSelectors.addPhotoBtn);
   const pictureTitle= document.querySelector(imageSelectors.pictureTitle);
   const pictureUrl = document.querySelector(imageSelectors.pictureUrl);
-  // const picTitleInput = document.querySelector(imageSelectors.picTitleInput);
-  // const picUrlInput = document.querySelector(imageSelectors.picUrlInput);
   const closeAddPhotoOverlayBTN = document.querySelector(imageSelectors.closeAddPhotoOverlayBTN);
 
   const openPhotoBtn = document.querySelector(imageSelectors.openPhotoBtn);//new
@@ -57,7 +55,8 @@ const myFormSelectors = {
   const increasePhotoPopup = document.querySelector(imageSelectors.increasePhotoPopup);
   const closeIncreasePopupBtn = document.querySelector(imageSelectors.closeIncreasePopupBtn);
 
- 
+  const picTitleInput = document.querySelector(imageSelectors.picTitleInput);
+  const picUrlInput = document.querySelector(imageSelectors.picUrlInput);
 
 
   const createCardSelectors = {
@@ -69,6 +68,7 @@ const myFormSelectors = {
     contentBox: '.grig-content'
   }
 
+  const template = document.querySelector(createCardSelectors.template);
   
   const photoUrl = document.querySelector(createCardSelectors.link);
 
@@ -100,7 +100,11 @@ const myFormSelectors = {
     }
   ]; 
 //hw run 5
-  
+initialCards.forEach(function(item){ //создание карточек
+  const card = createCard(item.name, item.link);
+});
+
+
 
 
 
@@ -183,14 +187,13 @@ closeIncreasePopupBtn.addEventListener('click', () =>{
 function formAddCardSubmitHandler (evt) {
   evt.preventDefault(); 
 
- const picTitleInput = document.querySelector(imageSelectors.picTitleInput);
- const picUrlInput = document.querySelector(imageSelectors.picUrlInput);
+//  const picTitleInput = document.querySelector(imageSelectors.picTitleInput);
+//  const picUrlInput = document.querySelector(imageSelectors.picUrlInput);
 
-console.log(imageSelectors.picTitleInput,imageSelectors.picUrlInput);
+// console.log(imageSelectors.picTitleInput,imageSelectors.picUrlInput);
   createCard(picTitleInput.value, picUrlInput.value);
 
   closeForm(photoOverlayFormCreator);
-
 };
 
 photoOverlayFormCreator.addEventListener('submit', formAddCardSubmitHandler);
@@ -204,10 +207,8 @@ function likeCard(evt){
 
 
   function createCard(name, link) { //создание карточки
-    const template = document.querySelector(createCardSelectors.template)//вирт объект
+    // const template = document.querySelector(createCardSelectors.template);//вирт объект
     const content = template.content.querySelector(createCardSelectors.content).cloneNode(true); 
-    
-
     content.querySelector(createCardSelectors.title).textContent = name;
     
     content.querySelector(createCardSelectors.link).src = link;
@@ -218,9 +219,10 @@ function likeCard(evt){
 
     content.querySelector(myFormSelectors.likeBtn).addEventListener('click', likeCard); //like
 
-    content.querySelector(imageSelectors.openPhotoBtn).addEventListener('click', (evt) => { //increase photo
+    content.querySelector(imageSelectors.openPhotoBtn).addEventListener('click', (name, link) => { //increase photo
       // openForm(increasePhotoPopup); //тест
-      openPhotoInputs(evt);
+      // openPhotoInputs(evt);
+      cardImage.addEventListener('click', () => openPhotoInputs({ name, link }));
     });
    
     const contentBox = document.querySelector(createCardSelectors.contentBox);
@@ -231,8 +233,8 @@ function likeCard(evt){
   };
 
 
-  initialCards.forEach(function(item){ //создание карточек
-    const card = createCard(item.name, item.link);
-  });
+  // initialCards.forEach(function(item){ //создание карточек
+  //   const card = createCard(item.name, item.link);
+  // });
   
 
