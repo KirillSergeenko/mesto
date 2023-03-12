@@ -210,10 +210,13 @@ function likeCard(evt){
     // const template = document.querySelector(createCardSelectors.template);//вирт объект
     const content = template.content.querySelector(createCardSelectors.content).cloneNode(true); 
     content.querySelector(createCardSelectors.title).textContent = name;
-    
-    content.querySelector(createCardSelectors.link).src = link;
 
-    content.querySelector(createCardSelectors.link).alt = name;
+    const contentLink = content.querySelector(createCardSelectors.link);
+    contentLink.src = link;
+    contentLink.alt = name;
+    // content.querySelector(createCardSelectors.link).src = link;
+
+    // content.querySelector(createCardSelectors.link).alt = name;
 
     content.querySelector(createCardSelectors.deleteBtn).addEventListener('click', () => {content.remove(); }); //для удаления карточки
 
