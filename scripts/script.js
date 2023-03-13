@@ -101,7 +101,8 @@ const myFormSelectors = {
   ]; 
 //hw run 5
 initialCards.forEach(function(item){ //создание карточек
-  const card = createCard(item.name, item.link);
+  const card = addCard(item.name, item.link); //тест
+  //const card = createCard(item.name, item.link); // исходник
 });
 
 
@@ -191,7 +192,8 @@ function formAddCardSubmitHandler (evt) {
 //  const picUrlInput = document.querySelector(imageSelectors.picUrlInput);
 
 // console.log(imageSelectors.picTitleInput,imageSelectors.picUrlInput);
-  createCard(picTitleInput.value, picUrlInput.value);
+  // createCard(picTitleInput.value, picUrlInput.value);
+  addCard(picTitleInput.value, picUrlInput.value);
 
   closeForm(photoOverlayFormCreator);
 };
@@ -206,38 +208,65 @@ function likeCard(evt){
 
 
 
+  // function createCard(name, link) { //создание карточки //рабочая версия
+  //   // const template = document.querySelector(createCardSelectors.template);//вирт объект
+  //   const content = template.content.querySelector(createCardSelectors.content).cloneNode(true); 
+  //   content.querySelector(createCardSelectors.title).textContent = name;
+
+  //   const contentLink = content.querySelector(createCardSelectors.link);
+  //   contentLink.src = link;
+  //   contentLink.alt = name;
+  //   // content.querySelector(createCardSelectors.link).src = link;
+
+  //   // content.querySelector(createCardSelectors.link).alt = name;
+
+  //   content.querySelector(createCardSelectors.deleteBtn).addEventListener('click', () => {content.remove(); }); //для удаления карточки
+
+  //   content.querySelector(myFormSelectors.likeBtn).addEventListener('click', likeCard); //like
+
+  //   content.querySelector(imageSelectors.openPhotoBtn).addEventListener('click', (name, link) => { //increase photo
+  //     // openForm(increasePhotoPopup); //тест
+  //     // openPhotoInputs(evt);
+  //     cardImage.addEventListener('click', () => openPhotoInputs({ name, link }));
+  //   });
+   
+  //   const contentBox = document.querySelector(createCardSelectors.contentBox);
+
+  //   contentBox.prepend(content);
+
+  //   return createCard;
+  // };
+
+
+  //тест 
+
   function createCard(name, link) { //создание карточки
-    // const template = document.querySelector(createCardSelectors.template);//вирт объект
     const content = template.content.querySelector(createCardSelectors.content).cloneNode(true); 
     content.querySelector(createCardSelectors.title).textContent = name;
 
     const contentLink = content.querySelector(createCardSelectors.link);
     contentLink.src = link;
     contentLink.alt = name;
-    // content.querySelector(createCardSelectors.link).src = link;
-
-    // content.querySelector(createCardSelectors.link).alt = name;
-
     content.querySelector(createCardSelectors.deleteBtn).addEventListener('click', () => {content.remove(); }); //для удаления карточки
 
     content.querySelector(myFormSelectors.likeBtn).addEventListener('click', likeCard); //like
 
-    content.querySelector(imageSelectors.openPhotoBtn).addEventListener('click', (name, link) => { //increase photo
-      // openForm(increasePhotoPopup); //тест
-      // openPhotoInputs(evt);
+    content.querySelector(imageSelectors.openPhotoBtn).addEventListener('click', (name, link) => { //opener
+
       cardImage.addEventListener('click', () => openPhotoInputs({ name, link }));
     });
-   
-    const contentBox = document.querySelector(createCardSelectors.contentBox);
-
-    contentBox.prepend(content);
-
-    return createCard;
+    
+    console.log('content', content );
+    return content;
+    
   };
+ 
+  function addCard(name, link){
 
-
-  // initialCards.forEach(function(item){ //создание карточек
-  //   const card = createCard(item.name, item.link);
-  // });
+    const contentBox = document.querySelector(createCardSelectors.contentBox);
+    console.log('contentBox', contentBox);
+    contentBox.prepend(createCard(name, link));
+    
+  };
   
-
+  
