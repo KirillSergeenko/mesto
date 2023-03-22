@@ -1,8 +1,8 @@
 .content-box__photo{
     max-width: 282px;
     height: 282px; /*361рх */
-   
-    width: 100%;
+    width: 282px;
+    /* width: 100%; */
     object-fit: cover;
     border-radius: 10px 10px 0px 0px;
   }

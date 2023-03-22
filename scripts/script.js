@@ -159,8 +159,8 @@ popupSelfInfoForm.addEventListener('submit', formSubmitHandler);
 
 
 function openPhotoInputs(evt){ //new
-  // const increacePhotoUrl = document.querySelector(imageSelectors.increacePhotoUrl);
-  // const pictureTitle= document.querySelector(imageSelectors.pictureTitle);
+//   // const increacePhotoUrl = document.querySelector(imageSelectors.increacePhotoUrl);
+//   // const pictureTitle= document.querySelector(imageSelectors.pictureTitle);
   openForm(increasePhotoPopup);//тест
   increacePhotoUrl.src = evt.target.src;
 increacePhotoUrl.alt = evt.target.alt;
@@ -251,15 +251,27 @@ function likeCard(evt){
 
     content.querySelector(myFormSelectors.likeBtn).addEventListener('click', likeCard); //like
 
-    content.querySelector(imageSelectors.openPhotoBtn).addEventListener('click', (name, link) => { //opener
-
-      cardImage.addEventListener('click', () => openPhotoInputs({ name, link }));
+    content.querySelector(imageSelectors.openPhotoBtn).addEventListener('click', (evt) => { //opener
+      openPhotoInputs(evt);
     });
     
     console.log('content', content );
     return content;
     
   };
+
+  // const createCardSelectors = {
+  //   template: '#card-template',
+  //   content: '.content-box' ,
+  //   title: '.content-box__title',
+  //   deleteBtn: ".content-box__delete",
+  //   link: ".content-box__photo",
+  //   contentBox: '.grig-content'
+  // }
+
+
+
+
  
   function addCard(name, link){
 
