@@ -111,14 +111,6 @@ initialCards.forEach(function(item){ //создание карточек
 
 
 
-// function stockPopupInputs(element) { //тест
-//     if(element.classList.contains('popup_opened')){
-//            nameInput.value = userName.textContent;
-//            jobInput.value = userJob.textContent;
-//     };
-//   };
-
-
 function openForm(popupElement){ 
   popupElement.classList.add('popup_opened'); 
 }
@@ -188,11 +180,7 @@ closeIncreasePopupBtn.addEventListener('click', () =>{
 function formAddCardSubmitHandler (evt) {
   evt.preventDefault(); 
 
-//  const picTitleInput = document.querySelector(imageSelectors.picTitleInput);
-//  const picUrlInput = document.querySelector(imageSelectors.picUrlInput);
 
-// console.log(imageSelectors.picTitleInput,imageSelectors.picUrlInput);
-  // createCard(picTitleInput.value, picUrlInput.value);
   addCard(picTitleInput.value, picUrlInput.value);
 
   closeForm(photoOverlayFormCreator);
@@ -250,6 +238,7 @@ function likeCard(evt){
     content.querySelector(createCardSelectors.deleteBtn).addEventListener('click', () => {content.remove(); }); //для удаления карточки
 
     content.querySelector(myFormSelectors.likeBtn).addEventListener('click', likeCard); //like
+    
 
     content.querySelector(imageSelectors.openPhotoBtn).addEventListener('click', (evt) => { //opener
       openPhotoInputs(evt);
@@ -259,16 +248,6 @@ function likeCard(evt){
     return content;
     
   };
-
-  // const createCardSelectors = {
-  //   template: '#card-template',
-  //   content: '.content-box' ,
-  //   title: '.content-box__title',
-  //   deleteBtn: ".content-box__delete",
-  //   link: ".content-box__photo",
-  //   contentBox: '.grig-content'
-  // }
-
 
 
 
