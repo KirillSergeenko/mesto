@@ -13,9 +13,9 @@ const myFormSelectors = {
 
   
 
-  const openAddSelfInfoButton = document.querySelector(myFormSelectors.buttonAddSelfInfo);     
+  const buttonOpenAddSelfInfo = document.querySelector(myFormSelectors.buttonAddSelfInfo);     
   const popupAddSelfInfoCloseBTN = document.querySelector(myFormSelectors.popupButtonClose);                                                                                   
-  const popupOverlay = document.querySelector(myFormSelectors.overlay);                                                                                
+  const popupProfileOverlay = document.querySelector(myFormSelectors.overlay);                                                                                
   const popupSelfInfoForm = document.querySelector(myFormSelectors['popupSelfInfoForm']);                                                                        
   const userName = document.querySelector(myFormSelectors.userName);                    
   const userJob = document.querySelector(myFormSelectors.userJob);                      
@@ -44,15 +44,15 @@ const myFormSelectors = {
   };
 
   const photoOverlayFormCreator = document.querySelector(imageSelectors.addPhotoOverlay);
-  const openAddPhotoBtn = document.querySelector(imageSelectors.addPhotoBtn);
+  const btnOpenAddPhoto = document.querySelector(imageSelectors.addPhotoBtn);
   const pictureTitle= document.querySelector(imageSelectors.pictureTitle);
   const pictureUrl = document.querySelector(imageSelectors.pictureUrl);
-  const closeAddPhotoOverlayBTN = document.querySelector(imageSelectors.closeAddPhotoOverlayBTN);
+  const btnCloseAddPhotoOverlay = document.querySelector(imageSelectors.closeAddPhotoOverlayBTN);
 
   const openPhotoBtn = document.querySelector(imageSelectors.openPhotoBtn);//new
-  const increacePhotoUrl = document.querySelector(imageSelectors.increacePhotoUrl);
-  const increacePhotoTitle = document.querySelector(imageSelectors.increacePhotoTitle);
-  const increasePhotoPopup = document.querySelector(imageSelectors.increasePhotoPopup);
+  const photoUrlIncreace = document.querySelector(imageSelectors.increacePhotoUrl);
+  const photoTitleIncreace = document.querySelector(imageSelectors.increacePhotoTitle);
+  const photoPopupIncrease = document.querySelector(imageSelectors.increasePhotoPopup);
   const closeIncreasePopupBtn = document.querySelector(imageSelectors.closeIncreasePopupBtn);
 
   const picTitleInput = document.querySelector(imageSelectors.picTitleInput);
@@ -123,19 +123,25 @@ function closeForm(popupElement) {
 
 
 
-openAddSelfInfoButton.addEventListener('click', function() {
-  openForm(popupOverlay);
+// buttonOpenAddSelfInfo.addEventListener('click', function() {
+//   openForm(popupProfileOverlay);
  
-  if(popupOverlay.classList.contains('popup_opened')){ //новый тест
-    nameInput.value = userName.textContent;
-    jobInput.value = userJob.textContent;
-  };
-  // stockPopupInputs(popupOverlay);
+//   if(popupProfileOverlay.classList.contains('popup_opened')){ //новый тест
+//     nameInput.value = userName.textContent;
+//     jobInput.value = userJob.textContent;
+//   };
+//   // stockPopupInputs(popupProfileOverlay);
+// });
+
+buttonOpenAddSelfInfo.addEventListener('click', function() {
+  nameInput.value = userName.textContent;
+  jobInput.value = userJob.textContent;
+  openForm(popupProfileOverlay);
 });
 
 
  popupAddSelfInfoCloseBTN.addEventListener('click', function() {
-  closeForm(popupOverlay);
+  closeForm(popupProfileOverlay);
   
 });
 
@@ -143,7 +149,7 @@ function formSubmitHandler (evt) {
     evt.preventDefault(); 
     userName.textContent = nameInput.value;
     userJob.textContent = jobInput.value;
-  closeForm(popupOverlay);
+  closeForm(popupProfileOverlay);
 };
 
 popupSelfInfoForm.addEventListener('submit', formSubmitHandler);
@@ -151,12 +157,11 @@ popupSelfInfoForm.addEventListener('submit', formSubmitHandler);
 
 
 function openPhotoInputs(evt){ //new
-//   // const increacePhotoUrl = document.querySelector(imageSelectors.increacePhotoUrl);
-//   // const pictureTitle= document.querySelector(imageSelectors.pictureTitle);
-  openForm(increasePhotoPopup);//тест
-  increacePhotoUrl.src = evt.target.src;
-increacePhotoUrl.alt = evt.target.alt;
-increacePhotoTitle.textContent = evt.target.alt;
+
+  openForm(photoPopupIncrease);//тест
+  photoUrlIncreace.src = evt.target.src;
+  photoUrlIncreace.alt = evt.target.alt;
+  photoTitleIncreace.textContent = evt.target.alt;
   };
 
 
@@ -165,16 +170,16 @@ increacePhotoTitle.textContent = evt.target.alt;
 
 
 
-openAddPhotoBtn.addEventListener('click', () => {
+btnOpenAddPhoto.addEventListener('click', () => {
 openForm(photoOverlayFormCreator);
 });
 
-closeAddPhotoOverlayBTN.addEventListener('click', () =>{
+btnCloseAddPhotoOverlay.addEventListener('click', () =>{
   closeForm(photoOverlayFormCreator);
 });
 
 closeIncreasePopupBtn.addEventListener('click', () =>{
-  closeForm(increasePhotoPopup);
+  closeForm(photoPopupIncrease);
 });
 
 function formAddCardSubmitHandler (evt) {
@@ -184,7 +189,9 @@ function formAddCardSubmitHandler (evt) {
   addCard(picTitleInput.value, picUrlInput.value);
 
   closeForm(photoOverlayFormCreator);
+
 };
+
 
 photoOverlayFormCreator.addEventListener('submit', formAddCardSubmitHandler);
 
