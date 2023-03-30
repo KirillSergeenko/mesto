@@ -49,7 +49,7 @@ const myFormSelectors = {
   const pictureUrl = document.querySelector(imageSelectors.pictureUrl);
   const btnCloseAddPhotoOverlay = document.querySelector(imageSelectors.closeAddPhotoOverlayBTN);
 
-  const openPhotoBtn = document.querySelector(imageSelectors.openPhotoBtn);//new
+  // const btnOpenPhoto = document.querySelector(imageSelectors.openPhotoBtn);//new
   const photoUrlIncreace = document.querySelector(imageSelectors.increacePhotoUrl);
   const photoTitleIncreace = document.querySelector(imageSelectors.increacePhotoTitle);
   const photoPopupIncrease = document.querySelector(imageSelectors.increasePhotoPopup);
@@ -172,6 +172,8 @@ function openPhotoInputs(evt){ //new
 
 btnOpenAddPhoto.addEventListener('click', () => {
 openForm(photoOverlayFormCreator);
+picTitleInput.value = ''; //попытка очистки форм
+picUrlInput.value = '';
 });
 
 btnCloseAddPhotoOverlay.addEventListener('click', () =>{
@@ -179,7 +181,9 @@ btnCloseAddPhotoOverlay.addEventListener('click', () =>{
 });
 
 closeIncreasePopupBtn.addEventListener('click', () =>{
+  
   closeForm(photoPopupIncrease);
+ 
 });
 
 function formAddCardSubmitHandler (evt) {
