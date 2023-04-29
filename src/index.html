@@ -10,12 +10,12 @@
   <body class="body">
       <div class="root">
           <header class="header">
-              <img class="header__logo" src="./images/logo.svg" alt="логотип">
+              <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="логотип">
           </header>
           <main class = "profile">
               <section class="profile__info">
                   <div class ="profile__option">
-                      <img class ="profile__avatar" src = "./images/avatar.jpg" alt="Фотография профиля">
+                      <img class ="profile__avatar" src = "<%=require('./images/avatar.jpg')%>" alt="Фотография профиля">
                       <h1 class ="profile__name">Жмышенко Валерий Альбертович</h1>
                       <p class ="profile__text">Глад - нагибатор, трэвэл-блоггер</p>
                       <button class ="profile__button-addselfinfo" type="button" aria-label="Редактировать профиль"></button>
