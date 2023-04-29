@@ -1,6 +1,3 @@
-// const logoImage = 
-
-
 
 // enableValidation({
 //     formSelector: '.popup__form',
@@ -11,7 +8,6 @@
 //     errorClass: 'popup__error_visible'
 //   });
 
-
-
-
 import '../pages/index.css';
+
+import '../scripts/script';

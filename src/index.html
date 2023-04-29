@@ -55,8 +55,8 @@
                        <h2 class="popup-container__title">Редактировать профиль</h2>
                        <button class="popup-container__button-close" id="popup-close" type="button" aria-label="Закрыть"></button>
                        <form class="form" id = "myform" name="myform" method="post">     
-                           <input type="text" class="form__user-name" id="name" placeholder="Ваше имя" >
-                           <input type="text" class="form__user-name" id="about" placeholder="О Себе" >
+                           <input type="text" class="form__user-name" id="name" minlength="2" minlength = "40" placeholder="Ваше имя" required>
+                           <input type="text" class="form__user-name" id="about" minlength="2" minlength = "200" placeholder="О Себе" required>
                            <button type="submit" class="form__button-save-selfinfo" aria-label="Сохранить">Сохранить</button>
                        </form>
                    </div>
@@ -67,8 +67,8 @@
                        <h2 class="popup-container__title">Новое место</h2>
                        <button class="popup-container__button-close" id="add-photo-popup-close" type="button" aria-label="Закрыть"></button>
                        <form class="form" id = "pic-form" name="pic-form" method="post">     
-                           <input type="text" class="form__user-name" id="pic-name" placeholder="Название" >
-                           <input type="url" class="form__user-name" id="pic-url" placeholder="Ссылка на картинку" >
+                           <input type="text" class="form__user-name" id="pic-name" placeholder="Название" required >
+                           <input type="url" class="form__user-name" id="pic-url" placeholder="Ссылка на картинку" required>
                            <button type="submit" class="form__button-save-selfinfo" aria-label="Создать">Создать</button>
                        </form>
                    </div>
