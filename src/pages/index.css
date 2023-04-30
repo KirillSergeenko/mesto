@@ -22,8 +22,14 @@
 @import url('../blocks/popup-container/__button-close/popup-container__button-close.css');
 
 @import url('../blocks/form/form.css');
+
 @import url('../blocks/form/__button-save-selfinfo/form__button-save-selfinfo.css');
+/* @import url('../blocks/form/__button-save-selfinfo/__button-save-selfinfo_disable/form__button-save-selfinfo_disable.css'); */
+
+
 @import url('../blocks/form/__user-name/form__user-name.css');
+/* @import url('../blocks/form/__user-name/__user-name_error/form__user-name_error.css'); */
+
 
 @import url('../blocks/galery/galery.css');
 

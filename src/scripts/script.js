@@ -111,41 +111,35 @@ initialCards.forEach(function(item){ //создание карточек
 
 
 
-function openForm(popupElement){ 
+function openForm(popupElement){ //стандартная открывашка попапов
   popupElement.classList.add('popup_opened'); 
 }
 
-
-
-function closeForm(popupElement) { 
+function closeForm(popupElement) { //стандартная закрывашка попапов
   popupElement.classList.remove('popup_opened'); 
 };
 
 
 
-// buttonOpenAddSelfInfo.addEventListener('click', function() {
-//   openForm(popupProfileOverlay);
- 
-//   if(popupProfileOverlay.classList.contains('popup_opened')){ //новый тест
-//     nameInput.value = userName.textContent;
-//     jobInput.value = userJob.textContent;
-//   };
-//   // stockPopupInputs(popupProfileOverlay);
-// });
-
-buttonOpenAddSelfInfo.addEventListener('click', function() {
+buttonOpenAddSelfInfo.addEventListener('click', function() {//чтоб менять информацию профиля
   nameInput.value = userName.textContent;
   jobInput.value = userJob.textContent;
   openForm(popupProfileOverlay);
 });
 
 
- popupAddSelfInfoCloseBTN.addEventListener('click', function() {
+ popupAddSelfInfoCloseBTN.addEventListener('click', function() {// закрыть попап о себе при клике на кнопку "закрыть"
   closeForm(popupProfileOverlay);
-  
 });
 
-function formSubmitHandler (evt) {
+popupProfileOverlay.addEventListener('click', ()=>{ // закрыть попап о себе при клике на оверлей
+  closeForm(popupProfileOverlay);
+}
+
+);
+
+
+function formSubmitHandler (evt) { //при сабмите обновить селфинфуу
     evt.preventDefault(); 
     userName.textContent = nameInput.value;
     userJob.textContent = jobInput.value;
@@ -156,90 +150,60 @@ popupSelfInfoForm.addEventListener('submit', formSubmitHandler);
 
 
 
-function openPhotoInputs(evt){ //new
+function openPhotoInputs(evt){ //открывает фотки при клике на фотку
 
-  openForm(photoPopupIncrease);//тест
+  openForm(photoPopupIncrease);
   photoUrlIncreace.src = evt.target.src;
   photoUrlIncreace.alt = evt.target.alt;
   photoTitleIncreace.textContent = evt.target.alt;
   };
 
 
-//popupNewImage open задача 3
 
-
-
-
-btnOpenAddPhoto.addEventListener('click', () => {
+btnOpenAddPhoto.addEventListener('click', () => { //при нажатии кнопки открывает форму добавления фотки
 openForm(photoOverlayFormCreator);
 picTitleInput.value = ''; //попытка очистки форм
 picUrlInput.value = '';
 });
 
-btnCloseAddPhotoOverlay.addEventListener('click', () =>{
+btnCloseAddPhotoOverlay.addEventListener('click', () =>{//закрывает форму добавления фоток при нажатии кнопки "закрть"
   closeForm(photoOverlayFormCreator);
 });
 
-closeIncreasePopupBtn.addEventListener('click', () =>{
-  
+photoOverlayFormCreator.addEventListener('click', () =>{//закрывает форму добавления фоток при клике на оверлей
+  closeForm(photoOverlayFormCreator);
+});
+
+
+closeIncreasePopupBtn.addEventListener('click', () =>{ //закрывает попап с увеличенной фоткой при нажатии кнопки "закрыть"
   closeForm(photoPopupIncrease);
- 
+});
+
+photoPopupIncrease.addEventListener('click', () =>{ //закрывает попап с увеличенной фоткой при клике на оверлей
+  closeForm(photoPopupIncrease);
 });
 
 function formAddCardSubmitHandler (evt) {
   evt.preventDefault(); 
-
-
   addCard(picTitleInput.value, picUrlInput.value);
-
   closeForm(photoOverlayFormCreator);
-
 };
 
 
 photoOverlayFormCreator.addEventListener('submit', formAddCardSubmitHandler);
 
 
-function likeCard(evt){
-  evt.target.classList.toggle('content-box__like_active');
-  
+function likeCard(evt){ //лайкосы
+  evt.target.classList.toggle('content-box__like_active'); 
 };
 
 
 
-  // function createCard(name, link) { //создание карточки //рабочая версия
-  //   // const template = document.querySelector(createCardSelectors.template);//вирт объект
-  //   const content = template.content.querySelector(createCardSelectors.content).cloneNode(true); 
-  //   content.querySelector(createCardSelectors.title).textContent = name;
-
-  //   const contentLink = content.querySelector(createCardSelectors.link);
-  //   contentLink.src = link;
-  //   contentLink.alt = name;
-  //   // content.querySelector(createCardSelectors.link).src = link;
-
-  //   // content.querySelector(createCardSelectors.link).alt = name;
-
-  //   content.querySelector(createCardSelectors.deleteBtn).addEventListener('click', () => {content.remove(); }); //для удаления карточки
-
-  //   content.querySelector(myFormSelectors.likeBtn).addEventListener('click', likeCard); //like
-
-  //   content.querySelector(imageSelectors.openPhotoBtn).addEventListener('click', (name, link) => { //increase photo
-  //     // openForm(increasePhotoPopup); //тест
-  //     // openPhotoInputs(evt);
-  //     cardImage.addEventListener('click', () => openPhotoInputs({ name, link }));
-  //   });
-   
-  //   const contentBox = document.querySelector(createCardSelectors.contentBox);
-
-  //   contentBox.prepend(content);
-
-  //   return createCard;
-  // };
 
 
   //тест 
 
-  function createCard(name, link) { //создание карточки
+  function createCard(name, link) { //создает карточку
     const content = template.content.querySelector(createCardSelectors.content).cloneNode(true); 
     content.querySelector(createCardSelectors.title).textContent = name;
 
@@ -263,7 +227,7 @@ function likeCard(evt){
 
 
  
-  function addCard(name, link){
+  function addCard(name, link){ //вставляет карточку перед всеми
 
     const contentBox = document.querySelector(createCardSelectors.contentBox);
     console.log('contentBox', contentBox);
@@ -271,4 +235,21 @@ function likeCard(evt){
     
   };
   
+  // 6 валидационный функционал
+
   
+function showInputError (element) {
+  element.classList.add('form__user-name_error');
+};
+
+function hideInputError  (element) {
+  element.classList.remove('form__user-name_error');
+};
+
+function isValid(){
+  if(!forminput.validity.valid){
+    showInputError(forminput);
+  } else{
+    hideInputError(forminput);
+  }
+};
