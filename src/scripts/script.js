@@ -11,6 +11,8 @@ const myFormSelectors = {
   likeBtn: ".content-box__like",
   }
 
+ const body = document.querySelector('body');
+
   
 
   const buttonOpenAddSelfInfo = document.querySelector(myFormSelectors.buttonAddSelfInfo);     
@@ -128,15 +130,27 @@ buttonOpenAddSelfInfo.addEventListener('click', function() {//чтоб меня�
 });
 
 
- popupAddSelfInfoCloseBTN.addEventListener('click', function() {// закрыть попап о себе при клике на кнопку "закрыть"
+ popupAddSelfInfoCloseBTN.addEventListener('click', function() {// закрыть попап "о себе" при клике на кнопку "закрыть"
   closeForm(popupProfileOverlay);
 });
 
-popupProfileOverlay.addEventListener('click', ()=>{ // закрыть попап о себе при клике на оверлей
+popupProfileOverlay.addEventListener('click', ()=>{ // закрыть попап "о себе" при клике на оверлей
   closeForm(popupProfileOverlay);
-}
+});
 
-);
+
+body.addEventListener('keydown', closeToPressEscape);
+
+
+ function closeToPressEscape (evt) { //закрывашка рпопапоа по эскейп
+    if(evt.key == 'Escape'){
+    document.querySelector('.popup_opened').classList.remove('popup_opened');
+    };
+    body.remove.addEventListener;
+  }
+
+
+
 
 
 function formSubmitHandler (evt) { //при сабмите обновить селфинфуу
@@ -234,7 +248,11 @@ function likeCard(evt){ //лайкосы
     contentBox.prepend(createCard(name, link));
     
   };
-  
+  //6 события клавиатуры
+
+ 
+
+
   // 6 валидационный функционал
 
   
