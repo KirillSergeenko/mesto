@@ -55,8 +55,10 @@
                        <h2 class="popup-container__title">Редактировать профиль</h2>
                        <button class="popup-container__button-close" id="popup-close" type="button" aria-label="Закрыть"></button>
                        <form class="form" id = "myform" name="myform" method="post" novalidate>     
-                           <input type="text" class="form__user-name" id="name" minlength="2" maxlength = "40" placeholder="Ваше имя" required>
-                           <input type="text" class="form__user-name" id="about" minlength="2" maxlength = "200" placeholder="О Себе" required>
+                           <input type="text" name="my-name" class="form__user-name" id="name" minlength="2" maxlength = "40" placeholder="Ваше имя" required>
+                           <span class="my-name-error form__input-error">Необходимо заполнить данное поле</span>
+                           <input type="text" name='my-about' class="form__user-name" id="about" minlength="2" maxlength = "200" placeholder="О Себе" required>
+                           <span class="my-about-error form__input-error">Необходимо заполнить данное поле</span>
                            <button type="submit" class="form__button-save-selfinfo form__button-save-selfinfo_disable" aria-label="Сохранить" disabled>Сохранить</button>
                        </form>
                    </div>
@@ -67,8 +69,10 @@
                        <h2 class="popup-container__title">Новое место</h2>
                        <button class="popup-container__button-close" id="add-photo-popup-close" type="button" aria-label="Закрыть"></button>
                        <form class="form" id = "pic-form" name="pic-form" method="post" novalidate>     
-                           <input type="text" class="form__user-name" id="pic-name" placeholder="Название" minlength="2" maxlength = "30" required >
-                           <input type="url" class="form__user-name" id="pic-url" placeholder="Ссылка на картинку" required>
+                           <input type="text" name ='pic-title'class="form__user-name" id="pic-name" placeholder="Название" minlength="2" maxlength = "30" required >
+                           <span class="pic-title-error form__input-error">Необходимо заполнить данное поле</span>
+                           <input type="url" name ='pic-url'class="form__user-name" id="pic-url" placeholder="Ссылка на картинку" required>
+                           <span class="pic-url-error form__input-error">Необходимо заполнить данное поле</span>
                            <button type="submit" class="form__button-save-selfinfo form__button-save-selfinfo_disable" aria-label="Создать" disabled>Создать</button>
                        </form>
                    </div>

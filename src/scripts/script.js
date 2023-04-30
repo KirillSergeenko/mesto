@@ -2,7 +2,7 @@ const myFormSelectors = {
   buttonAddSelfInfo: '.profile__button-addselfinfo',
   popupButtonClose: '.popup-container__button-close',
   overlay: '.popup[id="position"]', //'.popup-position[id="position"]'
-  popupSelfInfoForm: '.form[id="myform"]',
+  popupSelfInfoForm: '.form[id="myform"]', //дубль const myNameForm
   userName: '.profile__name',
   userJob: '.profile__text',
   nameInput: '#name',
@@ -12,22 +12,22 @@ const myFormSelectors = {
   }
 
  const body = document.querySelector('body');
-
+ 
   
 
   const buttonOpenAddSelfInfo = document.querySelector(myFormSelectors.buttonAddSelfInfo);     
   const popupAddSelfInfoCloseBTN = document.querySelector(myFormSelectors.popupButtonClose);                                                                                   
   const popupProfileOverlay = document.querySelector(myFormSelectors.overlay);                                                                                
-  const popupSelfInfoForm = document.querySelector(myFormSelectors['popupSelfInfoForm']);                                                                        
+  const popupSelfInfoForm = document.querySelector(myFormSelectors['popupSelfInfoForm']);     //дубль      const      myNameForm                                                       
   const userName = document.querySelector(myFormSelectors.userName);                    
   const userJob = document.querySelector(myFormSelectors.userJob);                      
-  const nameInput = document.querySelector(myFormSelectors.nameInput);                  
-  const jobInput = document.querySelector(myFormSelectors.jobInput);                    
+  const nameInput = document.querySelector(myFormSelectors.nameInput);                  //дубль
+  const jobInput = document.querySelector(myFormSelectors.jobInput);                    //дубль aboutSelfInput
   const likeBtn = document.querySelector(myFormSelectors.likeBtn);
- 
+
   
 
- 
+ // form class="form" id = "pic-form" name="pic-form" method="post" novalidate>     
 
   const imageSelectors = {
     addPhotoBtn: ".profile__button-addphoto", 
@@ -37,6 +37,7 @@ const myFormSelectors = {
     picUrlInput: "#pic-url",
     pictureUrl: ".content-box__photo",
     closeAddPhotoOverlayBTN: '#add-photo-popup-close',
+    addPicturesForm: '.form[id="pic-form"]',
 
     openPhotoBtn: '.content-box__photo',//new
     increacePhotoUrl: '.increase__image',//new
@@ -57,8 +58,9 @@ const myFormSelectors = {
   const photoPopupIncrease = document.querySelector(imageSelectors.increasePhotoPopup);
   const closeIncreasePopupBtn = document.querySelector(imageSelectors.closeIncreasePopupBtn);
 
-  const picTitleInput = document.querySelector(imageSelectors.picTitleInput);
-  const picUrlInput = document.querySelector(imageSelectors.picUrlInput);
+  const addPicturesForm = document.querySelector(imageSelectors.addPicturesForm);
+  const picTitleInput = document.querySelector(imageSelectors.picTitleInput); //
+  const picUrlInput = document.querySelector(imageSelectors.picUrlInput); //
 
 
   const createCardSelectors = {
@@ -142,7 +144,7 @@ popupProfileOverlay.addEventListener('click', ()=>{ // закрыть попап
 body.addEventListener('keydown', closeToPressEscape);
 
 
- function closeToPressEscape (evt) { //закрывашка рпопапоа по эскейп
+ function closeToPressEscape (evt) { //закрывашка любой открытый попап
     if(evt.key == 'Escape'){
     document.querySelector('.popup_opened').classList.remove('popup_opened');
     };
@@ -255,19 +257,33 @@ function likeCard(evt){ //лайкосы
 
   // 6 валидационный функционал
 
-  
-function showInputError (element) {
+//const myNameForm = document.forms.myform; //дубль const popupSelfInfoForm
+//const addPicturesForm = document.forms.pic-form; 
+//const nameInput =;      // const nameInput = document.querySelector(myFormSelectors.nameInput);   
+//const aboutSelfInput =; // const jobInput = document.querySelector(myFormSelectors.jobInput);     
+//const pictureTitleInput =; //const picTitleInput = document.querySelector(imageSelectors.picTitleInput);
+//const pictureUrlInput =; //const picUrlInput = document.querySelector(imageSelectors.picUrlInput);
+console.log('nameInput', nameInput.id);
+console.log('jobInput', jobInput.id);
+console.log('picTitleInput', picTitleInput.id);
+console.log('picUrlInput', picUrlInput.id);
+
+
+
+function showInputError(element) {
   element.classList.add('form__user-name_error');
 };
 
-function hideInputError  (element) {
+function hideInputError(element) {
   element.classList.remove('form__user-name_error');
 };
 
 function isValid(){
-  if(!forminput.validity.valid){
-    showInputError(forminput);
+  if(!nameInput.validity.valid){
+    showInputError(nameInput);
   } else{
-    hideInputError(forminput);
+    hideInputError(nameInput);
   }
 };
+//вместо formInput оставь свой инпут
+nameInput.addEventListener('input', isValid);
