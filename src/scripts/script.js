@@ -136,21 +136,26 @@ buttonOpenAddSelfInfo.addEventListener('click', function() {//чтоб меня�
   closeForm(popupProfileOverlay);
 });
 
-popupProfileOverlay.addEventListener('click', ()=>{ // закрыть попап "о себе" при клике на оверлей
-  closeForm(popupProfileOverlay);
-});
 
 
 body.addEventListener('keydown', closeToPressEscape);
 
 
- function closeToPressEscape (evt) { //закрывашка любой открытый попап
+ function closeToPressEscape (evt) { //закрывашка любой открытый попап по нажатию эскейп
     if(evt.key == 'Escape'){
     document.querySelector('.popup_opened').classList.remove('popup_opened');
     };
     body.remove.addEventListener;
-  }
+  };
 
+  function closeToClickOverlay (evt) { //закрывашка любой открытый попап кликом в оверлей
+    console.log('evt target', evt.target);
+    if(evt.target.classList.contains('popup')){
+    document.querySelector('.popup_opened').classList.remove('popup_opened');
+    };
+    body.remove.addEventListener;
+  };
+  body.addEventListener('click', closeToClickOverlay);
 
 
 
@@ -186,18 +191,13 @@ btnCloseAddPhotoOverlay.addEventListener('click', () =>{//закрывает ф�
   closeForm(photoOverlayFormCreator);
 });
 
-photoOverlayFormCreator.addEventListener('click', () =>{//закрывает форму добавления фоток при клике на оверлей
-  closeForm(photoOverlayFormCreator);
-});
 
 
 closeIncreasePopupBtn.addEventListener('click', () =>{ //закрывает попап с увеличенной фоткой при нажатии кнопки "закрыть"
   closeForm(photoPopupIncrease);
 });
 
-photoPopupIncrease.addEventListener('click', () =>{ //закрывает попап с увеличенной фоткой при клике на оверлей
-  closeForm(photoPopupIncrease);
-});
+
 
 function formAddCardSubmitHandler (evt) {
   evt.preventDefault(); 
@@ -212,8 +212,6 @@ photoOverlayFormCreator.addEventListener('submit', formAddCardSubmitHandler);
 function likeCard(evt){ //лайкосы
   evt.target.classList.toggle('content-box__like_active'); 
 };
-
-
 
 
 
@@ -263,27 +261,42 @@ function likeCard(evt){ //лайкосы
 //const aboutSelfInput =; // const jobInput = document.querySelector(myFormSelectors.jobInput);     
 //const pictureTitleInput =; //const picTitleInput = document.querySelector(imageSelectors.picTitleInput);
 //const pictureUrlInput =; //const picUrlInput = document.querySelector(imageSelectors.picUrlInput);
+
+
 console.log('nameInput', nameInput.id);
 console.log('jobInput', jobInput.id);
 console.log('picTitleInput', picTitleInput.id);
 console.log('picUrlInput', picUrlInput.id);
 
+// const formError = popupSelfInfoForm.querySelector(`.${formInput.id}-error`);
 
+// function showInputError(element, errorMessage) {
+//   element.classList.add('form__input_error');
+//   formError.textContent = errorMessage;
+//   formError.classList.add('form__input-error_active'); // создай для ошибки класс form__input-error_active
 
-function showInputError(element) {
-  element.classList.add('form__user-name_error');
-};
+// };
 
-function hideInputError(element) {
-  element.classList.remove('form__user-name_error');
-};
+// function hideInputError(element) { //прячет сообщение об ошибке
+//   element.classList.remove('form__input_error');
+//   formError.classList.add('form__input-error_active');
+//   formError.textContent = '';
+// };
 
-function isValid(){
-  if(!nameInput.validity.valid){
-    showInputError(nameInput);
-  } else{
-    hideInputError(nameInput);
-  }
-};
-//вместо formInput оставь свой инпут
-nameInput.addEventListener('input', isValid);
+// function checkInputValidity(){ //вместо нэйм импута - любое другое валидационное поле
+//   if(nameInput.validity.valid){
+//     hideInputError(nameInput);
+    
+//   } else{
+//     showInputError(nameInput, nameInput.validationMessage); //второй параметр покажет текст стандартной ошибки, если она есть
+//   };
+// };
+// //вместо formInput оставь свой инпут
+// nameInput.addEventListener('input', isValid);
+
+// myNameForm.addEventListener('submit', function(evt){
+//   evt.preventDefault();
+// });
+// nameInput.addEventListener('input', function(){//проверяем выбранный инпут на валидность
+//   checkInputValidity();
+// });

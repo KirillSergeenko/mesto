@@ -29,7 +29,7 @@
 
 
 
-@import url('../blocks/form/__user-name/form__user-name.css');
+@import url('../blocks/form/__input/form__input.css');
 
 
 
@@ -67,4 +67,4 @@
 /* классы ошибок из спринта 6 */
 
 @import url('../blocks/form/__button-save-selfinfo/__button-save-selfinfo_disable/form__button-save-selfinfo_disable.css');
-@import url('../blocks/form/__user-name/__user-name_error/form__user-name_error.css');
+@import url('../blocks/form/__input/__input_error/form__input_error.css')
