@@ -268,35 +268,64 @@ console.log('jobInput', jobInput.id);
 console.log('picTitleInput', picTitleInput.id);
 console.log('picUrlInput', picUrlInput.id);
 
-// const formError = popupSelfInfoForm.querySelector(`.${formInput.id}-error`);
 
-// function showInputError(element, errorMessage) {
-//   element.classList.add('form__input_error');
-//   formError.textContent = errorMessage;
-//   formError.classList.add('form__input-error_active'); // создай для ошибки класс form__input-error_active
+// const form = document.querySelector('.form'); //выберем первый попавшийся дом элемент с классом форм
+// const formInput = form.querySelector('.form__input'); // в нем выберем элемент с классом форм инпут
+// const formError = form.querySelector(`.${formInput.id}-error`); //для отображения сообщений об ошибках
 
-// };
+function showInputError(formElement, inputElement, errorMessage) { //input === inputElement из тренажера
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.add('form__input_type_error');
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add('form__input-error_active'); // создай для ошибки класс form__input-error_active
 
-// function hideInputError(element) { //прячет сообщение об ошибке
-//   element.classList.remove('form__input_error');
-//   formError.classList.add('form__input-error_active');
-//   formError.textContent = '';
-// };
+};
 
-// function checkInputValidity(){ //вместо нэйм импута - любое другое валидационное поле
-//   if(nameInput.validity.valid){
-//     hideInputError(nameInput);
+function hideInputError(formElement, inputElement) { //прячет сообщение об ошибке
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.remove('form__input_type_error'); //изменим поле ошибочного элемента на красный
+  errorElement.classList.remove('form__input-error_active');//актив - просто чтобы дисплей нон на дисплей блок
+  errorElement.textContent = '';
+};
+
+function checkInputValidity(formElement, inputElement){ //вместо нэйм импута - любое другое валидационное поле
+  if(!inputElement.validity.valid){
+    showInputError(formElement, inputElement, inputElement.validationMessage);
     
-//   } else{
-//     showInputError(nameInput, nameInput.validationMessage); //второй параметр покажет текст стандартной ошибки, если она есть
-//   };
-// };
-// //вместо formInput оставь свой инпут
-// nameInput.addEventListener('input', isValid);
+  } else{
+    
+    hideInputError(formElement, inputElement,);//второй параметр покажет текст стандартной ошибки, если она есть
+  };
+};
 
-// myNameForm.addEventListener('submit', function(evt){
-//   evt.preventDefault();
-// });
-// nameInput.addEventListener('input', function(){//проверяем выбранный инпут на валидность
-//   checkInputValidity();
-// });
+function setEventListeners(formElement){
+  const inputsList = Array.from(formElement.querySelectorAll('.form__input'));
+  inputsList.forEach( (inputElement)=>{
+    inputElement.addEventListener('input', function(){
+      checkInputValidity(formElement, inputElement)
+    });
+
+  });
+};
+
+
+function enableValidation(){
+  const formList = Array.from(document.querySelectorAll('.form'));
+  formList.forEach((formElement) =>{
+    formElement.addEventListener('submit', function (evt){
+      evt.preventDefault();
+    } );
+    setEventListeners(formElement);
+  });
+};
+enableValidation();
+
+
+
+form.addEventListener('submit', function(evt){
+  evt.preventDefault();
+});
+formInput.addEventListener('input', function(evt){//проверяем выбранный инпут на валидность
+ console.log(evt.target.validity);
+  checkInputValidity(form, formInput);
+});
