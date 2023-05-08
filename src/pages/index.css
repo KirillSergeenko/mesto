@@ -28,8 +28,8 @@
 @import url('../blocks/form/__button-save-selfinfo/form__button-save-selfinfo.css');
 
 
-
 @import url('../blocks/form/__input/form__input.css');
+@import url('../blocks/form/__input/__input_type_error/form__input_type_error.css');
 
 
 
@@ -64,7 +64,11 @@
 @import url('../blocks/increase/__image-title/increase__image-title.css');
 
 
+
 /* классы ошибок из спринта 6 */
 
 @import url('../blocks/form/__button-save-selfinfo/__button-save-selfinfo_disable/form__button-save-selfinfo_disable.css');
-@import url('../blocks/form/__input/__input_type_error/form__input_type_error.css')
+@import url('../blocks/form/__input/__input-error/form__input-error.css');
+@import url('../blocks/form/__input/__input-error/__input-error_active/form__input-error_active.css'); /*стиль вс плывающего сообщения*/
+
+

@@ -250,59 +250,45 @@ function likeCard(evt){ //лайкосы
   };
   //6 события клавиатуры
 
+
  
 
 
   // 6 валидационный функционал
 
-//const myNameForm = document.forms.myform; //дубль const popupSelfInfoForm
-//const addPicturesForm = document.forms.pic-form; 
-//const nameInput =;      // const nameInput = document.querySelector(myFormSelectors.nameInput);   
-//const aboutSelfInput =; // const jobInput = document.querySelector(myFormSelectors.jobInput);     
-//const pictureTitleInput =; //const picTitleInput = document.querySelector(imageSelectors.picTitleInput);
-//const pictureUrlInput =; //const picUrlInput = document.querySelector(imageSelectors.picUrlInput);
 
-
-console.log('nameInput', nameInput.id);
-console.log('jobInput', jobInput.id);
-console.log('picTitleInput', picTitleInput.id);
-console.log('picUrlInput', picUrlInput.id);
-
-
-// const form = document.querySelector('.form'); //выберем первый попавшийся дом элемент с классом форм
-// const formInput = form.querySelector('.form__input'); // в нем выберем элемент с классом форм инпут
-// const formError = form.querySelector(`.${formInput.id}-error`); //для отображения сообщений об ошибках
 
 function showInputError(formElement, inputElement, errorMessage) { //input === inputElement из тренажера
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.add('form__input_type_error');
+  console.log('errorElement', errorElement);
+  inputElement.classList.add('form__input_type_error'); //красное подчеркивание у ИНПУТА
   errorElement.textContent = errorMessage;
-  errorElement.classList.add('form__input-error_active'); // создай для ошибки класс form__input-error_active
-
+  errorElement.classList.add('form__input-error_active'); // показ спана с настроенным form__input-error
 };
 
 function hideInputError(formElement, inputElement) { //прячет сообщение об ошибке
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove('form__input_type_error'); //изменим поле ошибочного элемента на красный
-  errorElement.classList.remove('form__input-error_active');//актив - просто чтобы дисплей нон на дисплей блок
+  inputElement.classList.remove('form__input_type_error'); //изменим поле ошибочного элемента на красный у ИНПУТА
+  errorElement.classList.remove('form__input-error_active');// показ спана с настроенным form__input-error
   errorElement.textContent = '';
 };
 
-function checkInputValidity(formElement, inputElement){ //вместо нэйм импута - любое другое валидационное поле
+function checkInputValidity(formElement, inputElement){ 
   if(!inputElement.validity.valid){
     showInputError(formElement, inputElement, inputElement.validationMessage);
-    
   } else{
-    
     hideInputError(formElement, inputElement,);//второй параметр покажет текст стандартной ошибки, если она есть
   };
 };
 
 function setEventListeners(formElement){
   const inputsList = Array.from(formElement.querySelectorAll('.form__input'));
+  const buttonElement = formElement.querySelector('.form__button-save-selfinfo');
+  toggleButtonState(inputsList, buttonElement);
   inputsList.forEach( (inputElement)=>{
     inputElement.addEventListener('input', function(){
-      checkInputValidity(formElement, inputElement)
+      checkInputValidity(formElement, inputElement);
+      toggleButtonState(inputsList, buttonElement);
     });
 
   });
@@ -315,17 +301,31 @@ function enableValidation(){
     formElement.addEventListener('submit', function (evt){
       evt.preventDefault();
     } );
+    // const fieldsetList = Array.from(formElement.querySelectorAll('.popup-container')); //у меня 1 филдсет. будет много - допишем
+    // fieldsetList.forEach((fieldset)=>{
+    //   setEventListeners(fieldset);
+    // }); 
+
     setEventListeners(formElement);
   });
 };
 enableValidation();
 
 
+function hasInvalidInput(inputsList){//проверим, есть ли хоть 1 невалидное поле вернет тру. если хоть одно с ошибкой
+  return inputsList.some((inputElement)=>{
+   return !inputElement.validity.valid;
+  } );
+};
 
-form.addEventListener('submit', function(evt){
-  evt.preventDefault();
-});
-formInput.addEventListener('input', function(evt){//проверяем выбранный инпут на валидность
- console.log(evt.target.validity);
-  checkInputValidity(form, formInput);
-});
+function toggleButtonState(inputList, buttonElement){ //разблокируем кнопку
+  if (hasInvalidInput(inputList)){
+    buttonElement.disabled=true;
+    buttonElement.classList.add('.form__button-save-selfinfo_disable');
+  }else{
+    // buttonElement.disabled=false;
+    buttonElement.classList.remove('.form__button-save-selfinfo_disable');
+    
+  };
+};
+
