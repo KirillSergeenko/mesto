@@ -1,0 +1,17 @@
+.form__set{
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-color: brown;
+    min-width: 430px;
+}
+
+  
+
+
+@media screen and (min-width: 320px) and (max-width: 1023px){
+    .form__set{
+          min-width: 282px;
+     }
+}
+  

@@ -320,12 +320,16 @@ function hasInvalidInput(inputsList){//проверим, есть ли хоть 
 
 function toggleButtonState(inputList, buttonElement){ //разблокируем кнопку
   if (hasInvalidInput(inputList)){
-    buttonElement.disabled=true;
+    buttonElement.disabled = true;
     buttonElement.classList.add('.form__button-save-selfinfo_disable');
-  }else{
-    // buttonElement.disabled=false;
-    buttonElement.classList.remove('.form__button-save-selfinfo_disable');
     
+   
+  }else{
+   
+
+    buttonElement.disabled = false;
+    buttonElement.classList.remove('.form__button-save-selfinfo_disable');
+
   };
 };
 

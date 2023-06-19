@@ -1,7 +1,9 @@
 @import url('../vendor/projectfonts.css');
+@import url('../blocks/form/__set/form__set.css');
 @import url('../vendor/normalize.css');
 
 @import url('../blocks/body/body.css');
+
 @import url('../blocks/content-box/content-box.css');
 
 @import url('../blocks/content-box/__description/content-box__description.css');
@@ -22,6 +24,8 @@
 @import url('../blocks/popup-container/__button-close/popup-container__button-close.css');
 
 @import url('../blocks/form/form.css');
+
+
 
 
 
@@ -56,7 +60,10 @@
 
 @import url('../blocks/popup/popup.css');
 @import url('../blocks/popup/_photo-overlay/popup__photo-overlay.css');
-@import url('../blocks/popup/_opened/popup_opened.css'); 
+@import url('../blocks/popup/_opened/popup_opened.css');
+
+
+@import url('../blocks/form/__input/__input-error/form__input-error.css');
 
 
 @import url('../blocks/increase/increase.css');
@@ -64,11 +71,13 @@
 @import url('../blocks/increase/__image-title/increase__image-title.css');
 
 
+@import url('../blocks/form/__input/__input-error/__input-error_active/form__input-error_active.css'); /*стиль вс плывающего сообщения*/
+
+
+
 
 /* классы ошибок из спринта 6 */
 
 @import url('../blocks/form/__button-save-selfinfo/__button-save-selfinfo_disable/form__button-save-selfinfo_disable.css');
-@import url('../blocks/form/__input/__input-error/form__input-error.css');
-@import url('../blocks/form/__input/__input-error/__input-error_active/form__input-error_active.css'); /*стиль вс плывающего сообщения*/
 
 

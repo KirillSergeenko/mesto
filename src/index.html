@@ -54,13 +54,19 @@
                    <div class="popup-container"> <!--замена div на fieldset в обоих попаапах-->
                        <h2 class="popup-container__title">Редактировать профиль</h2>
                        <button class="popup-container__button-close" id="popup-close" type="button" aria-label="Закрыть"></button>
-                       <form class="form" id = "myform" name="myform" method="post" novalidate>     
-                           <input type="text" name="my-name" class="form__input  " id="name" minlength="2" maxlength = "40" placeholder="Ваше имя" pattern="^[A-Za-zА-Яа-яЁё\s]+$" data-pattern-error="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы" required>
-                           <span class="name-error form__input-error"></span>
-                           <input type="text" name='my-about' class="form__input" id="about" minlength="2" maxlength = "200" placeholder="О Себе" pattern="^[A-Za-zА-Яа-яЁё\s]+$" data-pattern-error="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"required>
-                           <span class="about-error form__input-error"></span>
-                           <button type="submit" class="form__button-save-selfinfo " disabled aria-label="Сохранить" >Сохранить</button>
-                       </form>
+                            <fieldset class="form__set">
+                                 <form class="form" id = "myform" name="myform" method="post" novalidate>     
+                                    <label class="form__field">
+                                     <input type="text" name="my-name" class="form__input  " id="name" minlength="2" maxlength = "40" placeholder="Ваше имя" pattern="^[A-Za-zА-Яа-яЁё\s]+$" data-pattern-error="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы" required>     
+                                     <span class="name-error form__input-error"></span>     
+                                    </label>
+                                    <label class="form__field">
+                                     <input type="text" name='my-about' class="form__input" id="about" minlength="2" maxlength = "200" placeholder="О Себе" pattern="^[A-Za-zА-Яа-яЁё\s]+$" data-pattern-error="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы"required>       
+                                     <span class="about-error form__input-error"></span>
+                                    </label>
+                                     <button type="submit" class="form__button-save-selfinfo "  aria-label="Сохранить" >Сохранить</button>
+                                 </form>
+                            </fieldset>
                    </div>
                </div>
 
@@ -68,13 +74,19 @@
                    <div class="popup-container">
                        <h2 class="popup-container__title">Новое место</h2>
                        <button class="popup-container__button-close" id="add-photo-popup-close" type="button" aria-label="Закрыть"></button>
-                       <form class="form" id = "pic-form" name="pic-form" method="post" novalidate>     
-                           <input type="text" name ='pic-title'class="form__input" id="pic-name" placeholder="Название" minlength="2" maxlength = "30" pattern="^[A-Za-zА-Яа-яЁё\s]+$" data-pattern-error="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы" required >
-                           <span class="pic-name-error form__input-error"></span><!-- сюда встанет кастомный текст ошибки-->
-                           <input type="url" name ='pic-url'class="form__input" id="pic-url" placeholder="Ссылка на картинку" required>
-                           <span class="pic-url-error form__input-error"></span>
-                           <button type="submit" class="form__button-save-selfinfo " disabled aria-label="Создать" >Создать</button>
-                       </form>
+                            <fieldset class="form__set">
+                                     <form class="form" id = "pic-form" name="pic-form" method="post" novalidate>  
+                                        <label class="form__field">
+                                             <input type="text" name ='pic-title'class="form__input" id="pic-name" placeholder="Название" minlength="2" maxlength = "30" pattern="^[A-Za-zА-Яа-яЁё\s]+$" data-pattern-error="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы" required >
+                                             <span class="pic-name-error form__input-error"></span> <!-- сюда встанет кастомный текст ошибки-->
+                                        </label>
+                                        <label class="form__field">
+                                             <input type="url" name ='pic-url'class="form__input" id="pic-url" placeholder="Ссылка на картинку" required>
+                                             <div class="pic-url-error form__input-error"></div>
+                                             <button type="submit" class="form__button-save-selfinfo "  aria-label="Создать" >Создать</button>
+                                        </label>
+                                     </form>
+                            </fieldset>
                    </div>
                </div>
 
