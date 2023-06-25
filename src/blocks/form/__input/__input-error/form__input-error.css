@@ -11,8 +11,11 @@
     text-align:left;
     z-index: 6;
     align-self: flex-start;
-    
-    outline: none;  
+    height: 12px;
+    margin-top: 8px;
+    min-width: 164px ;
+    outline: none; 
+    margin-bottom: 10px; 
     
 }
 
