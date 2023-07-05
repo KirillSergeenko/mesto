@@ -252,7 +252,9 @@ function likeCard(evt){ //лайкосы
 
 
  
-
+  // const form = document.querySelector('.form'); //введем отдельно дом лемент форма универсальный для всех форм, а не уникальный. как было раньше
+  // const formInput = form.querySelector('.form__input');// соответственно, найдем инпуты поиском внутри формы
+  // // const formError = form.querySelector(`.${formInput.id}-error`); 
 
   // 6 валидационный функционал
 
@@ -260,35 +262,36 @@ function likeCard(evt){ //лайкосы
 
 function showInputError(formElement, inputElement, errorMessage) { //input === inputElement из тренажера
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  console.log('errorElement', errorElement);
+  // console.log('errorElement', errorElement);
   inputElement.classList.add('form__input_type_error'); //красное подчеркивание у ИНПУТА
   errorElement.textContent = errorMessage;
   errorElement.classList.add('form__input-error_active'); // показ спана с настроенным form__input-error
 };
 
 function hideInputError(formElement, inputElement) { //прячет сообщение об ошибке
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove('form__input_type_error'); //изменим поле ошибочного элемента на красный у ИНПУТА
-  errorElement.classList.remove('form__input-error_active');// показ спана с настроенным form__input-error
-  errorElement.textContent = '';
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`); 
+  inputElement.classList.remove('form__input_type_error'); //отменим поле ошибочного элемента на красный у ИНПУТА
+  errorElement.classList.remove('form__input-error_active');// отменим показ спана с настроенным form__input-error
+  errorElement.textContent = ''; //очистим поле ошибки
 };
 
 function checkInputValidity(formElement, inputElement){ 
   if(!inputElement.validity.valid){
     showInputError(formElement, inputElement, inputElement.validationMessage);
   } else{
-    hideInputError(formElement, inputElement,);//второй параметр покажет текст стандартной ошибки, если она есть
+    hideInputError(formElement, inputElement);//второй параметр покажет текст стандартной ошибки, если она есть
   };
 };
 
-function setEventListeners(formElement){
+function setEventListeners(formElement){ 
   const inputsList = Array.from(formElement.querySelectorAll('.form__input'));
   const buttonElement = formElement.querySelector('.form__button-save-selfinfo');
   toggleButtonState(inputsList, buttonElement);
   inputsList.forEach( (inputElement)=>{
     inputElement.addEventListener('input', function(){
-      checkInputValidity(formElement, inputElement);
       toggleButtonState(inputsList, buttonElement);
+      checkInputValidity(formElement, inputElement);
+      
     });
 
   });
@@ -301,35 +304,27 @@ function enableValidation(){
     formElement.addEventListener('submit', function (evt){
       evt.preventDefault();
     } );
-    // const fieldsetList = Array.from(formElement.querySelectorAll('.popup-container')); //у меня 1 филдсет. будет много - допишем
-    // fieldsetList.forEach((fieldset)=>{
-    //   setEventListeners(fieldset);
-    // }); 
+    const fieldsetList = Array.from(formElement.querySelectorAll('.form__set')); 
+     fieldsetList.forEach((fieldset)=>{
+      setEventListeners(fieldset);
+    }); 
 
-    setEventListeners(formElement);
+    //setEventListeners(formElement);
   });
 };
 enableValidation();
 
 
 function hasInvalidInput(inputsList){//проверим, есть ли хоть 1 невалидное поле вернет тру. если хоть одно с ошибкой
-  return inputsList.some((inputElement)=>{
-   return !inputElement.validity.valid;
+  return inputsList.some((inputsList)=>{
+   return !inputsList.validity.valid;
   } );
 };
 
-function toggleButtonState(inputList, buttonElement){ //разблокируем кнопку
-  if (hasInvalidInput(inputList)){
-    buttonElement.disabled = true;
-    buttonElement.classList.add('.form__button-save-selfinfo_disable');
-    
-   
+function toggleButtonState (inputsList, buttonElement){
+  if(hasInvalidInput(inputsList)){
+    buttonElement.classList.add('form__button_inactive');
   }else{
-   
-
-    buttonElement.disabled = false;
-    buttonElement.classList.remove('.form__button-save-selfinfo_disable');
-
-  };
+    buttonElement.classList.remove('form__button_inactive');
+  }
 };
-

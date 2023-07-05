@@ -31,6 +31,8 @@
 
 @import url('../blocks/form/__button-save-selfinfo/form__button-save-selfinfo.css');
 
+@import url('../blocks/form/__button-save-selfinfo/__button_inactive/form__button_inactive.css'); /*кнопа дисаблед*/
+
 
 @import url('../blocks/form/__input/form__input.css');
 @import url('../blocks/form/__input/__input_type_error/form__input_type_error.css');
@@ -78,6 +80,6 @@
 
 /* классы ошибок из спринта 6 */
 
-@import url('../blocks/form/__button-save-selfinfo/__button-save-selfinfo_disable/form__button-save-selfinfo_disable.css');
+
 
 

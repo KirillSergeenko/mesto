@@ -1,11 +1,11 @@
 .form__input-error{
-    visibility: visible; /*на вермя разработки hidden заменен на visible */
+    visibility: hidden; /*на вермя разработки hidden заменен на visible */
     font-size: 12px;
     color: #FF0000;
     font-family:'inter', arial, serif;
     line-height:1.25;
     font-weight:400;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     max-width: 358px;
     padding: 0px;
     text-align:left;
