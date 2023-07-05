@@ -327,4 +327,5 @@ function toggleButtonState (inputsList, buttonElement){
   }else{
     buttonElement.classList.remove('form__button_inactive');
   }
+  
 };
