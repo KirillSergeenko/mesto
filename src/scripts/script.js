@@ -233,7 +233,7 @@ function likeCard(evt){ //лайкосы
       openPhotoInputs(evt);
     });
     
-    console.log('content', content );
+   // console.log('content', content );
     return content;
     
   };
@@ -244,7 +244,7 @@ function likeCard(evt){ //лайкосы
   function addCard(name, link){ //вставляет карточку перед всеми
 
     const contentBox = document.querySelector(createCardSelectors.contentBox);
-    console.log('contentBox', contentBox);
+
     contentBox.prepend(createCard(name, link));
     
   };
@@ -263,6 +263,7 @@ function likeCard(evt){ //лайкосы
 function showInputError(formElement, inputElement, errorMessage) { //input === inputElement из тренажера
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   // console.log('errorElement', errorElement);
+
   inputElement.classList.add('form__input_type_error'); //красное подчеркивание у ИНПУТА
   errorElement.textContent = errorMessage;
   errorElement.classList.add('form__input-error_active'); // показ спана с настроенным form__input-error
@@ -275,13 +276,23 @@ function hideInputError(formElement, inputElement) { //прячет сообще
   errorElement.textContent = ''; //очистим поле ошибки
 };
 
-function checkInputValidity(formElement, inputElement){ 
-  if(!inputElement.validity.valid){
+// function checkInputValidity(formElement, inputElement){ 
+//   if(!inputElement.validity.valid){
+//     showInputError(formElement, inputElement, inputElement.validationMessage);
+//   } else{
+//     hideInputError(formElement, inputElement);//второй параметр покажет текст стандартной ошибки, если она есть
+//   };
+// };
+function checkInputValidity(formElement, inputElement){
+  if (inputElement.validity.valid){
+    hideInputError(formElement, inputElement);
+  }else{
     showInputError(formElement, inputElement, inputElement.validationMessage);
-  } else{
-    hideInputError(formElement, inputElement);//второй параметр покажет текст стандартной ошибки, если она есть
-  };
-};
+  }
+}
+
+
+
 
 function setEventListeners(formElement){ 
   const inputsList = Array.from(formElement.querySelectorAll('.form__input'));
@@ -298,13 +309,13 @@ function setEventListeners(formElement){
 };
 
 
-function enableValidation(){
+function enableValidation(args){
   const formList = Array.from(document.querySelectorAll('.form'));
   formList.forEach((formElement) =>{
     formElement.addEventListener('submit', function (evt){
       evt.preventDefault();
     } );
-    const fieldsetList = Array.from(formElement.querySelectorAll('.form__set')); 
+    const fieldsetList = Array.from(document.querySelectorAll('.form__set')); 
      fieldsetList.forEach((fieldset)=>{
       setEventListeners(fieldset);
     }); 
@@ -312,7 +323,14 @@ function enableValidation(){
     //setEventListeners(formElement);
   });
 };
-enableValidation();
+enableValidation({
+  formElement: '.form',
+  inputElement: '.form__input',
+  buttonElement: '.form__button-save-selfinfo ', 
+  inactiveButtonClass: '.form__button_inactive',
+  inputErrorClass: '.form__input_type_error',
+  errorClass: '.form__input-error_active'
+});
 
 
 function hasInvalidInput(inputsList){//проверим, есть ли хоть 1 невалидное поле вернет тру. если хоть одно с ошибкой
@@ -327,5 +345,5 @@ function toggleButtonState (inputsList, buttonElement){
   }else{
     buttonElement.classList.remove('form__button_inactive');
   }
-  
+
 };
