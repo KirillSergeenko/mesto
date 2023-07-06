@@ -276,13 +276,7 @@ function hideInputError(formElement, inputElement) { //прячет сообще
   errorElement.textContent = ''; //очистим поле ошибки
 };
 
-// function checkInputValidity(formElement, inputElement){ 
-//   if(!inputElement.validity.valid){
-//     showInputError(formElement, inputElement, inputElement.validationMessage);
-//   } else{
-//     hideInputError(formElement, inputElement);//второй параметр покажет текст стандартной ошибки, если она есть
-//   };
-// };
+
 function checkInputValidity(formElement, inputElement){
   if (inputElement.validity.valid){
     hideInputError(formElement, inputElement);
