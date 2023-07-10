@@ -77,40 +77,37 @@ const myFormSelectors = {
   const photoUrl = document.querySelector(createCardSelectors.link);
 
 
-  const initialCards = [
-    {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-      name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-  ]; 
-//hw run 5
-initialCards.forEach(function(item){ //создание карточек
-  const card = addCard(item.name, item.link); //тест return addCart?
-  //const card = createCard(item.name, item.link); // исходник
-});
-
-
-
+//   const initialCards = [
+//     {
+//       name: 'Архыз',
+//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+//     },
+//     {
+//       name: 'Челябинская область',
+//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+//     },
+//     {
+//       name: 'Иваново',
+//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+//     },
+//     {
+//       name: 'Камчатка',
+//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+//     },
+//     {
+//       name: 'Холмогорский район',
+//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+//     },
+//     {
+//       name: 'Байкал',
+//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+//     }
+//   ]; 
+// //hw run 5
+// initialCards.forEach(function(item){ //создание карточек
+//   const card = addCard(item.name, item.link); //тест return addCart?
+//   //const card = createCard(item.name, item.link); // исходник
+// });
 
 
 
@@ -158,8 +155,6 @@ body.addEventListener('keydown', closeToPressEscape);
   body.addEventListener('click', closeToClickOverlay);
 
 
-
-
 function formSubmitHandler (evt) { //при сабмите обновить селфинфуу
     evt.preventDefault(); 
     userName.textContent = nameInput.value;
@@ -182,9 +177,9 @@ function openPhotoInputs(evt){ //открывает фотки при клике
 
 
 btnOpenAddPhoto.addEventListener('click', () => { //при нажатии кнопки открывает форму добавления фотки
-openForm(photoOverlayFormCreator);
-picTitleInput.value = ''; //попытка очистки форм
-picUrlInput.value = '';
+  openForm(photoOverlayFormCreator);
+  picTitleInput.value = ''; //попытка очистки форм
+  picUrlInput.value = '';
 });
 
 btnCloseAddPhotoOverlay.addEventListener('click', () =>{//закрывает форму добавления фоток при нажатии кнопки "закрть"
@@ -199,145 +194,131 @@ closeIncreasePopupBtn.addEventListener('click', () =>{ //закрывает по
 
 
 
-function formAddCardSubmitHandler (evt) {
-  evt.preventDefault(); 
-  addCard(picTitleInput.value, picUrlInput.value);
-  closeForm(photoOverlayFormCreator);
-};
+// function formAddCardSubmitHandler (evt) {
+//   evt.preventDefault(); 
+//   addCard(picTitleInput.value, picUrlInput.value);
+//   closeForm(photoOverlayFormCreator);
+// };
 
 
-photoOverlayFormCreator.addEventListener('submit', formAddCardSubmitHandler);
+// photoOverlayFormCreator.addEventListener('submit', formAddCardSubmitHandler);
 
 
-function likeCard(evt){ //лайкосы
-  evt.target.classList.toggle('content-box__like_active'); 
-};
+// function likeCard(evt){ //лайкосы
+//   evt.target.classList.toggle('content-box__like_active'); 
+// };
 
 
+// function createCard(name, link) { //создает карточку
+//     const content = template.content.querySelector(createCardSelectors.content).cloneNode(true); 
+//     content.querySelector(createCardSelectors.title).textContent = name;
 
-  //тест 
+//     const contentLink = content.querySelector(createCardSelectors.link);
+//     contentLink.src = link;
+//     contentLink.alt = name;
+//     content.querySelector(createCardSelectors.deleteBtn).addEventListener('click', () => {content.remove(); }); //для удаления карточки
 
-  function createCard(name, link) { //создает карточку
-    const content = template.content.querySelector(createCardSelectors.content).cloneNode(true); 
-    content.querySelector(createCardSelectors.title).textContent = name;
-
-    const contentLink = content.querySelector(createCardSelectors.link);
-    contentLink.src = link;
-    contentLink.alt = name;
-    content.querySelector(createCardSelectors.deleteBtn).addEventListener('click', () => {content.remove(); }); //для удаления карточки
-
-    content.querySelector(myFormSelectors.likeBtn).addEventListener('click', likeCard); //like
+//     content.querySelector(myFormSelectors.likeBtn).addEventListener('click', likeCard); //like
     
-
-    content.querySelector(imageSelectors.openPhotoBtn).addEventListener('click', (evt) => { //opener
-      openPhotoInputs(evt);
-    });
-    
-   // console.log('content', content );
-    return content;
-    
-  };
+//     content.querySelector(imageSelectors.openPhotoBtn).addEventListener('click', (evt) => { //opener
+//       openPhotoInputs(evt);
+//     });
+//    // console.log('content', content );
+//     return content;    
+// };
 
 
 
  
-  function addCard(name, link){ //вставляет карточку перед всеми
+// function addCard(name, link){ //вставляет карточку перед всеми
+//     const contentBox = document.querySelector(createCardSelectors.contentBox);
+//     contentBox.prepend(createCard(name, link));
+// };
+  
 
-    const contentBox = document.querySelector(createCardSelectors.contentBox);
-
-    contentBox.prepend(createCard(name, link));
-    
-  };
-  //6 события клавиатуры
-
-
- 
-  // const form = document.querySelector('.form'); //введем отдельно дом лемент форма универсальный для всех форм, а не уникальный. как было раньше
-  // const formInput = form.querySelector('.form__input');// соответственно, найдем инпуты поиском внутри формы
-  // // const formError = form.querySelector(`.${formInput.id}-error`); 
 
   // 6 валидационный функционал
 
 
 
-function showInputError(formElement, inputElement, errorMessage) { //input === inputElement из тренажера
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  // console.log('errorElement', errorElement);
+// function showInputError(formElement, inputElement, errorMessage) { //input === inputElement из тренажера
+//   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+//   // console.log('errorElement', errorElement);
 
-  inputElement.classList.add('form__input_type_error'); //красное подчеркивание у ИНПУТА
-  errorElement.textContent = errorMessage;
-  errorElement.classList.add('form__input-error_active'); // показ спана с настроенным form__input-error
-};
+//   inputElement.classList.add('form__input_type_error'); //красное подчеркивание у ИНПУТА
+//   errorElement.textContent = errorMessage;
+//   errorElement.classList.add('form__input-error_active'); // показ спана с настроенным form__input-error
+// };
 
-function hideInputError(formElement, inputElement) { //прячет сообщение об ошибке
-  const errorElement = formElement.querySelector(`.${inputElement.id}-error`); 
-  inputElement.classList.remove('form__input_type_error'); //отменим поле ошибочного элемента на красный у ИНПУТА
-  errorElement.classList.remove('form__input-error_active');// отменим показ спана с настроенным form__input-error
-  errorElement.textContent = ''; //очистим поле ошибки
-};
-
-
-function checkInputValidity(formElement, inputElement){
-  if (inputElement.validity.valid){
-    hideInputError(formElement, inputElement);
-  }else{
-    showInputError(formElement, inputElement, inputElement.validationMessage);
-  }
-}
+// function hideInputError(formElement, inputElement) { //прячет сообщение об ошибке
+//   const errorElement = formElement.querySelector(`.${inputElement.id}-error`); 
+//   inputElement.classList.remove('form__input_type_error'); //отменим поле ошибочного элемента на красный у ИНПУТА
+//   errorElement.classList.remove('form__input-error_active');// отменим показ спана с настроенным form__input-error
+//   errorElement.textContent = ''; //очистим поле ошибки
+// };
 
 
+// function checkInputValidity(formElement, inputElement){
+//   if (inputElement.validity.valid){
+//     hideInputError(formElement, inputElement);
+//   }else{
+//     showInputError(formElement, inputElement, inputElement.validationMessage);
+//   }
+// }
 
 
-function setEventListeners(formElement){ 
-  const inputsList = Array.from(formElement.querySelectorAll('.form__input'));
-  const buttonElement = formElement.querySelector('.form__button-save-selfinfo');
-  toggleButtonState(inputsList, buttonElement);
-  inputsList.forEach( (inputElement)=>{
-    inputElement.addEventListener('input', function(){
-      toggleButtonState(inputsList, buttonElement);
-      checkInputValidity(formElement, inputElement);
+
+
+// function setEventListeners(formElement){ 
+//   const inputsList = Array.from(formElement.querySelectorAll('.form__input'));
+//   const buttonElement = formElement.querySelector('.form__button-save-selfinfo');
+//   toggleButtonState(inputsList, buttonElement);
+//   inputsList.forEach( (inputElement)=>{
+//     inputElement.addEventListener('input', function(){
+//       toggleButtonState(inputsList, buttonElement);
+//       checkInputValidity(formElement, inputElement);
       
-    });
+//     });
 
-  });
-};
-
-
-function enableValidation(args){
-  const formList = Array.from(document.querySelectorAll('.form'));
-  formList.forEach((formElement) =>{
-    formElement.addEventListener('submit', function (evt){
-      evt.preventDefault();
-    } );
-    const fieldsetList = Array.from(document.querySelectorAll('.form__set')); 
-     fieldsetList.forEach((fieldset)=>{
-      setEventListeners(fieldset);
-    }); 
-
-    //setEventListeners(formElement);
-  });
-};
-enableValidation({
-  formElement: '.form',
-  inputElement: '.form__input',
-  buttonElement: '.form__button-save-selfinfo ', 
-  inactiveButtonClass: '.form__button_inactive',
-  inputErrorClass: '.form__input_type_error',
-  errorClass: '.form__input-error_active'
-});
+//   });
+// };
 
 
-function hasInvalidInput(inputsList){//проверим, есть ли хоть 1 невалидное поле вернет тру. если хоть одно с ошибкой
-  return inputsList.some((inputsList)=>{
-   return !inputsList.validity.valid;
-  } );
-};
+// function enableValidation(args){
+//   const formList = Array.from(document.querySelectorAll('.form'));
+//   formList.forEach((formElement) =>{
+//     formElement.addEventListener('submit', function (evt){
+//       evt.preventDefault();
+//     } );
+//     const fieldsetList = Array.from(document.querySelectorAll('.form__set')); 
+//      fieldsetList.forEach((fieldset)=>{
+//       setEventListeners(fieldset);
+//     }); 
 
-function toggleButtonState (inputsList, buttonElement){
-  if(hasInvalidInput(inputsList)){
-    buttonElement.classList.add('form__button_inactive');
-  }else{
-    buttonElement.classList.remove('form__button_inactive');
-  }
+//     //setEventListeners(formElement);
+//   });
+// };
+// enableValidation({
+//   formElement: '.form',
+//   inputElement: '.form__input',
+//   buttonElement: '.form__button-save-selfinfo ', 
+//   inactiveButtonClass: '.form__button_inactive',
+//   inputErrorClass: '.form__input_type_error',
+//   errorClass: '.form__input-error_active'
+// });
 
-};
+
+// function hasInvalidInput(inputsList){//проверим, есть ли хоть 1 невалидное поле вернет тру. если хоть одно с ошибкой
+//   return inputsList.some((inputsList)=>{
+//    return !inputsList.validity.valid;
+//   } );
+// };
+
+// function toggleButtonState (inputsList, buttonElement){
+//   if(hasInvalidInput(inputsList)){
+//     buttonElement.classList.add('form__button_inactive');
+//   }else{
+//     buttonElement.classList.remove('form__button_inactive');
+//   }
+
+// };
