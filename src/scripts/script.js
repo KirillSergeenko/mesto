@@ -15,55 +15,52 @@ const myFormSelectors = {
  
   
 
-  const buttonOpenAddSelfInfo = document.querySelector(myFormSelectors.buttonAddSelfInfo);     
-  const popupAddSelfInfoCloseBTN = document.querySelector(myFormSelectors.popupButtonClose);                                                                                   
-  const popupProfileOverlay = document.querySelector(myFormSelectors.overlay);                                                                                
-  const popupSelfInfoForm = document.querySelector(myFormSelectors['popupSelfInfoForm']);     //дубль      const      myNameForm                                                       
-  const userName = document.querySelector(myFormSelectors.userName);                    
-  const userJob = document.querySelector(myFormSelectors.userJob);                      
-  const nameInput = document.querySelector(myFormSelectors.nameInput);                  //дубль
-  const jobInput = document.querySelector(myFormSelectors.jobInput);                    //дубль aboutSelfInput
-  const likeBtn = document.querySelector(myFormSelectors.likeBtn);
+const buttonOpenAddSelfInfo = document.querySelector(myFormSelectors.buttonAddSelfInfo);     
+const popupAddSelfInfoCloseBTN = document.querySelector(myFormSelectors.popupButtonClose);                                                                                   
+const popupProfileOverlay = document.querySelector(myFormSelectors.overlay);                                                                                
+const popupSelfInfoForm = document.querySelector(myFormSelectors['popupSelfInfoForm']);     //дубль      const      myNameForm                                                       
+const userName = document.querySelector(myFormSelectors.userName);                    
+const userJob = document.querySelector(myFormSelectors.userJob);                      
+const nameInput = document.querySelector(myFormSelectors.nameInput);                  //дубль
+const jobInput = document.querySelector(myFormSelectors.jobInput);                    //дубль aboutSelfInput
+const likeBtn = document.querySelector(myFormSelectors.likeBtn);
 
   
 
  // form class="form" id = "pic-form" name="pic-form" method="post" novalidate>     
 
-  const imageSelectors = {
-    addPhotoBtn: ".profile__button-addphoto", 
-    addPhotoOverlay: "#popupPhotoFormPosition",
-    pictureTitle: ".content-box__title",
-    picTitleInput: "#pic-name",
-    picUrlInput: "#pic-url",
-    pictureUrl: ".content-box__photo",
-    closeAddPhotoOverlayBTN: '#add-photo-popup-close',
-    addPicturesForm: '.form[id="pic-form"]',
+const imageSelectors = {
+  addPhotoBtn: ".profile__button-addphoto", 
+  addPhotoOverlay: "#popupPhotoFormPosition",
+  pictureTitle: ".content-box__title",
+  picTitleInput: "#pic-name",
+  picUrlInput: "#pic-url",
+  pictureUrl: ".content-box__photo",
+  closeAddPhotoOverlayBTN: '#add-photo-popup-close',
+  addPicturesForm: '.form[id="pic-form"]',
 
-    openPhotoBtn: '.content-box__photo',//new
-    increacePhotoUrl: '.increase__image',//new
-    increacePhotoTitle:'.increase__image-title',//new
-    increasePhotoPopup: '#increasePhotoOverlay',//new
-    closeIncreasePopupBtn: '#increase-popup-close'//new
-  };
+  openPhotoBtn: '.content-box__photo',//new
+  increacePhotoUrl: '.increase__image',//new
+  increacePhotoTitle:'.increase__image-title',//new
+  increasePhotoPopup: '#increasePhotoOverlay',//new
+  closeIncreasePopupBtn: '#increase-popup-close'//new
+};
 
-  const photoOverlayFormCreator = document.querySelector(imageSelectors.addPhotoOverlay);
-  const btnOpenAddPhoto = document.querySelector(imageSelectors.addPhotoBtn);
-  const pictureTitle= document.querySelector(imageSelectors.pictureTitle);
-  const pictureUrl = document.querySelector(imageSelectors.pictureUrl);
-  const btnCloseAddPhotoOverlay = document.querySelector(imageSelectors.closeAddPhotoOverlayBTN);
+const photoOverlayFormCreator = document.querySelector(imageSelectors.addPhotoOverlay);
+const btnOpenAddPhoto = document.querySelector(imageSelectors.addPhotoBtn);
+const pictureTitle= document.querySelector(imageSelectors.pictureTitle);
+const pictureUrl = document.querySelector(imageSelectors.pictureUrl);
+const btnCloseAddPhotoOverlay = document.querySelector(imageSelectors.closeAddPhotoOverlayBTN);
+// const btnOpenPhoto = document.querySelector(imageSelectors.openPhotoBtn);//new
+const photoUrlIncreace = document.querySelector(imageSelectors.increacePhotoUrl);
+const photoTitleIncreace = document.querySelector(imageSelectors.increacePhotoTitle);
+const photoPopupIncrease = document.querySelector(imageSelectors.increasePhotoPopup);
+const closeIncreasePopupBtn = document.querySelector(imageSelectors.closeIncreasePopupBtn);
+const addPicturesForm = document.querySelector(imageSelectors.addPicturesForm);
+const picTitleInput = document.querySelector(imageSelectors.picTitleInput); //
+const picUrlInput = document.querySelector(imageSelectors.picUrlInput); //
 
-  // const btnOpenPhoto = document.querySelector(imageSelectors.openPhotoBtn);//new
-  const photoUrlIncreace = document.querySelector(imageSelectors.increacePhotoUrl);
-  const photoTitleIncreace = document.querySelector(imageSelectors.increacePhotoTitle);
-  const photoPopupIncrease = document.querySelector(imageSelectors.increasePhotoPopup);
-  const closeIncreasePopupBtn = document.querySelector(imageSelectors.closeIncreasePopupBtn);
-
-  const addPicturesForm = document.querySelector(imageSelectors.addPicturesForm);
-  const picTitleInput = document.querySelector(imageSelectors.picTitleInput); //
-  const picUrlInput = document.querySelector(imageSelectors.picUrlInput); //
-
-
-  const createCardSelectors = {
+const createCardSelectors = {
     template: '#card-template',
     content: '.content-box' ,
     title: '.content-box__title',
@@ -72,9 +69,9 @@ const myFormSelectors = {
     contentBox: '.grig-content'
   }
 
-  const template = document.querySelector(createCardSelectors.template);
-  
-  const photoUrl = document.querySelector(createCardSelectors.link);
+const template = document.querySelector(createCardSelectors.template);
+
+const photoUrl = document.querySelector(createCardSelectors.link);
 
 
 //   const initialCards = [
@@ -112,85 +109,85 @@ const myFormSelectors = {
 
 
 
-function openForm(popupElement){ //стандартная открывашка попапов
-  popupElement.classList.add('popup_opened'); 
-}
+// function openForm(popupElement){ //стандартная открывашка попапов
+//   popupElement.classList.add('popup_opened'); 
+// }
 
-function closeForm(popupElement) { //стандартная закрывашка попапов
-  popupElement.classList.remove('popup_opened'); 
-};
-
-
-
-buttonOpenAddSelfInfo.addEventListener('click', function() {//чтоб менять информацию профиля
-  nameInput.value = userName.textContent;
-  jobInput.value = userJob.textContent;
-  openForm(popupProfileOverlay);
-});
-
-
- popupAddSelfInfoCloseBTN.addEventListener('click', function() {// закрыть попап "о себе" при клике на кнопку "закрыть"
-  closeForm(popupProfileOverlay);
-});
+// function closeForm(popupElement) { //стандартная закрывашка попапов
+//   popupElement.classList.remove('popup_opened'); 
+// };
 
 
 
-body.addEventListener('keydown', closeToPressEscape);
+// buttonOpenAddSelfInfo.addEventListener('click', function() {//чтоб менять информацию профиля
+//   nameInput.value = userName.textContent;
+//   jobInput.value = userJob.textContent;
+//   openForm(popupProfileOverlay);
+// });
 
 
- function closeToPressEscape (evt) { //закрывашка любой открытый попап по нажатию эскейп
-    if(evt.key == 'Escape'){
-    document.querySelector('.popup_opened').classList.remove('popup_opened');
-    };
-    body.remove.addEventListener;
-  };
-
-  function closeToClickOverlay (evt) { //закрывашка любой открытый попап кликом в оверлей
-    console.log('evt target', evt.target);
-    if(evt.target.classList.contains('popup')){
-    document.querySelector('.popup_opened').classList.remove('popup_opened');
-    };
-    body.remove.addEventListener;
-  };
-  body.addEventListener('click', closeToClickOverlay);
-
-
-function formSubmitHandler (evt) { //при сабмите обновить селфинфуу
-    evt.preventDefault(); 
-    userName.textContent = nameInput.value;
-    userJob.textContent = jobInput.value;
-  closeForm(popupProfileOverlay);
-};
-
-popupSelfInfoForm.addEventListener('submit', formSubmitHandler);
+//  popupAddSelfInfoCloseBTN.addEventListener('click', function() {// закрыть попап "о себе" при клике на кнопку "закрыть"
+//   closeForm(popupProfileOverlay);
+// });
 
 
 
-function openPhotoInputs(evt){ //открывает фотки при клике на фотку
-
-  openForm(photoPopupIncrease);
-  photoUrlIncreace.src = evt.target.src;
-  photoUrlIncreace.alt = evt.target.alt;
-  photoTitleIncreace.textContent = evt.target.alt;
-  };
+// body.addEventListener('keydown', closeToPressEscape);
 
 
+// function closeToPressEscape (evt) { //закрывашка любой открытый попап по нажатию эскейп
+//     if(evt.key == 'Escape'){
+//       document.querySelector('.popup_opened').classList.remove('popup_opened');
+//       };
+//     body.remove.addEventListener;
+// };
 
-btnOpenAddPhoto.addEventListener('click', () => { //при нажатии кнопки открывает форму добавления фотки
-  openForm(photoOverlayFormCreator);
-  picTitleInput.value = ''; //попытка очистки форм
-  picUrlInput.value = '';
-});
-
-btnCloseAddPhotoOverlay.addEventListener('click', () =>{//закрывает форму добавления фоток при нажатии кнопки "закрть"
-  closeForm(photoOverlayFormCreator);
-});
-
+//   function closeToClickOverlay (evt) { //закрывашка любой открытый попап кликом в оверлей
+//     console.log('evt target', evt.target);
+//     if(evt.target.classList.contains('popup')){
+//     document.querySelector('.popup_opened').classList.remove('popup_opened');
+//     };
+//     body.remove.addEventListener;
+//   };
+//   body.addEventListener('click', closeToClickOverlay);
 
 
-closeIncreasePopupBtn.addEventListener('click', () =>{ //закрывает попап с увеличенной фоткой при нажатии кнопки "закрыть"
-  closeForm(photoPopupIncrease);
-});
+// function formSubmitHandler (evt) { //при сабмите обновить селфинфуу
+//     evt.preventDefault(); 
+//     userName.textContent = nameInput.value;
+//     userJob.textContent = jobInput.value;
+//   closeForm(popupProfileOverlay);
+// };
+
+// popupSelfInfoForm.addEventListener('submit', formSubmitHandler);
+
+
+
+// function openPhotoInputs(evt){ //открывает фотки при клике на фотку
+
+//   openForm(photoPopupIncrease);
+//   photoUrlIncreace.src = evt.target.src;
+//   photoUrlIncreace.alt = evt.target.alt;
+//   photoTitleIncreace.textContent = evt.target.alt;
+//   };
+
+
+
+// btnOpenAddPhoto.addEventListener('click', () => { //при нажатии кнопки открывает форму добавления фотки
+//   openForm(photoOverlayFormCreator);
+//   picTitleInput.value = ''; //попытка очистки форм
+//   picUrlInput.value = '';
+// });
+
+// btnCloseAddPhotoOverlay.addEventListener('click', () =>{//закрывает форму добавления фоток при нажатии кнопки "закрть"
+//   closeForm(photoOverlayFormCreator);
+// });
+
+
+
+// closeIncreasePopupBtn.addEventListener('click', () =>{ //закрывает попап с увеличенной фоткой при нажатии кнопки "закрыть"
+//   closeForm(photoPopupIncrease);
+// });
 
 
 

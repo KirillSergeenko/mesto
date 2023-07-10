@@ -36,11 +36,6 @@ initialCards.forEach(function(item){ //создание карточек
 
 
 
-
-
-
-
-
 function formAddCardSubmitHandler (evt) {
     evt.preventDefault(); 
     addCard(picTitleInput.value, picUrlInput.value);
@@ -83,10 +78,10 @@ function formAddCardSubmitHandler (evt) {
   
   
    
-    function addCard(name, link){ //вставляет карточку перед всеми
+    // function addCard(name, link){ //вставляет карточку перед всеми
   
-      const contentBox = document.querySelector(createCardSelectors.contentBox);
+    //   const contentBox = document.querySelector(createCardSelectors.contentBox);
   
-      contentBox.prepend(createCard(name, link));
+    //   contentBox.prepend(createCard(name, link));
       
-    };
+    // };
