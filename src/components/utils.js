@@ -1,6 +1,6 @@
 //утилитарные функции, которые используются в работе сразу нескольких других функций
 
-
+import {createCardSelectors} from './card.js';
 
 function openForm(popupElement){ //стандартная открывашка попапов
     popupElement.classList.add('popup_opened'); 
@@ -11,6 +11,7 @@ function closeForm(popupElement) { //стандартная закрывашка
     popupElement.classList.remove('popup_opened'); 
   };
   
+
   
 
 function addCard(name, link){ //вставляет карточку перед всеми
@@ -18,3 +19,5 @@ function addCard(name, link){ //вставляет карточку перед �
     contentBox.prepend(createCard(name, link));
     
   };
+
+  export {openForm, closeForm,  addCard};

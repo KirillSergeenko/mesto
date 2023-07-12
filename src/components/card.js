@@ -1,4 +1,18 @@
-//функции для работы с карточками проекта Mesto
+// //функции для работы с карточками проекта Mesto
+import addCard from './utils.js';
+import {picTitleInput, picUrlInput, photoOverlayFormCreator, imageSelectors} from './modal.js';
+export {openForm, closeForm,  addCard} from './utils.js';
+
+const createCardSelectors = {
+    template: '#card-template',
+    content: '.content-box' ,
+    title: '.content-box__title',
+    deleteBtn: ".content-box__delete",
+    link: ".content-box__photo",
+    contentBox: '.grig-content'
+  };
+
+const template = document.querySelector(createCardSelectors.template);
 
 
 const initialCards = [
@@ -35,7 +49,6 @@ initialCards.forEach(function(item){ //создание карточек
 
 
 
-
 function formAddCardSubmitHandler (evt) {
     evt.preventDefault(); 
     addCard(picTitleInput.value, picUrlInput.value);
@@ -43,18 +56,16 @@ function formAddCardSubmitHandler (evt) {
   };
   
   
-  photoOverlayFormCreator.addEventListener('submit', formAddCardSubmitHandler);
+// photoOverlayFormCreator.addEventListener('submit', formAddCardSubmitHandler);
   
   
-  function likeCard(evt){ //лайкосы
+function likeCard(evt){ //лайкосы
     evt.target.classList.toggle('content-box__like_active'); 
   };
   
   
   
-    //тест 
-  
-    function createCard(name, link) { //создает карточку
+function createCard(name, link) { //создает карточку
       const content = template.content.querySelector(createCardSelectors.content).cloneNode(true); 
       content.querySelector(createCardSelectors.title).textContent = name;
   
@@ -78,10 +89,12 @@ function formAddCardSubmitHandler (evt) {
   
   
    
-    // function addCard(name, link){ //вставляет карточку перед всеми
+// function addCard(name, link){ //вставляет карточку перед всеми
   
-    //   const contentBox = document.querySelector(createCardSelectors.contentBox);
+//       const contentBox = document.querySelector(createCardSelectors.contentBox);
   
-    //   contentBox.prepend(createCard(name, link));
+//       contentBox.prepend(createCard(name, link));
       
-    // };
+//     };
+
+export {formAddCardSubmitHandler};
