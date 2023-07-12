@@ -1,7 +1,7 @@
 // //функции для работы с карточками проекта Mesto
-import addCard from './utils.js';
-import {picTitleInput, picUrlInput, photoOverlayFormCreator, imageSelectors} from './modal.js';
-export {openForm, closeForm,  addCard} from './utils.js';
+
+import {picTitleInput, picUrlInput, photoOverlayFormCreator, imageSelectors, myFormSelectors } from './modal';
+import { closeForm,  addCard} from './utils';
 
 const createCardSelectors = {
     template: '#card-template',
@@ -42,10 +42,10 @@ const initialCards = [
     }
   ]; 
 
-initialCards.forEach(function(item){ //создание карточек
-  const card = addCard(item.name, item.link); //тест return addCart?
-  //const card = createCard(item.name, item.link); // исходник
-});
+// initialCards.forEach(function(item){ //создание карточек
+//   const card = addCard(item.name, item.link); //тест return addCart?
+  
+// });
 
 
 
@@ -87,14 +87,6 @@ function createCard(name, link) { //создает карточку
     };
   
   
-  
-   
-// function addCard(name, link){ //вставляет карточку перед всеми
-  
-//       const contentBox = document.querySelector(createCardSelectors.contentBox);
-  
-//       contentBox.prepend(createCard(name, link));
-      
-//     };
 
-export {formAddCardSubmitHandler};
+
+export {formAddCardSubmitHandler, createCard, createCardSelectors, initialCards, };

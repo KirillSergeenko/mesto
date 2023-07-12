@@ -1,6 +1,6 @@
 //утилитарные функции, которые используются в работе сразу нескольких других функций
 
-import {createCardSelectors} from './card.js';
+import {createCardSelectors, createCard} from './card';
 
 function openForm(popupElement){ //стандартная открывашка попапов
     popupElement.classList.add('popup_opened'); 

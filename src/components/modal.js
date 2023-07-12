@@ -1,6 +1,6 @@
 //работу модальных окон
 
-
+ import {closeForm} from './utils';
 
 const myFormSelectors = {
   buttonAddSelfInfo: '.profile__button-addselfinfo',
@@ -15,7 +15,7 @@ const myFormSelectors = {
   likeBtn: ".content-box__like",
   };
 
-//  const body = document.querySelector('body');
+const body = document.querySelector('body');
  
   
 
@@ -64,31 +64,7 @@ const picTitleInput = document.querySelector(imageSelectors.picTitleInput); //
 const picUrlInput = document.querySelector(imageSelectors.picUrlInput); //
 
 
-// function openForm(popupElement){ //стандартная открывашка попапов
-//     popupElement.classList.add('popup_opened'); 
-//   }
-  
-//   function closeForm(popupElement) { //стандартная закрывашка попапов
-//     popupElement.classList.remove('popup_opened'); 
-//   };
-  
-  
-  
-  // buttonOpenAddSelfInfo.addEventListener('click', function() {//чтоб менять информацию профиля
-  //   nameInput.value = userName.textContent;
-  //   jobInput.value = userJob.textContent;
-  //   openForm(popupProfileOverlay);
-  // });
-  
-  
-  //  popupAddSelfInfoCloseBTN.addEventListener('click', function() {// закрыть попап "о себе" при клике на кнопку "закрыть"
-  //   closeForm(popupProfileOverlay);
-  // });
-  
-  
-  
-  // body.addEventListener('keydown', closeToPressEscape);
-  
+
   
   function closeToPressEscape (evt) { //закрывашка любой открытый попап по нажатию эскейп
       if(evt.key == 'Escape'){
@@ -128,31 +104,16 @@ const picUrlInput = document.querySelector(imageSelectors.picUrlInput); //
   
   
   
-  // btnOpenAddPhoto.addEventListener('click', () => { //при нажатии кнопки открывает форму добавления фотки
-  //   openForm(photoOverlayFormCreator);
-  //   picTitleInput.value = ''; //попытка очистки форм
-  //   picUrlInput.value = '';
-  // });
-  
-  // btnCloseAddPhotoOverlay.addEventListener('click', () =>{//закрывает форму добавления фоток при нажатии кнопки "закрть"
-  //   closeForm(photoOverlayFormCreator);
-  // });
-  
-  
-  
-  // closeIncreasePopupBtn.addEventListener('click', () =>{ //закрывает попап с увеличенной фоткой при нажатии кнопки "закрыть"
-  //   closeForm(photoPopupIncrease);
-  // });
-  
+
 
   export {picTitleInput,
      picUrlInput,
       photoOverlayFormCreator,
-       imageSelectors,
-        btnOpenAddPhoto,
-         btnCloseAddPhotoOverlay,
-          buttonOpenAddSelfInfo,
-           popupAddSelfInfoCloseBTN,closeIncreasePopupBtn, 
+       imageSelectors, popupSelfInfoForm,
+        btnOpenAddPhoto, myFormSelectors,
+         btnCloseAddPhotoOverlay, popupProfileOverlay,
+          buttonOpenAddSelfInfo, nameInput, jobInput, body, userName, userJob,
+           popupAddSelfInfoCloseBTN,closeIncreasePopupBtn, photoPopupIncrease,
            formSubmitHandler, openPhotoInputs, closeToClickOverlay, closeToPressEscape
           } ;
 

@@ -3,10 +3,11 @@
 
 import '../pages/index.css';
 
-// import '../scripts/script.js';
 
-const body = document.querySelector('body');
-import {validateSettings, enableValidation } from '../components/validate.js';
+
+
+
+import {validateSettings, enableValidation } from './validate';
 
 import {picTitleInput,
     picUrlInput,
@@ -15,18 +16,25 @@ import {picTitleInput,
        btnOpenAddPhoto,
         btnCloseAddPhotoOverlay, popupProfileOverlay,
          buttonOpenAddSelfInfo, nameInput, jobInput, photoPopupIncrease,
-          popupAddSelfInfoCloseBTN,closeIncreasePopupBtn, 
-          formSubmitHandler,  closeToClickOverlay, closeToPressEscape} from './modal.js';
+          popupAddSelfInfoCloseBTN,closeIncreasePopupBtn, body, userName,userJob,
+          formSubmitHandler,  closeToClickOverlay, closeToPressEscape} from './modal';
 
 
-import {openForm, closeForm } from './utils.js';
-import {formAddCardSubmitHandler} from './card.js';
+import {openForm, closeForm, addCard} from './utils';
+import {formAddCardSubmitHandler, initialCards} from './card';
 
 
 
 //функция добавления карт
 //функция валидации
 //листенеры
+
+initialCards.forEach(function(item){ //создание карточек
+    const card = addCard(item.name, item.link); //тест return addCart?
+    
+  });
+  
+
 
 
 body.addEventListener('keydown', closeToPressEscape);//0
