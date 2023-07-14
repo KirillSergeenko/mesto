@@ -1,6 +1,6 @@
 //работу модальных окон
 
- import {closeForm} from './utils';
+ import {closeForm, openForm} from './utils';
 
 const myFormSelectors = {
   buttonAddSelfInfo: '.profile__button-addselfinfo',
@@ -114,6 +114,6 @@ const picUrlInput = document.querySelector(imageSelectors.picUrlInput); //
          btnCloseAddPhotoOverlay, popupProfileOverlay,
           buttonOpenAddSelfInfo, nameInput, jobInput, body, userName, userJob,
            popupAddSelfInfoCloseBTN,closeIncreasePopupBtn, photoPopupIncrease,
-           formSubmitHandler, openPhotoInputs, closeToClickOverlay, closeToPressEscape
+           formSubmitHandler, openPhotoInputs, closeToClickOverlay, closeToPressEscape,
           } ;
 

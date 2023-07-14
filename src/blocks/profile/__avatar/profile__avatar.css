@@ -1,12 +1,33 @@
 .profile__avatar{
     grid-area: ava;
+    
     max-width: 119px;
     max-height: 129px;
     border-radius: 50%;
     object-fit: contain;
     margin-top: 40px;
     margin-right:0px;
+    position: relative; /* новое*/
+    display: inline-block;
   }
+
+  .profile__avatar:hover::before{ /*новое, чтобы картинка всплывала на аве*/
+    content: '';
+    display: block;
+    background-image: url('../../../images/Vector_avatar.svg');
+    width: 260px;
+    height: 260px;
+    position: absolute;
+    z-index: 5;
+
+
+
+
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+  }
+
   @media screen and (min-width: 320px) and (max-width: 1023px){
     .profile__avatar{
       margin-top: 42px;

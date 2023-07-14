@@ -1,6 +1,6 @@
 .profile__button-addphoto{
     align-self:center;
-    background-image: url(../../../images/plus.svg);
+    background-image: url('../../../images/plus.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 22px;

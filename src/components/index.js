@@ -16,7 +16,7 @@ import {picTitleInput,
        btnOpenAddPhoto,
         btnCloseAddPhotoOverlay, popupProfileOverlay,
          buttonOpenAddSelfInfo, nameInput, jobInput, photoPopupIncrease,
-          popupAddSelfInfoCloseBTN,closeIncreasePopupBtn, body, userName,userJob,
+          popupAddSelfInfoCloseBTN,closeIncreasePopupBtn, body, userName, userJob,
           formSubmitHandler,  closeToClickOverlay, closeToPressEscape} from './modal';
 
 

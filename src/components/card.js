@@ -1,6 +1,6 @@
 // //функции для работы с карточками проекта Mesto
 
-import {picTitleInput, picUrlInput, photoOverlayFormCreator, imageSelectors, myFormSelectors } from './modal';
+import {picTitleInput, picUrlInput, photoOverlayFormCreator, imageSelectors, myFormSelectors, openPhotoInputs } from './modal';
 import { closeForm,  addCard} from './utils';
 
 const createCardSelectors = {
