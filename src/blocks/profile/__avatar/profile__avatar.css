@@ -11,7 +11,7 @@
     display: inline-block;
   }
 
-  .profile__avatar:hover::before{ /*новое, чтобы картинка всплывала на аве*/
+  .profile__avatar:hover::before{ /*новое, чтобы картинка всплывала на аве sss*/
     content: '';
     display: block;
     background-image: url('../../../images/Vector_avatar.svg');
@@ -19,8 +19,6 @@
     height: 260px;
     position: absolute;
     z-index: 5;
-
-
 
 
     background-repeat: no-repeat;
