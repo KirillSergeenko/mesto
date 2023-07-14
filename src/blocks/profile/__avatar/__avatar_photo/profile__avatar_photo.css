@@ -1,0 +1,13 @@
+.profile__avatar_photo{
+    /* grid-area: ava; */
+    width: 119px;
+    height: 119px;
+    /* object-fit: contain; */
+    margin-top: 0px;
+    padding: 0;
+    border-radius: 50%;
+}
+
+.profile__avatar_photo:hover{
+    background-color: rgba(0, 0, 0, 0.3);
+  }

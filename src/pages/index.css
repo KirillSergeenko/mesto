@@ -50,6 +50,9 @@
 
 @import url('../blocks/profile/profile.css');
 @import url('../blocks/profile/__avatar/profile__avatar.css');
+
+@import url('../blocks/profile/__avatar/__avatar_photo/profile__avatar_photo.css');
+
 @import url('../blocks/profile/__button-addphoto/profile__button-addphoto.css');
 @import url('../blocks/profile/__button-addselfinfo/profile__button-addselfinfo.css');
 @import url('../blocks/profile/__info/profile__info.css');
