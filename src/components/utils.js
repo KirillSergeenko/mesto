@@ -35,10 +35,6 @@ function closeForm(popupElement) { //стандартная закрывашка
   };
 
 
-
-
-
-
   
 
 function addCard(name, link){ //вставляет карточку перед всеми
@@ -47,6 +43,5 @@ function addCard(name, link){ //вставляет карточку перед �
     
   };
 
-  export {openForm, closeForm,  addCard, removeInputsError,
-    //closeFormToClickCloseButton
-};
+  export {openForm, closeForm,  addCard, removeInputsError};
+   
