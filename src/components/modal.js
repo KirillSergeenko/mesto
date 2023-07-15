@@ -1,6 +1,6 @@
 //работу модальных окон
 
- import {closeForm, openForm} from './utils';
+ import {closeForm, openForm, } from './utils';
 
 const myFormSelectors = {
   buttonAddSelfInfo: '.profile__button-addselfinfo',
@@ -78,6 +78,7 @@ const inputUrlAva = document.querySelector(imageSelectors.inputUrlAva);
 function closeToPressEscape (evt) { //закрывашка любой открытый попап по нажатию эскейп
       if(evt.key == 'Escape'){
         document.querySelector('.popup_opened').classList.remove('popup_opened');
+        
         };
   };
   
@@ -85,6 +86,7 @@ function closeToClickOverlay (evt) { //закрывашка любой откр�
       console.log('evt target', evt.target);
       if(evt.target.classList.contains('popup')){
       document.querySelector('.popup_opened').classList.remove('popup_opened');
+      
       };
     };
     
@@ -108,14 +110,16 @@ function openPhotoInputs(evt){ //открывает фотки при клике
 
 function reAvatar(evt){
   evt.preventDefault(); 
+  inputUrlAva.value = 0;
   profileAvatar.src = inputUrlAva.value;
   closeForm(updatePopup);
+ 
 }
 
 
 
 
-  export {picTitleInput, picUrlInput,  updatePopup, avaButton, updateBTNClose, reAvatar,
+  export {picTitleInput, picUrlInput,  updatePopup, avaButton, updateBTNClose, reAvatar, inputUrlAva,
       photoOverlayFormCreator,
        imageSelectors, popupSelfInfoForm,
         btnOpenAddPhoto, myFormSelectors,

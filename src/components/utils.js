@@ -22,7 +22,17 @@ function closeForm(popupElement) { //стандартная закрывашка
   //     
   //   };
 
-
+  function removeInputsError(PopupElement){ //кидаю на вход попап, а эту функцию кидаю в обработчики кликов по оверлею, эскейп, чтоб при закрытии формы все сбрасывалось
+    const inputsListError = Array.from(PopupElement.querySelectorAll('.form__input')); //в данной форме ищу поля инпутов
+    inputsListError.forEach((item) =>{
+        item.classList.remove('form__input_type_error') // снимаю с инпутов подчеркивания, принудительно.
+    });
+    const spanListError =  Array.from(PopupElement.querySelectorAll('.form__input-error')); //ищу спаны по форме, 
+    spanListError.forEach((item) => {
+      item.textContent = ' '; //убираю сообщение об ошибке
+       //убираю показ самого спана
+    });
+  };
 
 
 
@@ -37,5 +47,6 @@ function addCard(name, link){ //вставляет карточку перед �
     
   };
 
-  export {openForm, closeForm,  addCard, //closeFormToClickCloseButton
+  export {openForm, closeForm,  addCard, removeInputsError,
+    //closeFormToClickCloseButton
 };

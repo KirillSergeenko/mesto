@@ -14,14 +14,13 @@ import {picTitleInput,  confirmPopup, updatePopup, avaButton,confirmBTNClose, up
      photoOverlayFormCreator, btnUpdateAva,
        popupSelfInfoForm,
        btnOpenAddPhoto,
-        btnCloseAddPhotoOverlay, popupProfileOverlay,
+        btnCloseAddPhotoOverlay, popupProfileOverlay, inputUrlAva, 
          buttonOpenAddSelfInfo, nameInput, jobInput, photoPopupIncrease,
           popupAddSelfInfoCloseBTN,closeIncreasePopupBtn, body, userName, userJob, reAvatar,
           formSubmitHandler,  closeToClickOverlay, closeToPressEscape} from './modal';
 
 
-import {openForm, closeForm, addCard, //closeFormToClickCloseButton
-} from './utils';
+import {openForm, closeForm, addCard} from './utils';
 import {formAddCardSubmitHandler, initialCards} from './card';
 
 
@@ -35,11 +34,14 @@ initialCards.forEach(function(item){ //создание карточек
     
   });
   
-avaButton.addEventListener('click', () => { openForm(updatePopup)} );
+avaButton.addEventListener('click', () => { 
+  inputUrlAva.value = '';
+  openForm(updatePopup)} );
 
 
 
-body.addEventListener('keydown', closeToPressEscape);//0
+body.addEventListener('keydown', closeToPressEscape);
+
 body.addEventListener('click', closeToClickOverlay);//3
 // body.addEventListener('click', closeFormToClickCloseButton);
 
@@ -56,9 +58,13 @@ btnUpdateAva.addEventListener('click', reAvatar);
 
 popupAddSelfInfoCloseBTN.addEventListener('click', function() {// закрыть попап "о себе" при клике на кнопку "закрыть"
     closeForm(popupProfileOverlay);
+    // removeInputsError(popupProfileOverlay);
   });
 
-  updateBTNClose.addEventListener('click', () => {closeForm(updatePopup)});
+  updateBTNClose.addEventListener('click', () => {
+    closeForm(updatePopup);
+    // removeInputsError(updatePopup);
+  });
  
 
 
@@ -78,12 +84,14 @@ btnOpenAddPhoto.addEventListener('click', () => { //при нажатии кно
 //6
 btnCloseAddPhotoOverlay.addEventListener('click', () =>{//закрывает форму добавления фоток при нажатии кнопки "закрть"
     closeForm(photoOverlayFormCreator);
+    
   });
   
   
 //7
 closeIncreasePopupBtn.addEventListener('click', () =>{ //закрывает попап с увеличенной фоткой при нажатии кнопки "закрыть"
     closeForm(photoPopupIncrease);
+    closeToPressEscape(photoPopupIncrease);
   });
 
 photoOverlayFormCreator.addEventListener('submit', formAddCardSubmitHandler); //8

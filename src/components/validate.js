@@ -30,7 +30,7 @@ function showInputError(formElement, inputElement, errorMessage) { //input === i
   
   
   function checkInputValidity(formElement, inputElement){
-    if (inputElement.validity.valid){
+    if (inputElement.validity.valid ){
       hideInputError(formElement, inputElement);
     }else{
       showInputError(formElement, inputElement, inputElement.validationMessage);
@@ -40,7 +40,7 @@ function showInputError(formElement, inputElement, errorMessage) { //input === i
   
   
   
-  function setEventListeners(formElement){ 
+  function setEventListeners(formElement){  //навесить обработчики на нужные поля формы
     const inputsList = Array.from(formElement.querySelectorAll('.form__input'));
     const buttonElement = formElement.querySelector('.form__button-save-selfinfo');
     toggleButtonState(inputsList, buttonElement);
@@ -55,7 +55,7 @@ function showInputError(formElement, inputElement, errorMessage) { //input === i
   };
   
   
-  function enableValidation(args){
+  function enableValidation(args){ //ищут все формы в DOM и вешает на них setEventListeners
     const formList = Array.from(document.querySelectorAll('.form'));
     formList.forEach((formElement) =>{
       formElement.addEventListener('submit', function (evt){
@@ -70,15 +70,9 @@ function showInputError(formElement, inputElement, errorMessage) { //input === i
     });
   };
 
-  // enableValidation({
-  //   formElement: '.form',
-  //   inputElement: '.form__input',
-  //   buttonElement: '.form__button-save-selfinfo ', 
-  //   inactiveButtonClass: '.form__button_inactive',
-  //   inputErrorClass: '.form__input_type_error',
-  //   errorClass: '.form__input-error_active'
-  // });
-  
+
+
+
   
   function hasInvalidInput(inputsList){//проверим, есть ли хоть 1 невалидное поле вернет тру. если хоть одно с ошибкой
     return inputsList.some((inputsList)=>{
@@ -86,14 +80,17 @@ function showInputError(formElement, inputElement, errorMessage) { //input === i
     } );
   };
   
-  function toggleButtonState (inputsList, buttonElement){
+  function toggleButtonState (inputsList, buttonElement){ //вешаем переключатель на кнопку, делаем ее активной, если все ок, неактивной, если есть невалидные поля
     if(hasInvalidInput(inputsList)){
+      buttonElement.disabled = true;
       buttonElement.classList.add('form__button_inactive');
+      
     }else{
+      buttonElement.disabled = false;
       buttonElement.classList.remove('form__button_inactive');
     }
   
   };
   
 
-  export {validateSettings, enableValidation };
+  export {validateSettings, enableValidation,  };
