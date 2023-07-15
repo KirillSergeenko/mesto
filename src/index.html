@@ -53,7 +53,7 @@
 
         
                <div class="popup" id="position">
-                   <div class="popup-container"> <!--замена div на fieldset в обоих попаапах-->
+                   <div class="popup-container"> 
                        <h2 class="popup-container__title">Редактировать профиль</h2>
                        <button class="popup-container__button-close" id="popup-close" type="button" aria-label="Закрыть"></button>
                             <fieldset class="form__set">
@@ -72,7 +72,7 @@
                    </div>
                </div>
 
-               <div class="popup" id="popupPhotoFormPosition"> <!--class="popup-position" -->
+               <div class="popup" id="popupPhotoFormPosition"> 
                    <div class="popup-container">
                        <h2 class="popup-container__title">Новое место</h2>
                        <button class="popup-container__button-close" id="add-photo-popup-close" type="button" aria-label="Закрыть"></button>
@@ -84,7 +84,7 @@
                                         </label>
                                         <label class="form__field">
                                              <input type="url" name ='pic-url'class="form__input " id="pic-url" placeholder="Ссылка на картинку" required>
-                                             <div class="pic-url-error form__input-error"></div>
+                                             <span class="pic-url-error form__input-error"></span>
                                              <button type="submit" class="form__button-save-selfinfo "  aria-label="Создать" >Создать</button>
                                         </label>
                                      </form>
@@ -92,7 +92,7 @@
                    </div>
                </div>
 
-               <div class="popup popup__photo-overlay" id="increasePhotoOverlay"> <!--class="popup-position" -->
+               <div class="popup popup__photo-overlay" id="increasePhotoOverlay">
                    <div class="increase">
                        <img class="increase__image" src=" " alt="Картинка">
                        <h2 class="increase__image-title">Подпись картинки</h2>
@@ -101,34 +101,34 @@
                </div>
             </div>
 
-
-            <div class="popup" id="popupReAvatarConfirm"> <!--class="popup-position" -->
+<!-- попап для подтверждения удаления картинки, необязательный -->
+            <!-- <div class="popup" id="popupReAvatarConfirm"> 
                 <div class="popup-container">
                     <h2 class="popup-container__title popup-container__title_confirm">Вы уверены?</h2>
                     <button class="popup-container__button-close" id="confirm-button-close" type="button" aria-label="Закрыть"></button>
                          <fieldset class="form__set">
                             <form class="form" id = "pic-form" name="pic-form" method="post" novalidate>   
-                               <!-- <label class="form__field"> -->
-                                    <button type="submit" class="form__button-save-selfinfo "  aria-label="Создать" >Да</button>
-                               <!-- </label> -->
+                              
+                                    <button type="submit" class="form__button-save-selfinfo"  id="confirm-BTN" aria-label="Подтвердить" >Да</button>
+                               
                             </form>
                          </fieldset>
                 </div>
-            </div>
+            </div> -->
             
 
 
 
-            <div class="popup" id="popupAvatarUpdate"> <!--class="popup-position" -->
+            <div class="popup" id="popupAvatarUpdate"> 
                 <div class="popup-container">
                     <h2 class="popup-container__title">Обновить аватар</h2>
                     <button class="popup-container__button-close" id="update-button-close" type="button" aria-label="Закрыть"></button>
                          <fieldset class="form__set">
                                   <form class="form" id = "pic-form" name="pic-form" method="post" novalidate> 
                                      <label class="form__field">
-                                          <input type="url" name ='pic-url'class="form__input " id="pic-url" placeholder="Ссылка на картинку" required>
-                                          <div class="pic-url-error form__input-error"></div>
-                                          <button type="submit" class="form__button-save-selfinfo "  aria-label="Создать" >Сохранить</button>
+                                          <input type="url" name ='pic-ava-url'class="form__input " id="pic-ava-url" placeholder="Ссылка на картинку" required>
+                                          <div class="pic-ava-url-error form__input-error"></div>
+                                          <button type="submit" class="form__button-save-selfinfo" id="update-BTN"  aria-label="Сохранить" >Сохранить</button>
                                      </label>
                                   </form>
                          </fieldset>

@@ -10,7 +10,10 @@ const createCardSelectors = {
     deleteBtn: ".content-box__delete",
     link: ".content-box__photo",
     contentBox: '.grig-content'
+
   };
+
+
 
 const template = document.querySelector(createCardSelectors.template);
 
@@ -89,4 +92,4 @@ function createCard(name, link) { //создает карточку
   
 
 
-export {formAddCardSubmitHandler, createCard, createCardSelectors, initialCards, };
+export {formAddCardSubmitHandler, createCard, createCardSelectors, initialCards};

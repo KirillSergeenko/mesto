@@ -9,14 +9,14 @@ import '../pages/index.css';
 
 import {validateSettings, enableValidation } from './validate';
 
-import {picTitleInput,  confirmPopup, updatePopup, avaButton,confirmBTNClose, updateBTNClose,
+import {picTitleInput,  confirmPopup, updatePopup, avaButton,confirmBTNClose, updateBTNClose, btnConfirm,
     picUrlInput,
-     photoOverlayFormCreator,
+     photoOverlayFormCreator, btnUpdateAva,
        popupSelfInfoForm,
        btnOpenAddPhoto,
         btnCloseAddPhotoOverlay, popupProfileOverlay,
          buttonOpenAddSelfInfo, nameInput, jobInput, photoPopupIncrease,
-          popupAddSelfInfoCloseBTN,closeIncreasePopupBtn, body, userName, userJob,
+          popupAddSelfInfoCloseBTN,closeIncreasePopupBtn, body, userName, userJob, reAvatar,
           formSubmitHandler,  closeToClickOverlay, closeToPressEscape} from './modal';
 
 
@@ -35,7 +35,7 @@ initialCards.forEach(function(item){ //создание карточек
     
   });
   
-  avaButton.addEventListener('click', () => { openForm(confirmPopup)} );
+avaButton.addEventListener('click', () => { openForm(updatePopup)} );
 
 
 
@@ -52,13 +52,13 @@ buttonOpenAddSelfInfo.addEventListener('click', function() {//чтоб меня�
   });
 //2
 
-
+btnUpdateAva.addEventListener('click', reAvatar);
 
 popupAddSelfInfoCloseBTN.addEventListener('click', function() {// закрыть попап "о себе" при клике на кнопку "закрыть"
     closeForm(popupProfileOverlay);
   });
 
-  confirmBTNClose.addEventListener('click', () => {closeForm(confirmPopup)});
+  updateBTNClose.addEventListener('click', () => {closeForm(updatePopup)});
  
 
 
@@ -90,4 +90,7 @@ photoOverlayFormCreator.addEventListener('submit', formAddCardSubmitHandler); //
   
 
 enableValidation(validateSettings); //n
+
+
+
 

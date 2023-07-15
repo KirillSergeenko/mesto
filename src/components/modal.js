@@ -5,22 +5,24 @@
 const myFormSelectors = {
   buttonAddSelfInfo: '.profile__button-addselfinfo',
   popupButtonClose: '.popup-container__button-close',
-  overlay: '.popup[id="position"]', //'.popup-position[id="position"]'
-  popupSelfInfoForm: '.form[id="myform"]', //дубль const myNameForm
+  overlay: '.popup[id="position"]', 
+  popupSelfInfoForm: '.form[id="myform"]',
   userName: '.profile__name',
   userJob: '.profile__text',
   nameInput: '#name',
   jobInput: '#about',
   photoCardGalery: '.grig-content',
   likeBtn: ".content-box__like",
-
-
   confirm: '#popupReAvatarConfirm',
   confirmBTNClose: '#confirm-button-close',
   update: '.popup[id="popupAvatarUpdate"]',
   updateBTNClose: '#update-button-close',
-  ava: '.profile__avatar'
+  ava: '.profile__avatar',
+  // btnConfirm: '#confirm-BTN' нужна для формы удалени карточек, не обяательна
+  btnUpdateAva: '#update-BTN'
   };
+
+console.log('myFormSelectors', myFormSelectors );
 
 const body = document.querySelector('body');
  
@@ -29,20 +31,19 @@ const body = document.querySelector('body');
 const buttonOpenAddSelfInfo = document.querySelector(myFormSelectors.buttonAddSelfInfo);     
 const popupAddSelfInfoCloseBTN = document.querySelector(myFormSelectors.popupButtonClose);                                                                                   
 const popupProfileOverlay = document.querySelector(myFormSelectors.overlay);                                                                                
-const popupSelfInfoForm = document.querySelector(myFormSelectors['popupSelfInfoForm']);     //дубль      const      myNameForm                                                       
+const popupSelfInfoForm = document.querySelector(myFormSelectors['popupSelfInfoForm']);                                                 
 const userName = document.querySelector(myFormSelectors.userName);                    
-const userJob = document.querySelector(myFormSelectors.userJob);                      
-const nameInput = document.querySelector(myFormSelectors.nameInput);                  //дубль
-const jobInput = document.querySelector(myFormSelectors.jobInput);                    //дубль aboutSelfInput
-
-const confirmPopup = document.querySelector(myFormSelectors.confirm);
+const userJob = document.querySelector(myFormSelectors.userJob);        
+const nameInput = document.querySelector(myFormSelectors.nameInput);           
+const jobInput = document.querySelector(myFormSelectors.jobInput);                    
 const updatePopup = document.querySelector(myFormSelectors.update);
 const avaButton = document.querySelector(myFormSelectors.ava);
-
-const confirmBTNClose = document.querySelector(myFormSelectors.confirmBTNClose);
 const updateBTNClose = document.querySelector(myFormSelectors.updateBTNClose);
-
-
+const btnUpdateAva = document.querySelector(myFormSelectors.btnUpdateAva);
+// const confirmBTNClose = document.querySelector(myFormSelectors.confirmBTNClose); //нужна для удаления карточек
+// const confirmPopup = document.querySelector(myFormSelectors.confirm); //для удаления карточек, необязательно
+// const btnConfirm = document.querySelector(myFormSelectors.btnConfirm); //нужна для удаления карточек
+// console.log('confirmBTN111', btnConfirm );
 
 const imageSelectors = {
   addPhotoBtn: ".profile__button-addphoto", 
@@ -51,18 +52,19 @@ const imageSelectors = {
   picUrlInput: "#pic-url",
   closeAddPhotoOverlayBTN: '#add-photo-popup-close',
   addPicturesForm: '.form[id="pic-form"]',
-  openPhotoBtn: '.content-box__photo',//new
-  increacePhotoUrl: '.increase__image',//new
-  increacePhotoTitle:'.increase__image-title',//new
-  increasePhotoPopup: '#increasePhotoOverlay',//new
-  closeIncreasePopupBtn: '#increase-popup-close'//new
+  openPhotoBtn: '.content-box__photo',
+  increacePhotoUrl: '.increase__image',
+  increacePhotoTitle:'.increase__image-title',
+  increasePhotoPopup: '#increasePhotoOverlay',
+  closeIncreasePopupBtn: '#increase-popup-close',
+  profileAva: ".profile__avatar_photo",
+  inputUrlAva: "#pic-ava-url"
 };
 
+const profileAvatar = document.querySelector(imageSelectors.profileAva);
 const photoOverlayFormCreator = document.querySelector(imageSelectors.addPhotoOverlay);
 const btnOpenAddPhoto = document.querySelector(imageSelectors.addPhotoBtn);
-
 const btnCloseAddPhotoOverlay = document.querySelector(imageSelectors.closeAddPhotoOverlayBTN);
-
 const photoUrlIncreace = document.querySelector(imageSelectors.increacePhotoUrl);
 const photoTitleIncreace = document.querySelector(imageSelectors.increacePhotoTitle);
 const photoPopupIncrease = document.querySelector(imageSelectors.increasePhotoPopup);
@@ -70,57 +72,56 @@ const closeIncreasePopupBtn = document.querySelector(imageSelectors.closeIncreas
 const addPicturesForm = document.querySelector(imageSelectors.addPicturesForm);
 const picTitleInput = document.querySelector(imageSelectors.picTitleInput); //
 const picUrlInput = document.querySelector(imageSelectors.picUrlInput); //
-
-
+const inputUrlAva = document.querySelector(imageSelectors.inputUrlAva);
 
   
-  function closeToPressEscape (evt) { //закрывашка любой открытый попап по нажатию эскейп
+function closeToPressEscape (evt) { //закрывашка любой открытый попап по нажатию эскейп
       if(evt.key == 'Escape'){
         document.querySelector('.popup_opened').classList.remove('popup_opened');
         };
-      // body.removeEventListener('click', closeToPressEscape );
   };
   
-    function closeToClickOverlay (evt) { //закрывашка любой открытый попап кликом в оверлей
+function closeToClickOverlay (evt) { //закрывашка любой открытый попап кликом в оверлей
       console.log('evt target', evt.target);
       if(evt.target.classList.contains('popup')){
       document.querySelector('.popup_opened').classList.remove('popup_opened');
       };
-     
     };
-    // body.addEventListener('click', closeToClickOverlay);
+    
   
   
-  function formSubmitHandler (evt) { //при сабмите обновить селфинфуу
+function formSubmitHandler (evt) { //при сабмите обновить селфинфуу
       evt.preventDefault(); 
       userName.textContent = nameInput.value;
       userJob.textContent = jobInput.value;
     closeForm(popupProfileOverlay);
   };
   
-  // popupSelfInfoForm.addEventListener('submit', formSubmitHandler);
-  
-  
-  
-  function openPhotoInputs(evt){ //открывает фотки при клике на фотку
-  
+
+function openPhotoInputs(evt){ //открывает фотки при клике на фотку
     openForm(photoPopupIncrease);
     photoUrlIncreace.src = evt.target.src;
     photoUrlIncreace.alt = evt.target.alt;
     photoTitleIncreace.textContent = evt.target.alt;
     };
-  
-  
-  
 
 
-  export {picTitleInput, picUrlInput, confirmPopup, updatePopup, avaButton, confirmBTNClose, updateBTNClose,
+function reAvatar(evt){
+  evt.preventDefault(); 
+  profileAvatar.src = inputUrlAva.value;
+  closeForm(updatePopup);
+}
+
+
+
+
+  export {picTitleInput, picUrlInput,  updatePopup, avaButton, updateBTNClose, reAvatar,
       photoOverlayFormCreator,
        imageSelectors, popupSelfInfoForm,
         btnOpenAddPhoto, myFormSelectors,
          btnCloseAddPhotoOverlay, popupProfileOverlay,
           buttonOpenAddSelfInfo, nameInput, jobInput, body, userName, userJob,
-           popupAddSelfInfoCloseBTN,closeIncreasePopupBtn, photoPopupIncrease,
-           formSubmitHandler, openPhotoInputs, closeToClickOverlay, closeToPressEscape,
+           popupAddSelfInfoCloseBTN, closeIncreasePopupBtn, photoPopupIncrease, btnUpdateAva,
+           formSubmitHandler, openPhotoInputs, closeToClickOverlay, closeToPressEscape, 
           } ;
 
