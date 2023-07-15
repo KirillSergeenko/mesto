@@ -89,6 +89,13 @@
 
 @import url('../blocks/popup-container/__title/__title_confirm/popup-container__title_confirm.css');
 
+
+@import url('../blocks/content-box/__likebox/content-box__likebox.css');
+
+@import url('../blocks/content-box/__like-counter/content-box__like-counter.css');
+@import url('../blocks/content-box/__like-counter/__like-counter_active/content-box__like-counter_active.css');
+
+
 /* классы ошибок из спринта 6 */
 
 
