@@ -110,7 +110,7 @@ function openPhotoInputs(evt){ //открывает фотки при клике
 
 function reAvatar(evt){
   evt.preventDefault(); 
-  inputUrlAva.value = 0;
+  
   profileAvatar.src = inputUrlAva.value;
   closeForm(updatePopup);
  

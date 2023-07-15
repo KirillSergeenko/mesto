@@ -20,7 +20,7 @@ import {picTitleInput,  confirmPopup, updatePopup, avaButton,confirmBTNClose, up
           formSubmitHandler,  closeToClickOverlay, closeToPressEscape} from './modal';
 
 
-import {openForm, closeForm, addCard} from './utils';
+import {openForm, closeForm, addCard, removeInputsError} from './utils';
 import {formAddCardSubmitHandler, initialCards} from './card';
 
 
@@ -36,6 +36,7 @@ initialCards.forEach(function(item){ //создание карточек
   
 avaButton.addEventListener('click', () => { 
   inputUrlAva.value = '';
+  removeInputsError(updatePopup);
   openForm(updatePopup)} );
 
 
@@ -50,6 +51,7 @@ body.addEventListener('click', closeToClickOverlay);//3
 buttonOpenAddSelfInfo.addEventListener('click', function() {//чтоб менять информацию профиля //импортировать батонсэлфинфо+нэйм и жобинпут и опенформ
     nameInput.value = userName.textContent;
     jobInput.value = userJob.textContent;
+    removeInputsError(popupProfileOverlay);
     openForm(popupProfileOverlay);
   });
 //2
@@ -58,12 +60,12 @@ btnUpdateAva.addEventListener('click', reAvatar);
 
 popupAddSelfInfoCloseBTN.addEventListener('click', function() {// закрыть попап "о себе" при клике на кнопку "закрыть"
     closeForm(popupProfileOverlay);
-    // removeInputsError(popupProfileOverlay);
+  
   });
 
   updateBTNClose.addEventListener('click', () => {
     closeForm(updatePopup);
-    // removeInputsError(updatePopup);
+    
   });
  
 
@@ -76,7 +78,8 @@ popupSelfInfoForm.addEventListener('submit', formSubmitHandler);//4
 
 //5
 btnOpenAddPhoto.addEventListener('click', () => { //при нажатии кнопки открывает форму добавления фотки
-    openForm(photoOverlayFormCreator);
+  removeInputsError(photoOverlayFormCreator);
+  openForm(photoOverlayFormCreator);
     picTitleInput.value = ''; //попытка очистки форм
     picUrlInput.value = '';
   });

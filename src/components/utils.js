@@ -29,8 +29,8 @@ function closeForm(popupElement) { //стандартная закрывашка
     });
     const spanListError =  Array.from(PopupElement.querySelectorAll('.form__input-error')); //ищу спаны по форме, 
     spanListError.forEach((item) => {
-      item.textContent = ' '; //убираю сообщение об ошибке
-       //убираю показ самого спана
+      item.textContent = ''; //убираю сообщение об ошибке
+      item.classList.remove('form__input-error_active')//убираю показ самого спана
     });
   };
 
