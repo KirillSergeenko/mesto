@@ -100,6 +100,42 @@
                    </div>
                </div>
             </div>
+
+
+            <div class="popup" id="popupReAvatarConfirm"> <!--class="popup-position" -->
+                <div class="popup-container">
+                    <h2 class="popup-container__title popup-container__title_confirm">Вы уверены?</h2>
+                    <button class="popup-container__button-close" id="confirm-button-close" type="button" aria-label="Закрыть"></button>
+                         <fieldset class="form__set">
+                            <form class="form" id = "pic-form" name="pic-form" method="post" novalidate>   
+                               <!-- <label class="form__field"> -->
+                                    <button type="submit" class="form__button-save-selfinfo "  aria-label="Создать" >Да</button>
+                               <!-- </label> -->
+                            </form>
+                         </fieldset>
+                </div>
+            </div>
+            
+
+
+
+            <div class="popup" id="popupAvatarUpdate"> <!--class="popup-position" -->
+                <div class="popup-container">
+                    <h2 class="popup-container__title">Обновить аватар</h2>
+                    <button class="popup-container__button-close" id="update-button-close" type="button" aria-label="Закрыть"></button>
+                         <fieldset class="form__set">
+                                  <form class="form" id = "pic-form" name="pic-form" method="post" novalidate> 
+                                     <label class="form__field">
+                                          <input type="url" name ='pic-url'class="form__input " id="pic-url" placeholder="Ссылка на картинку" required>
+                                          <div class="pic-url-error form__input-error"></div>
+                                          <button type="submit" class="form__button-save-selfinfo "  aria-label="Создать" >Сохранить</button>
+                                     </label>
+                                  </form>
+                         </fieldset>
+                </div>
+            </div>
+
+           
       
 
       <template id="card-template">

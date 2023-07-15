@@ -9,7 +9,7 @@ import '../pages/index.css';
 
 import {validateSettings, enableValidation } from './validate';
 
-import {picTitleInput,
+import {picTitleInput,  confirmPopup, updatePopup, avaButton,confirmBTNClose, updateBTNClose,
     picUrlInput,
      photoOverlayFormCreator,
        popupSelfInfoForm,
@@ -20,7 +20,8 @@ import {picTitleInput,
           formSubmitHandler,  closeToClickOverlay, closeToPressEscape} from './modal';
 
 
-import {openForm, closeForm, addCard} from './utils';
+import {openForm, closeForm, addCard, //closeFormToClickCloseButton
+} from './utils';
 import {formAddCardSubmitHandler, initialCards} from './card';
 
 
@@ -34,10 +35,15 @@ initialCards.forEach(function(item){ //создание карточек
     
   });
   
+  avaButton.addEventListener('click', () => { openForm(confirmPopup)} );
 
 
 
 body.addEventListener('keydown', closeToPressEscape);//0
+body.addEventListener('click', closeToClickOverlay);//3
+// body.addEventListener('click', closeFormToClickCloseButton);
+
+
 //1
 buttonOpenAddSelfInfo.addEventListener('click', function() {//чтоб менять информацию профиля //импортировать батонсэлфинфо+нэйм и жобинпут и опенформ
     nameInput.value = userName.textContent;
@@ -45,12 +51,20 @@ buttonOpenAddSelfInfo.addEventListener('click', function() {//чтоб меня�
     openForm(popupProfileOverlay);
   });
 //2
+
+
+
 popupAddSelfInfoCloseBTN.addEventListener('click', function() {// закрыть попап "о себе" при клике на кнопку "закрыть"
     closeForm(popupProfileOverlay);
   });
 
+  confirmBTNClose.addEventListener('click', () => {closeForm(confirmPopup)});
+ 
 
-body.addEventListener('click', closeToClickOverlay);//3
+
+// 
+
+
 
 popupSelfInfoForm.addEventListener('submit', formSubmitHandler);//4
 

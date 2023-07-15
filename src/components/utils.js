@@ -1,6 +1,9 @@
 //утилитарные функции, которые используются в работе сразу нескольких других функций
 
 import {createCardSelectors, createCard} from './card';
+import {body} from './modal';
+
+
 
 function openForm(popupElement){ //стандартная открывашка попапов
     popupElement.classList.add('popup_opened'); 
@@ -11,6 +14,20 @@ function closeForm(popupElement) { //стандартная закрывашка
     popupElement.classList.remove('popup_opened'); 
   };
   
+  // function closeFormToClickCloseButton (evt){
+  // console.log('evt target', evt.target);
+  //     if(evt.target.classList.contains('popup-container__button-close') ){
+  //     document.querySelector('.popup_opened').classList.remove('popup_opened');
+  //     };
+  //     
+  //   };
+
+
+
+
+
+
+
 
   
 
@@ -20,4 +37,5 @@ function addCard(name, link){ //вставляет карточку перед �
     
   };
 
-  export {openForm, closeForm,  addCard};
+  export {openForm, closeForm,  addCard, //closeFormToClickCloseButton
+};

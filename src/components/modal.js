@@ -13,6 +13,13 @@ const myFormSelectors = {
   jobInput: '#about',
   photoCardGalery: '.grig-content',
   likeBtn: ".content-box__like",
+
+
+  confirm: '#popupReAvatarConfirm',
+  confirmBTNClose: '#confirm-button-close',
+  update: '.popup[id="popupAvatarUpdate"]',
+  updateBTNClose: '#update-button-close',
+  ava: '.profile__avatar'
   };
 
 const body = document.querySelector('body');
@@ -27,22 +34,23 @@ const userName = document.querySelector(myFormSelectors.userName);
 const userJob = document.querySelector(myFormSelectors.userJob);                      
 const nameInput = document.querySelector(myFormSelectors.nameInput);                  //дубль
 const jobInput = document.querySelector(myFormSelectors.jobInput);                    //дубль aboutSelfInput
-const likeBtn = document.querySelector(myFormSelectors.likeBtn);
 
-  
+const confirmPopup = document.querySelector(myFormSelectors.confirm);
+const updatePopup = document.querySelector(myFormSelectors.update);
+const avaButton = document.querySelector(myFormSelectors.ava);
 
- // form class="form" id = "pic-form" name="pic-form" method="post" novalidate>     
+const confirmBTNClose = document.querySelector(myFormSelectors.confirmBTNClose);
+const updateBTNClose = document.querySelector(myFormSelectors.updateBTNClose);
+
+
 
 const imageSelectors = {
   addPhotoBtn: ".profile__button-addphoto", 
   addPhotoOverlay: "#popupPhotoFormPosition",
- 
   picTitleInput: "#pic-name",
   picUrlInput: "#pic-url",
-  
   closeAddPhotoOverlayBTN: '#add-photo-popup-close',
   addPicturesForm: '.form[id="pic-form"]',
-
   openPhotoBtn: '.content-box__photo',//new
   increacePhotoUrl: '.increase__image',//new
   increacePhotoTitle:'.increase__image-title',//new
@@ -70,7 +78,7 @@ const picUrlInput = document.querySelector(imageSelectors.picUrlInput); //
       if(evt.key == 'Escape'){
         document.querySelector('.popup_opened').classList.remove('popup_opened');
         };
-      body.remove.addEventListener;
+      // body.removeEventListener('click', closeToPressEscape );
   };
   
     function closeToClickOverlay (evt) { //закрывашка любой открытый попап кликом в оверлей
@@ -78,7 +86,7 @@ const picUrlInput = document.querySelector(imageSelectors.picUrlInput); //
       if(evt.target.classList.contains('popup')){
       document.querySelector('.popup_opened').classList.remove('popup_opened');
       };
-      body.remove.addEventListener;
+     
     };
     // body.addEventListener('click', closeToClickOverlay);
   
@@ -106,8 +114,7 @@ const picUrlInput = document.querySelector(imageSelectors.picUrlInput); //
   
 
 
-  export {picTitleInput,
-     picUrlInput,
+  export {picTitleInput, picUrlInput, confirmPopup, updatePopup, avaButton, confirmBTNClose, updateBTNClose,
       photoOverlayFormCreator,
        imageSelectors, popupSelfInfoForm,
         btnOpenAddPhoto, myFormSelectors,

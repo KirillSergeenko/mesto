@@ -6,6 +6,9 @@
 
 @import url('../blocks/content-box/content-box.css');
 
+
+
+
 @import url('../blocks/content-box/__description/content-box__description.css');
 @import url('../blocks/content-box/__like/content-box__like.css');
 @import url('../blocks/content-box/__like/_active/content-box__like_active.css');
@@ -21,6 +24,11 @@
 
 
 @import url('../blocks/popup-container/__title/popup-container__title.css');
+
+
+
+
+
 @import url('../blocks/popup-container/__button-close/popup-container__button-close.css');
 
 @import url('../blocks/form/form.css');
@@ -79,7 +87,7 @@
 @import url('../blocks/form/__input/__input-error/__input-error_active/form__input-error_active.css'); /*стиль вс плывающего сообщения*/
 
 
-
+@import url('../blocks/popup-container/__title/__title_confirm/popup-container__title_confirm.css');
 
 /* классы ошибок из спринта 6 */
 
