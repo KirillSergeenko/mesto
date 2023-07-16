@@ -70,10 +70,7 @@ function showInputError(formElement, inputElement, errorMessage) { //input === i
     });
   };
 
-
-
-
-  
+ 
   function hasInvalidInput(inputsList){//проверим, есть ли хоть 1 невалидное поле вернет тру. если хоть одно с ошибкой
     return inputsList.some((inputsList)=>{
      return !inputsList.validity.valid;

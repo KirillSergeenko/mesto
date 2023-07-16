@@ -17,9 +17,6 @@ const createCardSelectors = {
 
 
 
-
-
-
 const initialCards = [
     {
       name: 'Архыз',
@@ -47,10 +44,6 @@ const initialCards = [
     }
   ]; 
 
-// initialCards.forEach(function(item){ //создание карточек
-//   const card = addCard(item.name, item.link); //тест return addCart?
-  
-// });
 
 
 
@@ -60,67 +53,65 @@ function formAddCardSubmitHandler (evt) {
     closeForm(photoOverlayFormCreator);
   };
   
-  
-// photoOverlayFormCreator.addEventListener('submit', formAddCardSubmitHandler);
+
   
   
 function likeCard(evt){ //лайкосы
     evt.target.classList.toggle('content-box__like_active'); 
   };
+
+
   
 const template = document.querySelector(createCardSelectors.template);
   
 function createCard(name, link) { //создает карточку
       const content = template.content.querySelector(createCardSelectors.content).cloneNode(true); 
       content.querySelector(createCardSelectors.title).textContent = name;
-  
       const contentLink = content.querySelector(createCardSelectors.link);
       contentLink.src = link;
       contentLink.alt = name;
       content.querySelector(createCardSelectors.deleteBtn).addEventListener('click', () => {content.remove(); }); //для удаления карточки
-  
-//добавим в лайккард наш лайкбокс со счетчиком комментов. надо добавить 2 перем
       const likeBox = content.querySelector(createCardSelectors.likeBox);
-      console.log('likeBox', likeBox);
-
-      // likeBox.querySelector(myFormSelectors.likeBtn).addEventListener('click', likeCard);
       content.querySelector(myFormSelectors.likeBtn).addEventListener('click', likeCard);
-      console.log('like', content.querySelector(myFormSelectors.likeBtn));
-
-
       const likeCounter =  likeBox.querySelector(createCardSelectors.likeCounter);
-      console.log('likeCounter', likeCounter);
-
-
-
-// конец зоны экспериментов
-      // content.querySelector(myFormSelectors.likeBtn).addEventListener('click', likeCard); //like было
-      
-  
-      content.querySelector(imageSelectors.openPhotoBtn).addEventListener('click', (evt) => { //opener
+      content.querySelector(imageSelectors.openPhotoBtn).addEventListener('click', (evt) => { 
         openPhotoInputs(evt);
-      });
-      
-     // console.log('content', content );
+      }); 
       return content;
       
     };
   
-
-
-    // const createCardSelectors = {
-    //   template: '#card-template',
-    //   content: '.content-box' ,
-    //   title: '.content-box__title',
-    //   deleteBtn: ".content-box__delete",
-    //   link: ".content-box__photo",
-    //   contentBox: '.grig-content'
-    //likeBox: '.content-box__likebox',
-    //likeCounter: '.content-box__like-counter'
-
-    // };
+// function createCard(name, link) { //создает карточку как было
+//       const content = template.content.querySelector(createCardSelectors.content).cloneNode(true); 
+//       content.querySelector(createCardSelectors.title).textContent = name;
   
+//       const contentLink = content.querySelector(createCardSelectors.link);
+//       contentLink.src = link;
+//       contentLink.alt = name;
+//       content.querySelector(createCardSelectors.deleteBtn).addEventListener('click', () => {content.remove(); }); //для удаления карточки
+
+//       const likeBox = content.querySelector(createCardSelectors.likeBox);
+//       // console.log('likeBox', likeBox);
+//       content.querySelector(myFormSelectors.likeBtn).addEventListener('click', likeCard);
+//       // console.log('like', content.querySelector(myFormSelectors.likeBtn));
+
+
+//       const likeCounter =  likeBox.querySelector(createCardSelectors.likeCounter);
+//       // console.log('likeCounter', likeCounter);
+
+//       // content.querySelector(myFormSelectors.likeBtn).addEventListener('click', likeCard); //like было
+      
+//       content.querySelector(imageSelectors.openPhotoBtn).addEventListener('click', (evt) => { 
+//         openPhotoInputs(evt);
+//       });
+      
+//      // console.log('content', content );
+//       return content;
+      
+//     };
   
+
+
   
   
 

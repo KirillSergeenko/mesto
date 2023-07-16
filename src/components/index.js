@@ -3,10 +3,6 @@
 
 import '../pages/index.css';
 
-
-
-
-
 import {validateSettings, enableValidation } from './validate';
 
 import {picTitleInput,  confirmPopup, updatePopup, avaButton,confirmBTNClose, updateBTNClose, btnConfirm,
@@ -24,14 +20,14 @@ import {openForm, closeForm, addCard, removeInputsError} from './utils';
 import {formAddCardSubmitHandler, initialCards} from './card';
 
 
+import {getUserInformation } from './api';
 
-//функция добавления карт
-//функция валидации
-//листенеры
+
+
+
 
 initialCards.forEach(function(item){ //создание карточек
-    const card = addCard(item.name, item.link); //тест return addCart?
-    
+    const card = addCard(item.name, item.link); //тест return addCart? 
   });
   
 avaButton.addEventListener('click', () => { 
@@ -69,11 +65,6 @@ popupAddSelfInfoCloseBTN.addEventListener('click', function() {// закрыть
   });
  
 
-
-// 
-
-
-
 popupSelfInfoForm.addEventListener('submit', formSubmitHandler);//4
 
 //5
@@ -87,9 +78,7 @@ btnOpenAddPhoto.addEventListener('click', () => { //при нажатии кно
 //6
 btnCloseAddPhotoOverlay.addEventListener('click', () =>{//закрывает форму добавления фоток при нажатии кнопки "закрть"
     closeForm(photoOverlayFormCreator);
-    
   });
-  
   
 //7
 closeIncreasePopupBtn.addEventListener('click', () =>{ //закрывает попап с увеличенной фоткой при нажатии кнопки "закрыть"
@@ -102,6 +91,7 @@ photoOverlayFormCreator.addEventListener('submit', formAddCardSubmitHandler); //
 
 enableValidation(validateSettings); //n
 
+import {getCards} from './utils';
 
-
+getCards();
 

@@ -1,28 +1,19 @@
 //утилитарные функции, которые используются в работе сразу нескольких других функций
 
 import {createCardSelectors, createCard} from './card';
-import {body} from './modal';
-
+import {getCards, getUserInformation} from './api';
 
 
 function openForm(popupElement){ //стандартная открывашка попапов
     popupElement.classList.add('popup_opened'); 
   };
-  
 
 function closeForm(popupElement) { //стандартная закрывашка попапов
     popupElement.classList.remove('popup_opened'); 
   };
   
-  // function closeFormToClickCloseButton (evt){
-  // console.log('evt target', evt.target);
-  //     if(evt.target.classList.contains('popup-container__button-close') ){
-  //     document.querySelector('.popup_opened').classList.remove('popup_opened');
-  //     };
-  //     
-  //   };
 
-  function removeInputsError(PopupElement){ //кидаю на вход попап, а эту функцию кидаю в обработчики кликов по оверлею, эскейп, чтоб при закрытии формы все сбрасывалось
+function removeInputsError(PopupElement){ //кидаю на вход попап, а эту функцию кидаю в обработчики кликов по оверлею, эскейп, чтоб при закрытии формы все сбрасывалось
     const inputsListError = Array.from(PopupElement.querySelectorAll('.form__input')); //в данной форме ищу поля инпутов
     inputsListError.forEach((item) =>{
         item.classList.remove('form__input_type_error') // снимаю с инпутов подчеркивания, принудительно.
@@ -35,13 +26,53 @@ function closeForm(popupElement) { //стандартная закрывашка
   };
 
 
-  
-
 function addCard(name, link){ //вставляет карточку перед всеми
     const contentBox = document.querySelector(createCardSelectors.contentBox);
-    contentBox.prepend(createCard(name, link));
-    
+    contentBox.prepend(createCard(name, link)); 
   };
 
-  export {openForm, closeForm,  addCard, removeInputsError};
+
+
+export function checkResponse(response){ //res - response из отработки промиса
+  if(response.ok){
+      return response.json();
+       // получили зашифрованные данные. расшифровали их с пом res.json
+  };
+  return Promise.reject(`Ошибка ${response.status}`); //получили сообщение об ошибке
+};
+
+
+
+getCards() //должна: 1) забрать карточки с АПИ 2) отрисовать карточки на странице.
+    .then((response) => { //здесь уже по расшифрованным данным вывел в консоль и пробежал форчем
+        console.log('response',response);
+        response.forEach(function(item){ //создание карточек
+            const card = addCard(item.name, item.link); //тест return addCart? 
+          });
+    })
+    .catch((error) =>{
+        console.error(error);
+    });
+
+
+
+getUserInformation()
+    .then((Response) => {
+        console.log('Response-user',Response);
+        const myData = Response;
+        console.log('Response-user-data',myData);
+        return myData;
+    })
+  
+    .catch((error) =>{
+      console.error(error);
+    });
+
+
+const promiceArray = [getCards(), getUserInformation() ];
+
+console.log('getUserInformation',promiceArray);
+
+export {getCards};
+export {openForm, closeForm,  addCard, removeInputsError};
    
