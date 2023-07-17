@@ -32,8 +32,8 @@ const buttonOpenAddSelfInfo = document.querySelector(myFormSelectors.buttonAddSe
 const popupAddSelfInfoCloseBTN = document.querySelector(myFormSelectors.popupButtonClose);                                                                                   
 const popupProfileOverlay = document.querySelector(myFormSelectors.overlay);                                                                                
 const popupSelfInfoForm = document.querySelector(myFormSelectors['popupSelfInfoForm']);                                                 
-const userName = document.querySelector(myFormSelectors.userName);                    
-const userJob = document.querySelector(myFormSelectors.userJob);        
+ const userName = document.querySelector(myFormSelectors.userName);                    
+ const userJob = document.querySelector(myFormSelectors.userJob);        
 const nameInput = document.querySelector(myFormSelectors.nameInput);           
 const jobInput = document.querySelector(myFormSelectors.jobInput);                    
 const updatePopup = document.querySelector(myFormSelectors.update);
@@ -61,7 +61,7 @@ const imageSelectors = {
   inputUrlAva: "#pic-ava-url"
 };
 
-const profileAvatar = document.querySelector(imageSelectors.profileAva);
+export const profileAvatar = document.querySelector(imageSelectors.profileAva);
 const photoOverlayFormCreator = document.querySelector(imageSelectors.addPhotoOverlay);
 const btnOpenAddPhoto = document.querySelector(imageSelectors.addPhotoBtn);
 const btnCloseAddPhotoOverlay = document.querySelector(imageSelectors.closeAddPhotoOverlayBTN);

@@ -2,6 +2,7 @@
 
 import {createCardSelectors, createCard} from './card';
 import {getCards, getUserInformation} from './api';
+import {userName, userJob, profileAvatar} from './modal';
 
 
 function openForm(popupElement){ //стандартная открывашка попапов
@@ -44,6 +45,40 @@ export function checkResponse(response){ //res - response - он же resolve и
 };
 
 
+
+
+function getProfileInformation(name,about, avatar){
+  userName.textContent = name;
+  userJob.textContent = about;
+  profileAvatar.src = avatar;
+};
+
+
+
+Promise.all([getUserInformation(), getCards() ]).then(([user, cards]) => {
+  console.log('USER',user);
+  console.log('CARDS', cards);
+  cards.forEach(function(item){ //создание карточек
+    const card = addCard(item.name, item.link); //тест return addCart? 
+      });
+      getProfileInformation(user.name, user.about, user.avatar);
+  //отрисовка профиля;
+})
+.catch((error) =>{
+    console.error(error);
+});
+
+
+
+
+
+export {getCards};
+export {openForm, closeForm,  addCard, removeInputsError};
+   
+
+//эксперименты и рабочие прототипы.
+//вставлено в промис олл
+
 // getCards() //должна: 1) забрать карточки с АПИ 2) отрисовать карточки на странице.
 //     .then((response) => { //здесь уже по расшифрованным данным вывел в консоль и пробежал форчем
 //         console.log('response',response);
@@ -56,35 +91,13 @@ export function checkResponse(response){ //res - response - он же resolve и
 //     });
 
 
-
-getUserInformation().then((Response) => {
-        console.log('Response-user',Response);
-        const myData = Response;
-        console.log('Response-user-data',myData);
-        return myData;
-    })
+// getUserInformation().then((Response) => {
+//         console.log('Response-user',Response);
+//         const myData = Response;
+//         console.log('Response-user-data',myData);
+//         return myData;
+//     })
   
-    .catch((error) =>{
-      console.error(error);
-    });
-
-
-
-Promise.all([getUserInformation(), getCards() ]).then(([user, cards]) => {
-  console.log('USER',user);
-  console.log('CARDS', cards);
-// }).then((cards) => { //здесь уже по расшифрованным данным вывел в консоль и пробежал форчем
-//   console.log('response',cards);
- return cards.forEach(function(item){ //создание карточек
-      const card = addCard(item.name, item.link); //тест return addCart? 
-    });
-})
-.catch((error) =>{
-  console.error(error);
-});
-
-
-
-export {getCards};
-export {openForm, closeForm,  addCard, removeInputsError};
-   
+//     .catch((error) =>{
+//       console.error(error);
+//     });
