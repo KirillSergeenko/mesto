@@ -16,39 +16,10 @@ const createCardSelectors = {
   };
 
 
-
-const initialCards = [
-    {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-      name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-  ]; 
-
-
-
-
-function formAddCardSubmitHandler (evt) {
-    evt.preventDefault(); 
+  
+  
+  function formAddCardSubmitHandler (evt) {
+    // evt.preventDefault(); 
     addCard(picTitleInput.value, picUrlInput.value);
     closeForm(photoOverlayFormCreator);
   };
@@ -57,13 +28,13 @@ function formAddCardSubmitHandler (evt) {
   
   
 function likeCard(evt){ //лайкосы
-    evt.target.classList.toggle('content-box__like_active'); 
-  };
+  evt.target.classList.toggle('content-box__like_active'); 
+};
 
 
-  
+//требует переделки
 const template = document.querySelector(createCardSelectors.template);
-  
+
 function createCard(name, link) { //создает карточку
       const content = template.content.querySelector(createCardSelectors.content).cloneNode(true); 
       content.querySelector(createCardSelectors.title).textContent = name;
@@ -80,11 +51,10 @@ function createCard(name, link) { //создает карточку
       return content;
       
     };
-  
+    
 // function createCard(name, link) { //создает карточку как было
 //       const content = template.content.querySelector(createCardSelectors.content).cloneNode(true); 
-//       content.querySelector(createCardSelectors.title).textContent = name;
-  
+
 //       const contentLink = content.querySelector(createCardSelectors.link);
 //       contentLink.src = link;
 //       contentLink.alt = name;
@@ -100,21 +70,55 @@ function createCard(name, link) { //создает карточку
 //       // console.log('likeCounter', likeCounter);
 
 //       // content.querySelector(myFormSelectors.likeBtn).addEventListener('click', likeCard); //like было
-      
+
 //       content.querySelector(imageSelectors.openPhotoBtn).addEventListener('click', (evt) => { 
-//         openPhotoInputs(evt);
-//       });
+  //         openPhotoInputs(evt);
+  //       });
       
 //      // console.log('content', content );
 //       return content;
-      
+
 //     };
-  
 
 
-  
-  
 
 
-export {formAddCardSubmitHandler, createCard, createCardSelectors, initialCards, 
+
+
+
+export {formAddCardSubmitHandler, createCard, createCardSelectors, //initialCards, 
 };
+
+
+
+//отжившие свое, резервные
+
+// const initialCards = [
+//     {
+//       name: 'Архыз',
+//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+//     },
+//     {
+//       name: 'Челябинская область',
+//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+//     },
+//     {
+//       name: 'Иваново',
+//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+//     },
+//     {
+//       name: 'Камчатка',
+//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+//     },
+//     {
+//       name: 'Холмогорский район',
+//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+//     },
+//     {
+//       name: 'Байкал',
+//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+//     }
+//   ]; 
+
+
+//       content.querySelector(createCardSelectors.title).textContent = name;

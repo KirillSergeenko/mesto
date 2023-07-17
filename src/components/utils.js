@@ -26,6 +26,8 @@ function removeInputsError(PopupElement){ //кидаю на вход попап,
   };
 
 
+
+
 function addCard(name, link){ //вставляет карточку перед всеми
     const contentBox = document.querySelector(createCardSelectors.contentBox);
     contentBox.prepend(createCard(name, link)); 
@@ -33,7 +35,7 @@ function addCard(name, link){ //вставляет карточку перед �
 
 
 
-export function checkResponse(response){ //res - response из отработки промиса
+export function checkResponse(response){ //res - response - он же resolve из отработки промиса.т.е. результат успешного выполнения
   if(response.ok){
       return response.json();
        // получили зашифрованные данные. расшифровали их с пом res.json
@@ -42,22 +44,20 @@ export function checkResponse(response){ //res - response из отработк�
 };
 
 
-
-getCards() //должна: 1) забрать карточки с АПИ 2) отрисовать карточки на странице.
-    .then((response) => { //здесь уже по расшифрованным данным вывел в консоль и пробежал форчем
-        console.log('response',response);
-        response.forEach(function(item){ //создание карточек
-            const card = addCard(item.name, item.link); //тест return addCart? 
-          });
-    })
-    .catch((error) =>{
-        console.error(error);
-    });
-
+// getCards() //должна: 1) забрать карточки с АПИ 2) отрисовать карточки на странице.
+//     .then((response) => { //здесь уже по расшифрованным данным вывел в консоль и пробежал форчем
+//         console.log('response',response);
+//        return response.forEach(function(item){ //создание карточек
+//             const card = addCard(item.name, item.link); //тест return addCart? 
+//           });
+//     })
+//     .catch((error) =>{
+//         console.error(error);
+//     });
 
 
-getUserInformation()
-    .then((Response) => {
+
+getUserInformation().then((Response) => {
         console.log('Response-user',Response);
         const myData = Response;
         console.log('Response-user-data',myData);
@@ -69,9 +69,21 @@ getUserInformation()
     });
 
 
-const promiceArray = [getCards(), getUserInformation() ];
 
-console.log('getUserInformation',promiceArray);
+Promise.all([getUserInformation(), getCards() ]).then(([user, cards]) => {
+  console.log('USER',user);
+  console.log('CARDS', cards);
+// }).then((cards) => { //здесь уже по расшифрованным данным вывел в консоль и пробежал форчем
+//   console.log('response',cards);
+ return cards.forEach(function(item){ //создание карточек
+      const card = addCard(item.name, item.link); //тест return addCart? 
+    });
+})
+.catch((error) =>{
+  console.error(error);
+});
+
+
 
 export {getCards};
 export {openForm, closeForm,  addCard, removeInputsError};

@@ -10,10 +10,11 @@ export const getCards = () => { //делает запрос на сервер
             "Content-Type": "application/json"
         },
     })
-        .then(checkResponse); //возвращает данные в формате ответа сервера и обрабатывает их методом респонс.json, чтоб получить данные нужного формата.
-           
+        .then(checkResponse); //возвращает данные в формате ответа сервера и обрабатывает их методом респонс.json, чтоб получить данные нужного формата.          
 };
 console.log('промис-карта', getCards);
+
+
 
 export const getUserInformation = () => {
     return fetch('https://nomoreparties.co/v1/plus-cohort-26/users/me', {
@@ -43,8 +44,10 @@ export const profileServerUpdatePATCH = (name, about, avaUrl ) =>{ //патч - 
             about: `${about.textContent}`,
             url: `${avaUrl}`
             }),
-    })
+    }).then(checkResponse);
 };
+console.log('промис-ПАТЧ', profileServerUpdatePATCH);
+
 
 export const deleteServerCard = (cardId)=>{
     return fetch(`https://nomoreparties.co/v1/plus-cohort-26/cards/${cardId}`, {
@@ -55,5 +58,5 @@ export const deleteServerCard = (cardId)=>{
         },
     })
         .then(checkResponse);
-
 };
+console.log('промис-дел', deleteServerCard);
