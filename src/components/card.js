@@ -1,9 +1,10 @@
 // //функции для работы с карточками проекта Mesto
 
 import {picTitleInput, picUrlInput, photoOverlayFormCreator, imageSelectors, myFormSelectors, openPhotoInputs } from './modal';
-import { closeForm,  addCard} from './utils';
+import { closeForm,  addCard, checkResponse
+} from './utils';
 
-import {  deleteServerCard, createServerCardPOST} from './api';
+import {  deleteServerCard,  createServerCardPOST } from './api';
 
 const createCardSelectors = {
     template: '#card-template',
@@ -16,40 +17,56 @@ const createCardSelectors = {
     likeCounter: '.content-box__like-counter'
 
   };
-
   
+  function likeMyBrowserCard(evt){ //лайкосы
+    evt.target.classList.toggle('content-box__like_active'); 
+  };
+  
+  
+
+
+
+  // function createServerCardPOST(itemName, itemlink){
+  //       return fetch('https://nomoreparties.co/v1/plus-cohort-26/cards',{
+  //           method: "POST",
+  //           headers: {
+  //               "authorization": "627579fc-f46e-4865-908e-16ddd6f83f18",
+  //               "Content-Type": "application/json; charset=UTF-8"
+  //           },
+  //           body:JSON.stringify({
+  //               name: itemName,//.name,  
+  //               link: itemlink,//.link  
+  //           }),
+  //       }).then(checkResponse);
+  //   };
+
+
 function formAddCardSubmitHandler (evt) {
     // evt.preventDefault(); 
     createServerCardPOST(picTitleInput.value, picUrlInput.value)
-      .then(() => {
-        addCard(picTitleInput.value, picUrlInput.value);
+      .then((result) => {
+        addCard(result.name, result.link);
       })
       .catch(err => {
         console.error(`Ошибка ${err}`)
       })
       .then(data => {
-        console.log('Отправка карточек на сервер',data )
+        console.log('Отправка карточек на сервер',data)
       })
-
 
     // addCard(picTitleInput.value, picUrlInput.value); //itemName, itemlink
     closeForm(photoOverlayFormCreator);
   };
-  
-function likeMyBrowserCard(evt){ //лайкосы
-  evt.target.classList.toggle('content-box__like_active'); 
-};
-
 
 //требует переделки
 const template = document.querySelector(createCardSelectors.template);
 
 function createCard(itemName, itemlink, cardsLikesLength, itemID, myID, ownerID) { //создает карточку
       const content = template.content.querySelector(createCardSelectors.content).cloneNode(true); 
-      content.querySelector(createCardSelectors.title).textContent = itemName;
+      content.querySelector(createCardSelectors.title).textContent = itemName; //itemName
       const contentLink = content.querySelector(createCardSelectors.link);
-      contentLink.src = itemlink;
-      contentLink.alt = itemName;
+      contentLink.src = itemlink; //itemlink
+      contentLink.alt = itemName; //itemName
       const deleteBtn =content.querySelector(createCardSelectors.deleteBtn);
       checkMyDelButton(myID, ownerID, deleteBtn);
 
