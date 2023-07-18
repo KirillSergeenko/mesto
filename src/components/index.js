@@ -20,9 +20,8 @@ import {openForm, closeForm, addCard, removeInputsError} from './utils';
 import {formAddCardSubmitHandler, initialCards} from './card';
 
 
-import {getUserInformation } from './api';
 
-import * as api from './api';
+
 
 
 

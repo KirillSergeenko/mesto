@@ -27,7 +27,7 @@ const createCardSelectors = {
 
   
   
-function likeCard(evt){ //лайкосы
+function likeMyBrowserCard(evt){ //лайкосы
   evt.target.classList.toggle('content-box__like_active'); 
 };
 
@@ -43,7 +43,7 @@ function createCard(name, link) { //создает карточку
       contentLink.alt = name;
       content.querySelector(createCardSelectors.deleteBtn).addEventListener('click', () => {content.remove(); }); //для удаления карточки
       const likeBox = content.querySelector(createCardSelectors.likeBox);
-      content.querySelector(myFormSelectors.likeBtn).addEventListener('click', likeCard);
+      content.querySelector(myFormSelectors.likeBtn).addEventListener('click', likeMyBrowserCard);
       const likeCounter =  likeBox.querySelector(createCardSelectors.likeCounter);
       content.querySelector(imageSelectors.openPhotoBtn).addEventListener('click', (evt) => { 
         openPhotoInputs(evt);

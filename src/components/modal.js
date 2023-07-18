@@ -1,6 +1,7 @@
 //работу модальных окон
 
- import {closeForm, openForm, } from './utils';
+import {closeForm, openForm, } from './utils';
+import {profileServerUpdatePATCH, profileAvatarUpdatePATCH} from './api';
 
 const myFormSelectors = {
   buttonAddSelfInfo: '.profile__button-addselfinfo',
@@ -96,9 +97,19 @@ function formSubmitHandler (evt) { //при сабмите обновить се
       evt.preventDefault(); 
       userName.textContent = nameInput.value;
       userJob.textContent = jobInput.value;
+      profileServerUpdatePATCH(nameInput, jobInput, inputUrlAva).then((data) => {console.log('data', data)});
     closeForm(popupProfileOverlay);
   };
-  
+
+
+function reAvatar(evt){
+    evt.preventDefault(); 
+    profileAvatar.src = inputUrlAva.value;
+    profileAvatarUpdatePATCH(inputUrlAva).then((data) => {console.log('data2', data)});
+    closeForm(updatePopup);
+  };
+
+
 
 function openPhotoInputs(evt){ //открывает фотки при клике на фотку
     openForm(photoPopupIncrease);
@@ -108,13 +119,7 @@ function openPhotoInputs(evt){ //открывает фотки при клике
     };
 
 
-function reAvatar(evt){
-  evt.preventDefault(); 
-  
-  profileAvatar.src = inputUrlAva.value;
-  closeForm(updatePopup);
- 
-}
+
 
 
 

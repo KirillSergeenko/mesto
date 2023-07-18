@@ -29,9 +29,9 @@ function removeInputsError(PopupElement){ //кидаю на вход попап,
 
 
 
-function addCard(name, link){ //вставляет карточку перед всеми
+function addCard(itemName, itemlink, itemLikes, itemID, myID, ownerID){ //вставляет карточку перед всеми
     const contentBox = document.querySelector(createCardSelectors.contentBox);
-    contentBox.prepend(createCard(name, link)); 
+    contentBox.prepend(createCard(itemName, itemlink)); 
   };
 
 
@@ -54,12 +54,11 @@ function getProfileInformation(name,about, avatar){
 };
 
 
-
 Promise.all([getUserInformation(), getCards() ]).then(([user, cards]) => {
   console.log('USER',user);
   console.log('CARDS', cards);
-  cards.forEach(function(item){ //создание карточек
-    const card = addCard(item.name, item.link); //тест return addCart? 
+  cards.forEach(function(item){ //создание карточек. переделать через createCard
+    const card = addCard(item.name, item.link); 
       });
       getProfileInformation(user.name, user.about, user.avatar);
   //отрисовка профиля;
@@ -76,28 +75,3 @@ export {getCards};
 export {openForm, closeForm,  addCard, removeInputsError};
    
 
-//эксперименты и рабочие прототипы.
-//вставлено в промис олл
-
-// getCards() //должна: 1) забрать карточки с АПИ 2) отрисовать карточки на странице.
-//     .then((response) => { //здесь уже по расшифрованным данным вывел в консоль и пробежал форчем
-//         console.log('response',response);
-//        return response.forEach(function(item){ //создание карточек
-//             const card = addCard(item.name, item.link); //тест return addCart? 
-//           });
-//     })
-//     .catch((error) =>{
-//         console.error(error);
-//     });
-
-
-// getUserInformation().then((Response) => {
-//         console.log('Response-user',Response);
-//         const myData = Response;
-//         console.log('Response-user-data',myData);
-//         return myData;
-//     })
-  
-//     .catch((error) =>{
-//       console.error(error);
-//     });
