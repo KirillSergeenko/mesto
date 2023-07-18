@@ -1,4 +1,5 @@
 .content-box__delete{
+    visibility: hidden;
     background-image: url('../../../images/delete-icon.svg');
     position: absolute;
     width: 18px;

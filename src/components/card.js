@@ -36,27 +36,44 @@ function createCard(itemName, itemlink, cardsLikesLength, itemID, myID, ownerID)
       const contentLink = content.querySelector(createCardSelectors.link);
       contentLink.src = itemlink;
       contentLink.alt = itemName;
-      content.querySelector(createCardSelectors.deleteBtn).addEventListener('click', () => {content.remove(); }); //для удаления карточки
+      const deleteBtn =content.querySelector(createCardSelectors.deleteBtn);
+      checkMyDelButton(myID, ownerID, deleteBtn);
+        //  if(myID === ownerID){
+        //    deleteBtn.classList.add('content-box__delete_active');
+        //  }else{
+        //    deleteBtn.classList.remove('content-box__delete_active');
+        //  };
+
+      deleteBtn.addEventListener('click', () => {content.remove(); }); //для удаления карточки
       const likeBox = content.querySelector(createCardSelectors.likeBox);
-      console.log('likeBox', likeBox);
       const likeBtn = content.querySelector(myFormSelectors.likeBtn);
       likeBtn.addEventListener('click', likeMyBrowserCard);
-      console.log('like', likeBtn);
-
+      
       const likeCounter =  likeBox.querySelector(createCardSelectors.likeCounter);
-      console.log('likeCounter', likeCounter);
       likeCounter.textContent = cardsLikesLength;
       content.querySelector(imageSelectors.openPhotoBtn).addEventListener('click', (evt) => { 
         openPhotoInputs(evt);
-      }); 
-      
 
+
+        
+
+        // console.log('like', likeBtn);
+        // console.log('likeBox', likeBox);
+        // console.log('likeCounter', likeCounter);
+      }); 
+    
 
       return content;
       
     };
     
-
+function checkMyDelButton(myID, ownerID, deleteBtn){
+  if(myID === ownerID){
+    deleteBtn.classList.add('content-box__delete_active');
+  }else{
+    deleteBtn.classList.remove('content-box__delete_active');
+  };
+};
 
 
 export {formAddCardSubmitHandler, createCard, createCardSelectors, //initialCards, 
