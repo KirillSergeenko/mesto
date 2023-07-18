@@ -27,11 +27,11 @@ function removeInputsError(PopupElement){ //кидаю на вход попап,
   };
 
 
+ 
 
-
-function addCard(itemName, itemlink, itemLikes, itemID, myID, ownerID){ //вставляет карточку перед всеми
+function addCard(itemName, itemlink, cardsLikesLength, itemID, myID, ownerID){ //вставляет карточку перед всеми
     const contentBox = document.querySelector(createCardSelectors.contentBox);
-    contentBox.prepend(createCard(itemName, itemlink)); 
+    contentBox.prepend(createCard(itemName, itemlink, cardsLikesLength, itemID, myID, ownerID)); 
   };
 
 
@@ -57,8 +57,7 @@ function getProfileInformation(name,about, avatar){
 Promise.all([getUserInformation(), getCards() ]).then(([user, cards]) => {
   console.log('USER',user);
   console.log('CARDS', cards);
-  cards.forEach(function(item){ //создание карточек. переделать через createCard
-    const card = addCard(item.name, item.link); 
+  cards.forEach(function(item){  return addCard(item.name, item.link, item.likes.length, item._id, user._id, item.owner._id ); 
       });
       getProfileInformation(user.name, user.about, user.avatar);
   //отрисовка профиля;

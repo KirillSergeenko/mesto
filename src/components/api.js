@@ -12,11 +12,8 @@ export function getCards() { //делает запрос на сервер
             "Content-Type": "application/json"
         },
     })
-        .then(checkResponse) //возвращает данные в формате ответа сервера и обрабатывает их методом респонс.json, чтоб получить данные нужного формата.      
-       
+        .then(checkResponse) //возвращает данные в формате ответа сервера и обрабатывает их методом респонс.json, чтоб получить данные нужного формата.        
 };
-
-
 
 
 export function getUserInformation(){
@@ -31,10 +28,7 @@ export function getUserInformation(){
 };
 
 
-
-
-
-export function profileServerUpdatePATCH(name, job, avatar){ //патч - заменяет чатсь данных, в нашем случае инфу о себе и аватарку
+export function profileServerUpdatePATCH(name, job){ //патч - заменяет чатсь данных, в нашем случае инфу о себе и аватарку
     return fetch('https://nomoreparties.co/v1/plus-cohort-26/users/me', {
         method: 'PATCH',
         headers: {
@@ -44,12 +38,12 @@ export function profileServerUpdatePATCH(name, job, avatar){ //патч - зам
         body: JSON.stringify({
             name:     name.value,
             about:    job.value,
-            // avatar:   avatar.value
+         
         }),
     }).then(checkResponse)
 };
 
-export function profileAvatarUpdatePATCH( avatar){ //патч - заменяет чатсь данных, в нашем случае инфу о себе и аватарку
+export function profileAvatarUpdatePATCH(avatar){ //патч - заменяет чатсь данных, в нашем случае инфу о себе и аватарку
     return fetch('https://nomoreparties.co/v1/plus-cohort-26/users/me/avatar', {
         method: 'PATCH',
         headers: {
