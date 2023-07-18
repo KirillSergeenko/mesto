@@ -76,9 +76,33 @@ export function createServerCardPOST(itemName, itemlink){
 export  function deleteServerCard(itemID){
     return fetch(`https://nomoreparties.co/v1/plus-cohort-26/cards/${itemID}`, {
         method: "DELETE",
+        headers: {
+            "authorization": "627579fc-f46e-4865-908e-16ddd6f83f18",
+            "Content-Type": "application/json; charset=UTF-8"
+        },
     })
         .then(checkResponse);
 };
 
 
+export  function deleteServerLike(itemID){
+    return fetch(`https://nomoreparties.co/v1/plus-cohort-26/cards/cards/${itemID}`, {
+        method: "DELETE",
+        headers: {
+            "authorization": "627579fc-f46e-4865-908e-16ddd6f83f18",
+            "Content-Type": "application/json; charset=UTF-8"
+        },
+    }).then(checkResponse);
+    }
+
+export function likePutIn(itemID){
+    return fetch(`https://nomoreparties.co/v1/plus-cohort-26/cards/cards/${itemID}`,{
+        method: "POST",
+        headers: {
+            "authorization": "627579fc-f46e-4865-908e-16ddd6f83f18",
+            "Content-Type": "application/json; charset=UTF-8"
+        },
+    })
+    .then(checkResponse);
+}
 

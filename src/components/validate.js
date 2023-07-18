@@ -35,7 +35,7 @@ function showInputError(formElement, inputElement, errorMessage) { //input === i
     }else{
       showInputError(formElement, inputElement, inputElement.validationMessage);
     }
-  }
+  };
   
   
   

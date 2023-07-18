@@ -62,6 +62,7 @@ Promise.all([getUserInformation(), getCards() ]).then(([user, cards]) => {
       getProfileInformation(user.name, user.about, user.avatar);
   //отрисовка профиля;
 })
+// .then(data =>{console.log("явки пароли", data)})
 .catch((error) =>{
     console.error(error);
 });

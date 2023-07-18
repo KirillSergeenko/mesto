@@ -84,7 +84,7 @@ function closeToPressEscape (evt) { //закрывашка любой откры
   };
   
 function closeToClickOverlay (evt) { //закрывашка любой открытый попап кликом в оверлей
-      console.log('evt target', evt.target);
+      // console.log('evt target', evt.target);
       if(evt.target.classList.contains('popup')){
       document.querySelector('.popup_opened').classList.remove('popup_opened');
       
