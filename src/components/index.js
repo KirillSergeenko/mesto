@@ -22,10 +22,6 @@ import {formAddCardSubmitHandler, initialCards} from './card';
 
 
 
-
-
-
-
 avaButton.addEventListener('click', () => { 
   inputUrlAva.value = '';
   removeInputsError(updatePopup);

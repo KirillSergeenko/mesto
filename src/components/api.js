@@ -58,7 +58,7 @@ export function profileAvatarUpdatePATCH(avatar){ //патч - заменяет 
 
 
 
-export function createServerCardPOST(newCard){
+export function createServerCardPOST(itemName, itemlink){
     return fetch('https://nomoreparties.co/v1/plus-cohort-26/cards',{
         method: "POST",
         headers: {
@@ -66,21 +66,15 @@ export function createServerCardPOST(newCard){
             "Content-Type": "application/json; charset=UTF-8"
         },
         body:JSON.stringify({
-            title: newCard.title,
-            body: newCard.body,
-            link: newCard.src
-        })
-    })
-}
+            name: itemName.name,
+            link: itemlink.link
+        }),
+    }).then(checkResponse);
+};
 
-// export const deleteServerCard = (cardId)=>{
-//     return fetch(`https://nomoreparties.co/v1/plus-cohort-26/cards/${cardId}`, {
-//         method: "DELETE",
-//         headers: {
-//             "authorization": "627579fc-f46e-4865-908e-16ddd6f83f18",
-//             "Content-Type": "application/json"
-//         },
-//     })
-//         .then(checkResponse);
-// };
-// console.log('промис-дел', deleteServerCard);
+export  function deleteServerCard(itemID){
+    return fetch(`https://nomoreparties.co/v1/plus-cohort-26/cards/${itemID}`, {
+        method: "DELETE",
+    })
+        .then(checkResponse);
+};

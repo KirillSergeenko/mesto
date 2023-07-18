@@ -3,6 +3,8 @@
 import {picTitleInput, picUrlInput, photoOverlayFormCreator, imageSelectors, myFormSelectors, openPhotoInputs } from './modal';
 import { closeForm,  addCard} from './utils';
 
+import {  deleteServerCard, createServerCardPOST} from './api';
+
 const createCardSelectors = {
     template: '#card-template',
     content: '.content-box' ,
@@ -18,7 +20,19 @@ const createCardSelectors = {
   
 function formAddCardSubmitHandler (evt) {
     // evt.preventDefault(); 
-    addCard(picTitleInput.value, picUrlInput.value);
+    createServerCardPOST(picTitleInput.value, picUrlInput.value)
+      .then(() => {
+        addCard(picTitleInput.value, picUrlInput.value);
+      })
+      .catch(err => {
+        console.error(`Ошибка ${err}`)
+      })
+      .then(data => {
+        console.log('Отправка карточек на сервер',data )
+      })
+
+
+    // addCard(picTitleInput.value, picUrlInput.value); //itemName, itemlink
     closeForm(photoOverlayFormCreator);
   };
   
@@ -38,14 +52,12 @@ function createCard(itemName, itemlink, cardsLikesLength, itemID, myID, ownerID)
       contentLink.alt = itemName;
       const deleteBtn =content.querySelector(createCardSelectors.deleteBtn);
       checkMyDelButton(myID, ownerID, deleteBtn);
-        //  if(myID === ownerID){
-        //    deleteBtn.classList.add('content-box__delete_active');
-        //  }else{
-        //    deleteBtn.classList.remove('content-box__delete_active');
-        //  };
 
-      deleteBtn.addEventListener('click', () => {content.remove(); }); //для удаления карточки
-      const likeBox = content.querySelector(createCardSelectors.likeBox);
+      deleteBtn.addEventListener('click', () => {
+        deleteMyServerCard(itemID, content)});
+        
+        // deleteBtn.addEventListener('click', () => {content.remove(); }); //для удаления карточки
+        const likeBox = content.querySelector(createCardSelectors.likeBox);
       const likeBtn = content.querySelector(myFormSelectors.likeBtn);
       likeBtn.addEventListener('click', likeMyBrowserCard);
       
@@ -53,18 +65,9 @@ function createCard(itemName, itemlink, cardsLikesLength, itemID, myID, ownerID)
       likeCounter.textContent = cardsLikesLength;
       content.querySelector(imageSelectors.openPhotoBtn).addEventListener('click', (evt) => { 
         openPhotoInputs(evt);
-
-
-        
-
-        // console.log('like', likeBtn);
-        // console.log('likeBox', likeBox);
-        // console.log('likeCounter', likeCounter);
       }); 
     
-
       return content;
-      
     };
     
 function checkMyDelButton(myID, ownerID, deleteBtn){
@@ -76,6 +79,20 @@ function checkMyDelButton(myID, ownerID, deleteBtn){
 };
 
 
+function deleteMyServerCard(itemID, element){
+  deleteServerCard(itemID)
+    .then( ( ) => {
+      return element.remove(); //нужен ли ретурн - тесты покажут
+  })
+   .then(data => {console.log("ответ от запроса ДЕЛЕТЕ", data)})
+   .catch((error) => {
+      return  console.error(`Ошибка ${error}`);
+  });
+};
+
+
+
+
 export {formAddCardSubmitHandler, createCard, createCardSelectors, //initialCards, 
 };
 
@@ -84,65 +101,70 @@ export {formAddCardSubmitHandler, createCard, createCardSelectors, //initialCard
 //отжившие свое, резервные
 
 // const initialCards = [
-//     {
-//       name: 'Архыз',
-//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  //     {
+    //       name: 'Архыз',
+    //       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
 //     },
 //     {
-//       name: 'Челябинская область',
-//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-//     },
-//     {
-//       name: 'Иваново',
-//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-//     },
-//     {
-//       name: 'Камчатка',
-//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-//     },
-//     {
-//       name: 'Холмогорский район',
-//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-//     },
-//     {
-//       name: 'Байкал',
-//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-//     }
-//   ]; 
-
-
-//       content.querySelector(createCardSelectors.title).textContent = name;
-
-
-
-// function createCard(name, link) { //создает карточку как было
-//       const content = template.content.querySelector(createCardSelectors.content).cloneNode(true); 
-
-//       const contentLink = content.querySelector(createCardSelectors.link);
-//       contentLink.src = link;
-//       contentLink.alt = name;
-//       content.querySelector(createCardSelectors.deleteBtn).addEventListener('click', () => {content.remove(); }); //для удаления карточки
-
-//       const likeBox = content.querySelector(createCardSelectors.likeBox);
-//       // console.log('likeBox', likeBox);
-//       content.querySelector(myFormSelectors.likeBtn).addEventListener('click', likeCard);
-//       // console.log('like', content.querySelector(myFormSelectors.likeBtn));
-
-
-//       const likeCounter =  likeBox.querySelector(createCardSelectors.likeCounter);
-//       // console.log('likeCounter', likeCounter);
+  //       name: 'Челябинская область',
+  //       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  //     },
+  //     {
+    //       name: 'Иваново',
+    //       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    //     },
+    //     {
+      //       name: 'Камчатка',
+      //       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+      //     },
+      //     {
+        //       name: 'Холмогорский район',
+        //       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+        //     },
+        //     {
+          //       name: 'Байкал',
+          //       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+          //     }
+          //   ]; 
+          
+          
+          //       content.querySelector(createCardSelectors.title).textContent = name;
+          
+          
+          
+          // function createCard(name, link) { //создает карточку как было
+          //       const content = template.content.querySelector(createCardSelectors.content).cloneNode(true); 
+          
+          //       const contentLink = content.querySelector(createCardSelectors.link);
+          //       contentLink.src = link;
+          //       contentLink.alt = name;
+          //       content.querySelector(createCardSelectors.deleteBtn).addEventListener('click', () => {content.remove(); }); //для удаления карточки
+          
+          //       const likeBox = content.querySelector(createCardSelectors.likeBox);
+          //       // console.log('likeBox', likeBox);
+          //       content.querySelector(myFormSelectors.likeBtn).addEventListener('click', likeCard);
+          //       // console.log('like', content.querySelector(myFormSelectors.likeBtn));
+          
+          
+          //       const likeCounter =  likeBox.querySelector(createCardSelectors.likeCounter);
+          //       // console.log('likeCounter', likeCounter);
 
 //       // content.querySelector(myFormSelectors.likeBtn).addEventListener('click', likeCard); //like было
 
 //       content.querySelector(imageSelectors.openPhotoBtn).addEventListener('click', (evt) => { 
   //         openPhotoInputs(evt);
   //       });
-      
-//      // console.log('content', content );
-//       return content;
-
-//     };
-
-
-
-
+  
+  //      // console.log('content', content );
+  //       return content;
+  
+  //     };
+  
+  
+  
+  
+  //  if(myID === ownerID){
+  //    deleteBtn.classList.add('content-box__delete_active');
+  //  }else{
+  //    deleteBtn.classList.remove('content-box__delete_active');
+  //  };

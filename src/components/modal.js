@@ -97,7 +97,7 @@ function formSubmitHandler (evt) { //при сабмите обновить се
       evt.preventDefault(); 
       userName.textContent = nameInput.value;
       userJob.textContent = jobInput.value;
-      profileServerUpdatePATCH(nameInput, jobInput, inputUrlAva).then((data) => {console.log('data', data)});
+      profileServerUpdatePATCH(nameInput, jobInput, inputUrlAva).then((data) => {console.log('Ответ по обновлению инфы о себе', data)});
     closeForm(popupProfileOverlay);
   };
 
@@ -105,7 +105,7 @@ function formSubmitHandler (evt) { //при сабмите обновить се
 function reAvatar(evt){
     evt.preventDefault(); 
     profileAvatar.src = inputUrlAva.value;
-    profileAvatarUpdatePATCH(inputUrlAva).then((data) => {console.log('data2', data)});
+    profileAvatarUpdatePATCH(inputUrlAva).then((data) => {console.log('Ответ по загрузке авы', data)});
     closeForm(updatePopup);
   };
 
