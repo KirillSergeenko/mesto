@@ -1,7 +1,7 @@
 
 import {checkResponse} from './utils';
 
-import{nameInput,jobInput,inputUrlAva} from './modal';
+;
 
 
 export function getCards() { //делает запрос на сервер
@@ -109,15 +109,15 @@ export function likePutInServer(itemID){
 }
 
 
-
-// export function renderLoading(isLoading){
+export const buttonSaveProc = document.querySelector('.form__button-save-selfinfo');
+export function renderLoading(buttonSaveProc, isLoading){
   
-//     if (isLoading) {
-//       document.querySelector('.form__button-save-selfinfo').textContent = 'Сохранение...';
-//       console.log(document.querySelector('.form__button-save-selfinfo'));
-//      }else{
-//       document.querySelector('.form__button-save-selfinfo').textContent = 'Сохранить';
-//      };
-//      };
+    if (isLoading) {
+        buttonSaveProc.textContent = 'Сохранение...';
+      console.log('aaaaaaaaaaaa',buttonSaveProc);
+     }else{
+        buttonSaveProc.textContent = 'Сохранить';
+     };
+     };
      
     

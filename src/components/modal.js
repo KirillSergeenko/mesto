@@ -76,21 +76,21 @@ const picUrlInput = document.querySelector(imageSelectors.picUrlInput); //
 const inputUrlAva = document.querySelector(imageSelectors.inputUrlAva);
 
   
-function closeToPressEscape (evt) { //закрывашка любой открытый попап по нажатию эскейп
-  console.log('evt.keyt', evt.key);
-      if((evt.key == 'Escape')) {
-        document.querySelector('.popup').classList.remove('popup_opened');
-         };
+// function closeToPressEscape (evt) { //закрывашка любой открытый попап по нажатию эскейп
+//   console.log('evt.keyt', evt.key);
+//       if((evt.key == 'Escape')) {
+//         document.querySelector('.popup').classList.remove('popup_opened');
+//          };
      
-  };
+//   };
   
-function closeToClickOverlay (evt) { //закрывашка любой открытый попап кликом в оверлей
-      console.log('evt target', evt.target);
-      if(evt.target.classList.contains('popup')){
-      document.querySelector('.popup_opened').classList.remove('popup_opened');
-      };
-      // evt.target.removeEventListener('click', closeToClickOverlay);
-    };
+// function closeToClickOverlay (evt) { //закрывашка любой открытый попап кликом в оверлей
+//       console.log('evt target', evt.target);
+//       if(evt.target.classList.contains('popup')){
+//       document.querySelector('.popup_opened').classList.remove('popup_opened');
+//       };
+//       // evt.target.removeEventListener('click', closeToClickOverlay);
+//     };
     
   
   
@@ -139,7 +139,7 @@ function openPhotoInputs(evt){ //открывает фотки при клике
          btnCloseAddPhotoOverlay, popupProfileOverlay,
           buttonOpenAddSelfInfo, nameInput, jobInput, body, userName, userJob,
            popupAddSelfInfoCloseBTN, closeIncreasePopupBtn, photoPopupIncrease, btnUpdateAva,
-           formSubmitHandler, openPhotoInputs, closeToClickOverlay, 
-           closeToPressEscape, 
+           formSubmitHandler, openPhotoInputs,
+            //closeToClickOverlay, closeToPressEscape, 
           } ;
 

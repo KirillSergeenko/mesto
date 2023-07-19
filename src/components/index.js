@@ -13,7 +13,7 @@ import {picTitleInput,  confirmPopup, updatePopup, avaButton,confirmBTNClose, up
         btnCloseAddPhotoOverlay, popupProfileOverlay, inputUrlAva, 
          buttonOpenAddSelfInfo, nameInput, jobInput, photoPopupIncrease,
           popupAddSelfInfoCloseBTN,closeIncreasePopupBtn, body, userName, userJob, reAvatar,
-          formSubmitHandler,  closeToClickOverlay, closeToPressEscape
+          formSubmitHandler,  //closeToClickOverlay, closeToPressEscape
         } from './modal';
 
 
@@ -29,12 +29,34 @@ avaButton.addEventListener('click', () => {
   openForm(updatePopup)} );
   
 
+  const form = document.querySelector('.form');
 
-body.addEventListener('keydown', closeToPressEscape);
+  body.addEventListener('keydown', closeToPressEscape);
   
-body.addEventListener('click', closeToClickOverlay);//3
+  body.addEventListener('click', closeToClickOverlay);//3
  
   
+
+function closeToPressEscape (evt) { //закрывашка любой открытый попап по нажатию эскейп
+  console.log('evt.keyt', evt.key);
+      if((evt.key == 'Escape')) {
+        document.querySelector('.popup').classList.remove('popup_opened');
+         };
+     
+  };
+  
+function closeToClickOverlay (evt) { //закрывашка любой открытый попап кликом в оверлей
+      console.log('evt target', evt.target);
+      if(evt.target.classList.contains('popup')){
+      document.querySelector('.popup_opened').classList.remove('popup_opened');
+      };
+      
+    };
+    
+  
+
+
+
   
   //1
   buttonOpenAddSelfInfo.addEventListener('click', function() {//чтоб менять информацию профиля //импортировать батонсэлфинфо+нэйм и жобинпут и опенформ

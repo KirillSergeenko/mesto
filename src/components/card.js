@@ -5,9 +5,9 @@ import { closeForm,  addCard,
 } from './utils';
 
 import { deleteServerCard,
-    createServerCardPOST,
+    createServerCardPOST,buttonSaveProc,
     deleteServerLike,
-    likePutInServer} from './api';
+    likePutInServer, renderLoading} from './api';
 
 const createCardSelectors = {
     template: '#card-template',
@@ -23,12 +23,14 @@ const createCardSelectors = {
 
   
 function formAddCardSubmitHandler (evt) {
-  evt.preventDefault(); 
-
+  // evt.preventDefault(evt); 
+  renderLoading(buttonSaveProc, true);
   createServerCardPOST(picTitleInput.value, picUrlInput.value)
-  .then((result) => {addCard(result.name, result.link, )})
+  .then((result) => {return addCard(result.name, result.link, result.likes)})
     .catch(err => {console.error(`Ошибка ${err}`)})
-      .finally(() => {})
+      .finally(() => {console.log("эгегей");
+      renderLoading(buttonSaveProc, false);
+      });
        
         closeForm(photoOverlayFormCreator);
       };
