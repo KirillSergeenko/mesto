@@ -63,14 +63,10 @@ function formAddCardSubmitHandler (evt) {
     });  
 
 
-    checkMyLikes(cardsLikes, myID);
-    console.log('checkMyLikes(cardsLikes, myID)',checkMyLikes(cardsLikes, myID));
-
-
-
-
-    likeBtn.addEventListener('click', () => {checkMyLikes(cardsLikes, myID);
-      toggleServLike(itemID, cardsLikes, myID, likeCounter, likeBtn, )}); 
+    checkMyLikes( cardsLikes,likeCounter, myID, likeBtn)
+   
+    likeBtn.addEventListener('click', () => {checkMyLikes( cardsLikes,likeCounter, myID, likeBtn);
+      toggleServLike(itemID, cardsLikes, myID, likeCounter, likeBtn)}); 
 
     deleteBtn.addEventListener('click', () => {deleteMyServerCard(itemID, content)});
     
@@ -79,33 +75,32 @@ function formAddCardSubmitHandler (evt) {
 
 
 
-function checkMyLikes(cardsLikes, myID){
+function checkMyLikes( cardsLikes,likeCounter, myID, likeBtn) {
+  likeCounter.textContent = cardsLikes.length;
   cardsLikes.forEach((item)=>{
     if(item._id === myID){
-      return true;
-    }else{
-      return false;
-    }
-  });
-};
-
-  function toggleServLike(itemID, cardsLikes, myID, likeCounter, likeBtn, ){
-    if(checkMyLikes(cardsLikes, myID)){
-      deleteServerLike(itemID)
-      .then((result) =>{
-        likeBtn.classList.remove('content-box__like_active');
-        likeCounter.textContent = result.likes.length;
-      }).catch((err)=>{console.error(`ошибка ${err}`)});
-    }else{
-      likePutInServer(itemID)
-      .then((result) =>{
-        likeBtn.classList.add('content-box__like_active');
-        likeCounter.textContent = result.likes.length;
-      }).catch((err)=>{console.error(`ошибка ${err}`)});
-    }
+      likeBtn.classList.toggle('content-box__like_active'); 
+      }
+     });
   };
-  
 
+
+function toggleServLike(itemID, cardsLikes, myID, likeCounter, likeBtn){
+    if(likeBtn.classList.contains('content-box__like_active')) {
+    likePutInServer(itemID)
+    .then((result) =>{
+      likeBtn.classList.add('content-box__like_active');
+      likeCounter.textContent = result.likes.length;
+    }).catch((err)=>{console.error(`ошибка ${err}`)});
+  }else{
+    deleteServerLike(itemID)
+    .then((result) =>{
+      likeBtn.classList.remove('content-box__like_active');
+      likeCounter.textContent = result.likes.length;
+    }).catch((err)=>{console.error(`ошибка ${err}`)});
+};
+  
+};
 
 function deleteMyServerCard(itemID, element){
       deleteServerCard(itemID)
