@@ -57,7 +57,7 @@ function getProfileInformation(name,about, avatar){
 Promise.all([getUserInformation(), getCards() ]).then(([user, cards]) => {
   console.log('USER',user);
   console.log('CARDS', cards);
-  cards.forEach(function(item){  return addCard(item.name, item.link, item.likes.length, item._id, user._id, item.owner._id );
+  cards.forEach(function(item){  return addCard(item.name, item.link, item.likes, item._id, user._id, item.owner._id );
       });
       getProfileInformation(user.name, user.about, user.avatar);
   //отрисовка профиля;

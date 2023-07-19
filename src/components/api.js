@@ -86,7 +86,8 @@ export  function deleteServerCard(itemID){
 
 
 export  function deleteServerLike(itemID){
-    return fetch(`https://nomoreparties.co/v1/plus-cohort-26/cards/cards/${itemID}`, {
+    console.log('itemID', itemID);
+    return fetch(`https://nomoreparties.co/v1/plus-cohort-26/cards/likes/${itemID}`, {
         method: "DELETE",
         headers: {
             "authorization": "627579fc-f46e-4865-908e-16ddd6f83f18",
@@ -95,9 +96,10 @@ export  function deleteServerLike(itemID){
     }).then(checkResponse);
     }
 
-export function likePutIn(itemID){
-    return fetch(`https://nomoreparties.co/v1/plus-cohort-26/cards/cards/${itemID}`,{
-        method: "POST",
+export function likePutInServer(itemID){
+    console.log('itemID2', itemID);
+    return fetch(`https://nomoreparties.co/v1/plus-cohort-26/cards/likes/${itemID}`,{
+        method: "PUT",
         headers: {
             "authorization": "627579fc-f46e-4865-908e-16ddd6f83f18",
             "Content-Type": "application/json; charset=UTF-8"

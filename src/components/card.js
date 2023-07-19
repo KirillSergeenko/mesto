@@ -5,7 +5,9 @@ import { closeForm,  addCard, checkResponse
 } from './utils';
 
 import { deleteServerCard,
-    createServerCardPOST } from './api';
+    createServerCardPOST,
+    deleteServerLike,
+    likePutInServer} from './api';
 
 const createCardSelectors = {
     template: '#card-template',
@@ -19,123 +21,129 @@ const createCardSelectors = {
 
   };
   
-  function likeMyBrowserCard(evt){ //лайкосы
-    evt.target.classList.toggle('content-box__like_active'); 
-  };
   
   
-
-
-
-  // function createServerCardPOST(itemName, itemlink){
-  //       return fetch('https://nomoreparties.co/v1/plus-cohort-26/cards',{
-  //           method: "POST",
-  //           headers: {
-  //               "authorization": "627579fc-f46e-4865-908e-16ddd6f83f18",
-  //               "Content-Type": "application/json; charset=UTF-8"
-  //           },
-  //           body:JSON.stringify({
-  //               name: itemName,//.name,  
-  //               link: itemlink,//.link  
-  //           }), 
-  //       }).then(checkResponse);
-  //   };
-
-
+  
+  
 function formAddCardSubmitHandler (evt) {
-    // evt.preventDefault(); 
-    createServerCardPOST(picTitleInput.value, picUrlInput.value)
-      .then((result) => {
+  // evt.preventDefault(); 
+  createServerCardPOST(picTitleInput.value, picUrlInput.value)
+  .then((result) => {
         addCard(result.name, result.link, );
           //result.likes.length,result._id, user._id, result.owner._id);
-      })
-      .catch(err => {
-        console.error(`Ошибка ${err}`)
-      })
-      .then(result => {
-        console.log(`Отправка карточек на сервер ${result}`);
-      })
-    // addCard(picTitleInput.value, picUrlInput.value); //itemName, itemlink
-    closeForm(photoOverlayFormCreator);
-  };
-  
-  //требует переделки
-  const template = document.querySelector(createCardSelectors.template);
-  
-  function createCard(itemName, itemlink, cardsLikesLength, itemID, myID, ownerID) { //создает карточку
+        })
+        .catch(err => {
+          console.error(`Ошибка ${err}`)
+        })
+        .then(result => {
+          console.log(`Отправка карточек на сервер ${result}`);
+        })
+        // addCard(picTitleInput.value, picUrlInput.value); //itemName, itemlink
+        closeForm(photoOverlayFormCreator);
+      };
+      
+      //требует переделки
+      const template = document.querySelector(createCardSelectors.template);
+      
+  function createCard(itemName, itemlink, cardsLikes, itemID, myID, ownerID) { //создает карточку
     const content = template.content.querySelector(createCardSelectors.content).cloneNode(true); 
     content.querySelector(createCardSelectors.title).textContent = itemName; //itemName
     const contentLink = content.querySelector(createCardSelectors.link);
     contentLink.src = itemlink; //itemlink
     contentLink.alt = itemName; //itemName
-      const deleteBtn =content.querySelector(createCardSelectors.deleteBtn);
-      checkMyDelButton(myID, ownerID, deleteBtn);
-      // deleteBtn.addEventListener('click', () => {content.remove(); }); //для удаления карточки
-        const likeBox = content.querySelector(createCardSelectors.likeBox);
-      const likeBtn = content.querySelector(myFormSelectors.likeBtn);
-      likeBtn.addEventListener('click', likeMyBrowserCard); 
-      const likeCounter =  likeBox.querySelector(createCardSelectors.likeCounter);
-      likeCounter.textContent = cardsLikesLength;
-      content.querySelector(imageSelectors.openPhotoBtn).addEventListener('click', (evt) => { 
-        openPhotoInputs(evt);
-      }); 
-      deleteBtn.addEventListener('click', () => {deleteMyServerCard(itemID, content)});
-      
-      return content;
-    };
+    const deleteBtn =content.querySelector(createCardSelectors.deleteBtn);
+    checkMyDelButton(myID, ownerID, deleteBtn);
+    // deleteBtn.addEventListener('click', () => {content.remove(); }); //для удаления карточки
+    const likeBox = content.querySelector(createCardSelectors.likeBox);
+    const likeBtn = content.querySelector(myFormSelectors.likeBtn); 
+    const likeCounter =  likeBox.querySelector(createCardSelectors.likeCounter);
+    likeCounter.textContent = cardsLikes.length;
+    content.querySelector(imageSelectors.openPhotoBtn).addEventListener('click', (evt) => { 
+      openPhotoInputs(evt);
+    });  
+
+
+    checkMyLikes(cardsLikes, myID);
+    console.log('checkMyLikes(cardsLikes, myID)',checkMyLikes(cardsLikes, myID));
+
+
+
+
+    likeBtn.addEventListener('click', () => {checkMyLikes(cardsLikes, myID);
+      toggleServLike(itemID, cardsLikes, myID, likeCounter, likeBtn, )}); 
+
+    deleteBtn.addEventListener('click', () => {deleteMyServerCard(itemID, content)});
     
-    
-    
-    
-    
-          
-    
-    function deleteMyServerCard(itemID, element){
-            deleteServerCard(itemID)
-            .then( ( ) => {
-              element.remove(); //нужен ли ретурн - тесты покажут
-            })
-            .then(data => {console.log("ответ от запроса ДЕЛЕТЕ", data)})
-            .catch((error) => {
-              return  console.error(`Ошибка ${error}`);
+    return content;
+  }; 
+
+
+
+function checkMyLikes(cardsLikes, myID){
+  cardsLikes.forEach((item)=>{
+    if(item._id === myID){
+      return true;
+    }else{
+      return false;
+    }
   });
 };
 
-
-
-
-function checkMyDelButton(myID, ownerID, deleteBtn){
-  if(myID === ownerID){
-    deleteBtn.classList.add('content-box__delete_active');
-  }else{
-    deleteBtn.classList.remove('content-box__delete_active');
+  function toggleServLike(itemID, cardsLikes, myID, likeCounter, likeBtn, ){
+    if(checkMyLikes(cardsLikes, myID)){
+      deleteServerLike(itemID)
+      .then((result) =>{
+        likeBtn.classList.remove('content-box__like_active');
+        likeCounter.textContent = result.likes.length;
+      }).catch((err)=>{console.error(`ошибка ${err}`)});
+    }else{
+      likePutInServer(itemID)
+      .then((result) =>{
+        likeBtn.classList.add('content-box__like_active');
+        likeCounter.textContent = result.likes.length;
+      }).catch((err)=>{console.error(`ошибка ${err}`)});
+    }
   };
-};
+  
 
 
-
-
-
-
-
-
-
-
-
-
-
+function deleteMyServerCard(itemID, element){
+      deleteServerCard(itemID)
+    .then( ( ) => {
+      element.remove(); //нужен ли ретурн - тесты покажут
+    })
+    .then(data => {console.log("ответ от запроса ДЕЛЕТЕ", data)})
+    .catch((error) => {
+              return  console.error(`Ошибка ${error}`);
+            });
+          };
+          
+          
+function checkMyDelButton(myID, ownerID, deleteBtn){
+            if(myID === ownerID){
+              deleteBtn.classList.add('content-box__delete_active');
+            }else{
+              deleteBtn.classList.remove('content-box__delete_active');
+            };
+          };
+          
+          
+          
+          
+          
+          
 export {formAddCardSubmitHandler, createCard, createCardSelectors, //initialCards, 
-};
-
-
-
-//отжившие свое, резервные
-
-// const initialCards = [
-  //     {
-    //       name: 'Архыз',
-    //       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    //     },
+        };
+        
+        
+        
+        //отжившие свое, резервные
+        
+        // const initialCards = [
+          //     {
+            //       name: 'Архыз',
+            //       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+            //     },
     //     {
       //       name: 'Челябинская область',
       //       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
@@ -177,37 +185,56 @@ export {formAddCardSubmitHandler, createCard, createCardSelectors, //initialCard
               //       // console.log('like', content.querySelector(myFormSelectors.likeBtn));
               
               
-          //       const likeCounter =  likeBox.querySelector(createCardSelectors.likeCounter);
-          //       // console.log('likeCounter', likeCounter);
-
-          //       // content.querySelector(myFormSelectors.likeBtn).addEventListener('click', likeCard); //like было
-
-          //       content.querySelector(imageSelectors.openPhotoBtn).addEventListener('click', (evt) => { 
-            //         openPhotoInputs(evt);
-            //       });
-            
-            //      // console.log('content', content );
-            //       return content;
-            
-            //     };
-            
-            
-            
-            
-            //  if(myID === ownerID){
-              //    deleteBtn.classList.add('content-box__delete_active');
-              //  }else{
-                //    deleteBtn.classList.remove('content-box__delete_active');
-  //  };
-
-                // function deleteServerCard(itemID){
-                //   return fetch(`https://nomoreparties.co/v1/plus-cohort-26/cards/${itemID}`, {
-                //     method: "DELETE",
-                //         headers: {
-                //             "authorization": "627579fc-f46e-4865-908e-16ddd6f83f18",
-                //             "Content-Type": "application/json; charset=UTF-8"
-                //           },
-                //         })
-                //         .then(checkResponse);
-                //       };
-                      
+              //       const likeCounter =  likeBox.querySelector(createCardSelectors.likeCounter);
+              //       // console.log('likeCounter', likeCounter);
+              
+              //       // content.querySelector(myFormSelectors.likeBtn).addEventListener('click', likeCard); //like было
+              
+              //       content.querySelector(imageSelectors.openPhotoBtn).addEventListener('click', (evt) => { 
+                //         openPhotoInputs(evt);
+                //       });
+                
+                //      // console.log('content', content );
+                //       return content;
+                
+                //     };
+                
+                
+                
+                // function likeMyBrowserCard(evt){ //лайкосы
+                //   evt.target.classList.toggle('content-box__like_active'); 
+                // };
+                
+                
+                // function createServerCardPOST(itemName, itemlink){
+                  //       return fetch('https://nomoreparties.co/v1/plus-cohort-26/cards',{
+                    //           method: "POST",
+                    //           headers: {
+                      //               "authorization": "627579fc-f46e-4865-908e-16ddd6f83f18",
+                      //               "Content-Type": "application/json; charset=UTF-8"
+                      //           },
+                      //           body:JSON.stringify({
+                        //               name: itemName,//.name,  
+                        //               link: itemlink,//.link  
+                        //           }), 
+                        //       }).then(checkResponse);
+                        //   };
+                        
+                        
+                        //  if(myID === ownerID){
+                  //    deleteBtn.classList.add('content-box__delete_active');
+                  //  }else{
+                    //    deleteBtn.classList.remove('content-box__delete_active');
+                    //  };
+                    
+                    // function deleteServerCard(itemID){
+                      //   return fetch(`https://nomoreparties.co/v1/plus-cohort-26/cards/${itemID}`, {
+                        //     method: "DELETE",
+                        //         headers: {
+                          //             "authorization": "627579fc-f46e-4865-908e-16ddd6f83f18",
+                          //             "Content-Type": "application/json; charset=UTF-8"
+                          //           },
+                          //         })
+                          //         .then(checkResponse);
+                          //       };
+                          
