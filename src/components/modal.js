@@ -77,35 +77,48 @@ const inputUrlAva = document.querySelector(imageSelectors.inputUrlAva);
 
   
 function closeToPressEscape (evt) { //закрывашка любой открытый попап по нажатию эскейп
-      if(evt.key == 'Escape'){
-        document.querySelector('.popup_opened').classList.remove('popup_opened');
-        
-        };
+  console.log('evt.keyt', evt.key);
+      if((evt.key == 'Escape')) {
+        document.querySelector('.popup').classList.remove('popup_opened');
+         };
+     
   };
   
 function closeToClickOverlay (evt) { //закрывашка любой открытый попап кликом в оверлей
-      // console.log('evt target', evt.target);
+      console.log('evt target', evt.target);
       if(evt.target.classList.contains('popup')){
       document.querySelector('.popup_opened').classList.remove('popup_opened');
-      
       };
+      // evt.target.removeEventListener('click', closeToClickOverlay);
     };
     
   
   
 function formSubmitHandler (evt) { //при сабмите обновить селфинфуу
+ 
       evt.preventDefault(); 
+      
       userName.textContent = nameInput.value;
       userJob.textContent = jobInput.value;
-      profileServerUpdatePATCH(nameInput, jobInput, inputUrlAva).then((data) => {console.log('Ответ по обновлению инфы о себе', data)});
+      profileServerUpdatePATCH(nameInput, jobInput, inputUrlAva)
+        .then((data) => {console.log('Ответ по обновлению инфы о себе', data)})
+        .catch(err => {console.error(`Ошибка ${err}`)})
+        .finally(() =>{});
+     
     closeForm(popupProfileOverlay);
   };
 
 
+
+
+
+
 function reAvatar(evt){
     evt.preventDefault(); 
+    
     profileAvatar.src = inputUrlAva.value;
-    profileAvatarUpdatePATCH(inputUrlAva).then((data) => {console.log('Ответ по загрузке авы', data)});
+    profileAvatarUpdatePATCH(inputUrlAva).then((data) => {console.log('Ответ по загрузке авы', data)})
+      .catch(err => {console.error(`Ошибка ${err}`)}).finally(() => {});
     closeForm(updatePopup);
   };
 
@@ -119,11 +132,6 @@ function openPhotoInputs(evt){ //открывает фотки при клике
     };
 
 
-
-
-
-
-
   export {picTitleInput, picUrlInput,  updatePopup, avaButton, updateBTNClose, reAvatar, inputUrlAva,
       photoOverlayFormCreator,
        imageSelectors, popupSelfInfoForm,
@@ -131,6 +139,7 @@ function openPhotoInputs(evt){ //открывает фотки при клике
          btnCloseAddPhotoOverlay, popupProfileOverlay,
           buttonOpenAddSelfInfo, nameInput, jobInput, body, userName, userJob,
            popupAddSelfInfoCloseBTN, closeIncreasePopupBtn, photoPopupIncrease, btnUpdateAva,
-           formSubmitHandler, openPhotoInputs, closeToClickOverlay, closeToPressEscape, 
+           formSubmitHandler, openPhotoInputs, closeToClickOverlay, 
+           closeToPressEscape, 
           } ;
 

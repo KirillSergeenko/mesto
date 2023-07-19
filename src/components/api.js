@@ -108,3 +108,16 @@ export function likePutInServer(itemID){
     .then(checkResponse);
 }
 
+
+
+// export function renderLoading(isLoading){
+  
+//     if (isLoading) {
+//       document.querySelector('.form__button-save-selfinfo').textContent = 'Сохранение...';
+//       console.log(document.querySelector('.form__button-save-selfinfo'));
+//      }else{
+//       document.querySelector('.form__button-save-selfinfo').textContent = 'Сохранить';
+//      };
+//      };
+     
+    

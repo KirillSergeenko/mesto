@@ -1,0 +1,35 @@
+.form__button-save-selfinfo_processing{
+  display: none;
+  border:0;
+  border-style: none;
+  max-width: 360px;
+  width: 358px;
+  width: 100%;
+  padding: 0px;
+  height: 50px;
+  background-color: #000;
+  color:#fff;
+  font-size: 18px;
+  font-weight:400;
+  line-height: 1.22;
+  margin-top: 16px; /*25px*/
+  margin-left: -3px;
+  margin-bottom: 37px;
+  border-radius: 3px;
+  font-family:'inter', arial, serif;
+  cursor: pointer;
+  
+}
+
+.form__button-save-selfinfo_processing:hover{
+  opacity: 0.8;
+}
+
+@media screen and (min-width: 320px) and (max-width: 1023px){
+  .form__button-save-selfinfo_processing{
+    max-width: 238px;
+    font-size: 14px;
+    line-height:1.21;
+    margin-bottom: 24px;
+  }
+}

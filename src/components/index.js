@@ -13,7 +13,8 @@ import {picTitleInput,  confirmPopup, updatePopup, avaButton,confirmBTNClose, up
         btnCloseAddPhotoOverlay, popupProfileOverlay, inputUrlAva, 
          buttonOpenAddSelfInfo, nameInput, jobInput, photoPopupIncrease,
           popupAddSelfInfoCloseBTN,closeIncreasePopupBtn, body, userName, userJob, reAvatar,
-          formSubmitHandler,  closeToClickOverlay, closeToPressEscape} from './modal';
+          formSubmitHandler,  closeToClickOverlay, closeToPressEscape
+        } from './modal';
 
 
 import {openForm, closeForm, addCard, removeInputsError} from './utils';
@@ -29,10 +30,10 @@ avaButton.addEventListener('click', () => {
   
 
 
-  body.addEventListener('keydown', closeToPressEscape);
+body.addEventListener('keydown', closeToPressEscape);
   
-  body.addEventListener('click', closeToClickOverlay);//3
-  // body.addEventListener('click', closeFormToClickCloseButton);
+body.addEventListener('click', closeToClickOverlay);//3
+ 
   
   
   //1
@@ -75,7 +76,7 @@ avaButton.addEventListener('click', () => {
   //7
   closeIncreasePopupBtn.addEventListener('click', () =>{ //закрывает попап с увеличенной фоткой при нажатии кнопки "закрыть"
     closeForm(photoPopupIncrease);
-    closeToPressEscape(photoPopupIncrease);
+    // closeToPressEscape(photoPopupIncrease);
   });
   
 

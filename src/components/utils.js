@@ -2,7 +2,7 @@
 
 import {createCardSelectors, createCard} from './card';
 import {getCards, getUserInformation} from './api';
-import {userName, userJob, profileAvatar} from './modal';
+import {userName, userJob, profileAvatar, btnUpdateAva} from './modal';
 
 
 function openForm(popupElement){ //стандартная открывашка попапов
@@ -66,6 +66,9 @@ Promise.all([getUserInformation(), getCards() ]).then(([user, cards]) => {
 .catch((error) =>{
     console.error(error);
 });
+
+
+
 
 
 

@@ -41,6 +41,7 @@
 @import url('../blocks/form/__button-save-selfinfo/form__button-save-selfinfo.css');
 
 @import url('../blocks/form/__button-save-selfinfo/__button_inactive/form__button_inactive.css'); /*кнопа дисаблед*/
+@import url('../blocks/form/__button-save-selfinfo/_processing/form__button-save-selfinfo_processing.css');/*подложка под кнопку*/
 
 
 @import url('../blocks/form/__input/form__input.css');
